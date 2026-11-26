@@ -2,7 +2,7 @@
 
 Application web statique de démonstration et chaîne de contrôles : Gitleaks, SOPS/Age, Trivy (IaC, SCA, image), Semgrep (SAST), SBOM Syft, signature Cosign et admission Kyverno. Le rapport complet, la synthèse technique et le tableau de preuves sont dans [Solution_TP4_DevSecOps.md](./Solution_TP4_DevSecOps.md) ; les journaux d'exécution des scénarios T1 à T4 sont dans [`evidence/`](./evidence).
 
-**Livrables** : [preuves d'exécution T1–T4 (captures + journaux)](./PREUVES_EXECUTION.md) · [synthèse technique](./SYNTHESE_TECHNIQUE.md) · [rapport détaillé](./Solution_TP4_DevSecOps.md)
+**Livrables** : [compte rendu complet (code + sorties)](./RAPPORT_TP4.md) · [preuves d'exécution T1–T4 (captures + journaux)](./PREUVES_EXECUTION.md) · [synthèse technique](./SYNTHESE_TECHNIQUE.md) · [rapport détaillé](./Solution_TP4_DevSecOps.md)
 
 | Élément | Emplacement |
 |---|---|

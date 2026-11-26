@@ -1,0 +1,25 @@
+# T1 - Fausse clé AWS : le hook pre-commit Gitleaks doit refuser le commit
+
+PS> git log --oneline -1
+9b0b5f1 docs: preuves CI T1-T4 et export des rapports robuste
+(exit code : 0)
+
+PS> git add -f .gitleaks-test.txt
+warning: in the working copy of '.gitleaks-test.txt', CRLF will be replaced by LF the next time Git touches it
+(exit code : 0)
+
+PS> git commit -m "feat: ajout config cloud"
+Detect hardcoded secrets.................................................Failed
+- hook id: gitleaks
+- exit code: 1
+
+2:37PM INF 0 commits scanned.
+2:37PM INF scanned ~106 bytes (106 bytes) in 462ms
+2:37PM WRN leaks found: 2
+
+(exit code : 1)
+
+PS> git log --oneline -1   # HEAD inchangé : aucun commit créé
+9b0b5f1 docs: preuves CI T1-T4 et export des rapports robuste
+(exit code : 0)
+

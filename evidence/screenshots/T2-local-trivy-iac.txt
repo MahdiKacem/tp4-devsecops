@@ -1,0 +1,63 @@
+# T2 - Manifeste modifié avec privileged: true : le scan IaC doit échouer
+
+PS> Select-String privileged k8s-modifie/app.yaml
+privileged: true
+(exit code : 0)
+
+PS> trivy config --severity CRITICAL,HIGH --exit-code 1 k8s-modifie/
+
+Report Summary
+
+┌──────────┬────────────┬───────────────────┐
+│  Target  │    Type    │ Misconfigurations │
+├──────────┼────────────┼───────────────────┤
+│ app.yaml │ kubernetes │         1         │
+└──────────┴────────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+app.yaml (kubernetes)
+=====================
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+
+KSV-0017 (HIGH): Container 'api' of Deployment 'api' should set 'securityContext.privileged' to false
+════════════════════════════════════════
+Privileged containers share namespaces with the host system and do not offer any security. They should be used exclusively for system containers that require high privileges.
+
+See https://avd.aquasec.com/misconfig/ksv-0017
+────────────────────────────────────────
+ app.yaml:39-78
+────────────────────────────────────────
+  39 ┌         - name: api
+  40 │           image: ghcr.io/example/tp4-secure-app@sha256:0000000000000000000000000000000000000000000000000000000000000000
+  41 │           imagePullPolicy: IfNotPresent
+  42 │           ports:
+  43 │             - name: http
+  44 │               containerPort: 8080
+  45 │               protocol: TCP
+  46 │           readinessProbe:
+  47 └             httpGet:
+  ..   
+────────────────────────────────────────
+
+(exit code : 1)
+
+PS> trivy config --severity CRITICAL,HIGH --exit-code 1 k8s/   # manifeste durci d'origine
+
+Report Summary
+
+┌─────────────────────────────────────┬────────────┬───────────────────┐
+│               Target                │    Type    │ Misconfigurations │
+├─────────────────────────────────────┼────────────┼───────────────────┤
+│ app.yaml                            │ kubernetes │         0         │
+├─────────────────────────────────────┼────────────┼───────────────────┤
+│ policies/require-hardened-pods.yaml │ kubernetes │         0         │
+└─────────────────────────────────────┴────────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+(exit code : 0)
+

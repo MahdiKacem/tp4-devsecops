@@ -1,0 +1,43 @@
+# T4 - Image produite et signée par le pipeline : signature, policies et Pod actif
+
+PS> cosign verify --key cosign.pub localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+
+Verification for localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+[{"critical":{"image":{"docker-manifest-digest":"sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db"},"type":"cosign container image signature"}}]  (sortie JSON abrégée)
+
+PS> kubectl get clusterpolicy
+NAME                        ADMISSION   BACKGROUND   READY   AGE   MESSAGE
+require-hardened-app-pods   true        true         True    46m   Ready
+require-signed-app-images   true        false        True    46m   Ready
+(exit code : 0)
+
+PS> kubectl get deploy,pods -n app -o wide
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                                      SELECTOR
+deployment.apps/api   1/1     1            1           46m   api          kind-registry:5000/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db   app=api
+
+NAME                       READY   STATUS    RESTARTS   AGE   IP           NODE                NOMINATED NODE   READINESS GATES
+pod/api-554fcbb8f4-tdxvj   1/1     Running   0          46m   10.244.0.9   tp4-control-plane   <none>           <none>
+(exit code : 0)
+
+PS> kubectl get deploy api -n app -o jsonpath="{..containers[0].image}"
+kind-registry:5000/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db
+
+(exit code : 0)
+
+PS> curl http://127.0.0.1:18080/   # via port-forward
+HTTP 200 - <h1>Application de démonstration TP4</h1>
+(exit code : 0)
+
+PS> Get-Content evidence/sbom.cdx.json | ConvertFrom-Json   # SBOM CycloneDX (Syft)
+bomFormat=CycloneDX  specVersion=1.7  composants=725
+  - alpine-baselayout 3.7.2-r1
+  - alpine-baselayout-data 3.7.2-r1
+  - alpine-keys 2.6-r0
+  - alpine-release 3.24.4-r0
+  - apk-tools 3.0.9-r0
+(exit code : 0)
+

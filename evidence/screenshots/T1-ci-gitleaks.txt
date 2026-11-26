@@ -1,0 +1,64 @@
+# T1 (CI) - clé AWS : refusée par GitHub Push Protection ; clé API poussée avec --no-verify : job Gitleaks en échec
+(annotations GitHub "Node.js 20 is deprecated" masquées)
+
+PS> git commit --no-verify (app/config.js avec AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY factices)
+PS> git push origin test/t1-secret-ci
+remote: error: GH013: Repository rule violations found for refs/heads/test/t1-secret-ci.
+remote: - GITHUB PUSH PROTECTION
+remote:     - Push cannot contain secrets
+remote:       —— Amazon AWS Access Key ID ——   path: app/config.js:2
+remote:       —— Amazon AWS Secret Access Key ——   path: app/config.js:3
+ ! [remote rejected] test/t1-secret-ci -> test/t1-secret-ci (error: GH013: Repository rule violations found)
+
+PS> gh run view 45829330323 -R MahdiKacem/tp4-devsecops
+
+X test/t1-secret-ci Secure build · 45829330323
+Triggered via workflow_dispatch about 10 minutes ago
+
+JOBS
+X checks in 28s (ID 139941644360)
+  ✓ Set up job
+  ✓ Checkout complete history
+  X Scan secrets and Git history (Gitleaks)
+  - Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  - SAST (Semgrep, blocking)
+  - SCA and filesystem secrets (Trivy, blocking)
+  - Structural regression tests
+  X Export IaC report (JSON)
+  X Export SCA report (JSON)
+  ✓ Upload security reports
+  ✓ Post Export SCA report (JSON)
+  ✓ Post Export IaC report (JSON)
+  ✓ Post Checkout complete history
+  ✓ Complete job
+- publish in 0s (ID 139941926901)
+- defectdojo (ID 139941928116)
+- deploy-e2e (ID 139941928278)
+
+ANNOTATIONS
+
+X Process completed with exit code 1.
+checks: .github#223
+
+X Process completed with exit code 1.
+checks: .github#221
+
+! 🛑 Leaks detected, see job summary for details
+checks: .github#51
+
+To see what failed, try: gh run view 45829330323 --log-failed
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45829330323
+(exit code : 0)
+
+PS> gh run view --job 139941644360 --log   # extrait de l'étape Gitleaks
+Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+Finding:     const config = { api_key: "REDACTED" };
+Secret:      REDACTED
+RuleID:      generic-api-key
+Entropy:     4.953056
+File:        app/config.js
+Commit:      6dbabc32b95b4c23ee9dd7972196c0597b642028
+1:27PM INF 10 commits scanned.
+1:27PM WRN leaks found: 1
+2026-11-26T13:27:48Z	FATAL	Fatal error	run error: report error: unable to write results: failed to create a file: failed to create output file: open reports/trivy-config.json: no such file or directory
+2026-11-26T13:27:57Z	FATAL	Fatal error	run error: report error: unable to write results: failed to create a file: failed to create output file: open reports/trivy-fs.json: no such file or directory

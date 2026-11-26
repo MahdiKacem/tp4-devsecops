@@ -1,0 +1,37 @@
+# T4 (CI) - pipeline complet sur main : scans, SBOM, signature Cosign, déploiement admis par Kyverno
+(annotations GitHub "Node.js 20 is deprecated" masquées)
+
+PS> gh run view 45828547561 -R MahdiKacem/tp4-devsecops
+
+✓ main Secure build · 45828547561
+Triggered via push about 15 minutes ago
+
+JOBS
+✓ checks in 56s (ID 139938937654)
+✓ publish in 57s (ID 139939477327)
+✓ deploy-e2e in 1m47s (ID 139940028135)
+- defectdojo in 0s (ID 139940030317)
+
+ANNOTATIONS
+
+ARTIFACTS
+security-reports-checks
+sbom-cyclonedx
+security-reports-image
+MahdiKacem~tp4-devsecops~LMDRSM.dockerbuild
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45828547561
+
+PS> gh run view --job 139939477327 --log   # extrait du job publish
+tlog entry created with index: 4126853797
+Pushing signature to: ghcr.io/mahdikacem/tp4-devsecops
+tlog entry created with index: 4126857402
+Verification for ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d --
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+
+PS> gh run view --job 139940028135 --log   # extrait du job deploy-e2e
+deployment "api" successfully rolled out
+deployment.apps/api   1/1     1            1           14s   api          ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d   app=api
+pod/api-5b5959c989-qvv9h   1/1     Running   0          14s   10.244.0.9   tp4-control-plane   <none>           <none>

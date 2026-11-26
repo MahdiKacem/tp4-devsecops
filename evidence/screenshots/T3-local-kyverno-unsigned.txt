@@ -1,0 +1,27 @@
+# T3 - Image construite et poussée hors CI (non signée), puis kubectl apply
+
+PS> docker images localhost:5001/tp4-secure-app:unsigned-test
+REPOSITORY                      TAG             IMAGE ID       CREATED
+localhost:5001/tp4-secure-app   unsigned-test   1c491491dd3b   56 minutes ago
+(exit code : 0)
+
+PS> cosign verify --key cosign.pub localhost:5001/tp4-secure-app@sha256:1c491491dd3bb1a47df1d92c423c62b465e996fdc076ece5d755b4c41c35fbd4
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+Error: no signatures found
+error during command execution: no signatures found
+(exit code : 10)
+
+PS> kubectl apply -f deploy-unsigned.yaml   # Deployment dans le namespace app
+Error from server: error when creating "C:\\Users\\mahdi\\AppData\\Local\\Temp\\deploy-unsigned.yaml": admission webhook "mutate.kyverno.svc-fail" denied the request: 
+
+resource Deployment/app/api-unsigned was blocked due to the following policies 
+
+require-signed-app-images:
+  autogen-verify-app-image-signature: 'failed to verify image kind-registry:5000/tp4-secure-app@sha256:1c491491dd3bb1a47df1d92c423c62b465e996fdc076ece5d755b4c41c35fbd4:
+    .attestors[0].entries[0].keys: no signatures found'
+(exit code : 1)
+
+PS> kubectl get deploy api-unsigned -n app
+Error from server (NotFound): deployments.apps "api-unsigned" not found
+(exit code : 1)
+

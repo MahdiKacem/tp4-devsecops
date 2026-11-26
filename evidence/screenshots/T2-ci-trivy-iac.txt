@@ -1,0 +1,51 @@
+# T2 (CI) - privileged: true : le job checks échoue au scan IaC, aucune image construite
+(annotations GitHub "Node.js 20 is deprecated" masquées)
+
+PS> gh run view 45829267958 -R MahdiKacem/tp4-devsecops
+
+X test/t2-privileged-ci Secure build · 45829267958
+Triggered via workflow_dispatch about 10 minutes ago
+
+JOBS
+X checks in 28s (ID 139941422430)
+  ✓ Set up job
+  ✓ Checkout complete history
+  ✓ Scan secrets and Git history (Gitleaks)
+  X Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  - SAST (Semgrep, blocking)
+  - SCA and filesystem secrets (Trivy, blocking)
+  - Structural regression tests
+  X Export IaC report (JSON)
+  X Export SCA report (JSON)
+  ✓ Upload security reports
+  ✓ Post Export SCA report (JSON)
+  ✓ Post Export IaC report (JSON)
+  ✓ Post Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  ✓ Post Checkout complete history
+  ✓ Complete job
+- deploy-e2e in 0s (ID 139941693494)
+- publish in 0s (ID 139941694527)
+- defectdojo in 0s (ID 139941695040)
+
+ANNOTATIONS
+
+X Process completed with exit code 1.
+checks: .github#221
+
+X Process completed with exit code 1.
+checks: .github#219
+
+X Process completed with exit code 1.
+checks: .github#260
+
+To see what failed, try: gh run view 45829267958 --log-failed
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45829267958
+(exit code : 0)
+
+PS> gh run view --job 139941422430 --log   # extrait de l'étape Trivy IaC
+k8s/app.yaml (kubernetes)
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+KSV-0017 (HIGH): Container 'api' of Deployment 'api' should set 'securityContext.privileged' to false
+Privileged containers share namespaces with the host system and do not offer any security. They should be used exclusively for system containers that require high privileges.
+See https://avd.aquasec.com/misconfig/ksv-0017

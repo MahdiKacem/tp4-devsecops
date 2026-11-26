@@ -1,0 +1,15 @@
+# T3 (CI) - job deploy-e2e : Kyverno (Enforce) dans un cluster Kind éphémère
+
+PS> gh run view --job 139940028135 --log   # étape "Prove the admission controller blocks bypasses"
+deployment.apps/kyverno-admission-controller condition met
+deployment.apps/kyverno-background-controller condition met
+deployment.apps/kyverno-cleanup-controller condition met
+deployment.apps/kyverno-reports-controller condition met
+clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+clusterpolicy.kyverno.io/require-signed-app-images condition met
+clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+clusterpolicy.kyverno.io/require-signed-app-images condition met
+Test admission réussi : le Pod conforme signé est accepté.
+Test admission réussi : require-signed-app-images a refusé unsigned-test.
+Test admission réussi : require-hardened-app-pods a refusé privileged-test.
+Test admission réussi : require-hardened-app-pods|require-signed-app-images a refusé latest-test.

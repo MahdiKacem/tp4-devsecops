@@ -1,0 +1,518 @@
+﻿2026-11-26T13:24:41.4959011Z Current runner version: '2.338.2'
+2026-11-26T13:24:41.4979129Z ##[group]Runner Image Provisioner
+2026-11-26T13:24:41.4979765Z Hosted Compute Agent
+2026-11-26T13:24:41.4980204Z Version: 20261111.635
+2026-11-26T13:24:41.4980603Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T13:24:41.4981070Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T13:24:41.4981540Z Worker ID: {ec65cc4e-b94d-41e0-8afe-6a014e3b545e}
+2026-11-26T13:24:41.4982182Z Region: centralus
+2026-11-26T13:24:41.4982591Z Cloud: Azure
+2026-11-26T13:24:41.4982931Z ##[endgroup]
+2026-11-26T13:24:41.4984012Z ##[group]Operating System
+2026-11-26T13:24:41.4984445Z Ubuntu
+2026-11-26T13:24:41.4984807Z 26.04.1
+2026-11-26T13:24:41.4985154Z LTS
+2026-11-26T13:24:41.4985487Z ##[endgroup]
+2026-11-26T13:24:41.4985830Z ##[group]Runner Image
+2026-11-26T13:24:41.4986262Z Image: ubuntu-26.04
+2026-11-26T13:24:41.4986653Z Version: 20261116.202.1
+2026-11-26T13:24:41.4987646Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T13:24:41.4988720Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-26T13:24:41.4989331Z ##[endgroup]
+2026-11-26T13:24:41.4990115Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T13:24:41.4991608Z Contents: read
+2026-11-26T13:24:41.4992128Z Metadata: read
+2026-11-26T13:24:41.4992525Z Packages: read
+2026-11-26T13:24:41.4992920Z ##[endgroup]
+2026-11-26T13:24:41.4994450Z Secret source: Actions
+2026-11-26T13:24:41.4995076Z Cache mode: write
+2026-11-26T13:24:41.4995687Z Prepare workflow directory
+2026-11-26T13:24:41.5295940Z Prepare all required actions
+2026-11-26T13:24:41.5333166Z Getting action download info
+2026-11-26T13:24:41.7947754Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T13:24:41.8954986Z Download action repository 'sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5' (SHA:7e8b541eb2e61bf99390e1afd4be13a184e9ebc5)
+2026-11-26T13:24:42.1798917Z Complete job name: deploy-e2e
+﻿2026-11-26T13:24:42.2358795Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-26T13:24:42.2359347Z with:
+2026-11-26T13:24:42.2359599Z   persist-credentials: false
+2026-11-26T13:24:42.2359906Z   repository: MahdiKacem/tp4-devsecops
+2026-11-26T13:24:42.2362153Z   token: ***
+2026-11-26T13:24:42.2362396Z   ssh-strict: true
+2026-11-26T13:24:42.2362652Z   ssh-user: git
+2026-11-26T13:24:42.2362894Z   clean: true
+2026-11-26T13:24:42.2363155Z   sparse-checkout-cone-mode: true
+2026-11-26T13:24:42.2363458Z   fetch-depth: 1
+2026-11-26T13:24:42.2363706Z   fetch-tags: false
+2026-11-26T13:24:42.2363968Z   show-progress: true
+2026-11-26T13:24:42.2364230Z   lfs: false
+2026-11-26T13:24:42.2364470Z   submodules: false
+2026-11-26T13:24:42.2364730Z   set-safe-directory: true
+2026-11-26T13:24:42.2365030Z   allow-unsafe-pr-checkout: false
+2026-11-26T13:24:42.2365400Z env:
+2026-11-26T13:24:42.2365844Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:42.2366403Z ##[endgroup]
+2026-11-26T13:24:42.4671115Z Syncing repository: MahdiKacem/tp4-devsecops
+2026-11-26T13:24:42.4673149Z ##[group]Getting Git version info
+2026-11-26T13:24:42.4673874Z Working directory is '/home/runner/work/tp4-devsecops/tp4-devsecops'
+2026-11-26T13:24:42.4674905Z [command]/usr/bin/git version
+2026-11-26T13:24:42.4675366Z git version 2.56.1
+2026-11-26T13:24:42.4688226Z ##[endgroup]
+2026-11-26T13:24:42.4693967Z Temporarily overriding HOME='/home/runner/work/_temp/de093fa3-64bc-4047-b44f-2b9e8e25d2fb' before making global git config changes
+2026-11-26T13:24:42.4695296Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T13:24:42.4697932Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:24:42.4762129Z Deleting the contents of '/home/runner/work/tp4-devsecops/tp4-devsecops'
+2026-11-26T13:24:42.4765194Z ##[group]Initializing the repository
+2026-11-26T13:24:42.4768781Z [command]/usr/bin/git init /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:24:42.4860405Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T13:24:42.4861528Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T13:24:42.4862555Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T13:24:42.4863246Z hint: call:
+2026-11-26T13:24:42.4863611Z hint:
+2026-11-26T13:24:42.4864061Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T13:24:42.4864604Z hint:
+2026-11-26T13:24:42.4865121Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T13:24:42.4865953Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T13:24:42.4866624Z hint:
+2026-11-26T13:24:42.4867004Z hint: 	git branch -m <name>
+2026-11-26T13:24:42.4867440Z hint:
+2026-11-26T13:24:42.4868047Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T13:24:42.4872136Z Initialized empty Git repository in /home/runner/work/tp4-devsecops/tp4-devsecops/.git/
+2026-11-26T13:24:42.4881362Z [command]/usr/bin/git remote add origin https://github.com/MahdiKacem/tp4-devsecops
+2026-11-26T13:24:42.4928769Z ##[endgroup]
+2026-11-26T13:24:42.4929457Z ##[group]Disabling automatic garbage collection
+2026-11-26T13:24:42.4932001Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T13:24:42.4960205Z ##[endgroup]
+2026-11-26T13:24:42.4960918Z ##[group]Setting up auth
+2026-11-26T13:24:42.4966806Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:24:42.4995808Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:24:42.5424623Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:24:42.5456043Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:24:42.5706279Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:24:42.5739321Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T13:24:42.5980278Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T13:24:42.6015502Z ##[endgroup]
+2026-11-26T13:24:42.6016123Z ##[group]Fetching the repository
+2026-11-26T13:24:42.6022195Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +07db7e0e356c314fe3aaba8abc2b8897ca5b79a3:refs/remotes/origin/main
+2026-11-26T13:24:42.9296820Z From https://github.com/MahdiKacem/tp4-devsecops
+2026-11-26T13:24:42.9298122Z  * [new ref]         07db7e0e356c314fe3aaba8abc2b8897ca5b79a3 -> origin/main
+2026-11-26T13:24:42.9300898Z ##[endgroup]
+2026-11-26T13:24:42.9301632Z ##[group]Determining the checkout info
+2026-11-26T13:24:42.9304028Z ##[endgroup]
+2026-11-26T13:24:42.9308738Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T13:24:42.9362745Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T13:24:42.9394518Z ##[group]Checking out the ref
+2026-11-26T13:24:42.9398217Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-26T13:24:42.9496740Z Switched to a new branch 'main'
+2026-11-26T13:24:42.9499931Z branch 'main' set up to track 'origin/main'.
+2026-11-26T13:24:42.9506913Z ##[endgroup]
+2026-11-26T13:24:42.9566781Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T13:24:42.9589858Z 07db7e0e356c314fe3aaba8abc2b8897ca5b79a3
+2026-11-26T13:24:42.9598083Z ##[group]Removing auth
+2026-11-26T13:24:42.9600713Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:24:42.9628158Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:24:42.9864377Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:24:42.9885841Z http.https://github.com/.extraheader
+2026-11-26T13:24:42.9892557Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T13:24:43.0019244Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:24:43.0253118Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:24:43.0282525Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T13:24:43.0514618Z ##[endgroup]
+﻿2026-11-26T13:24:43.1171536Z ##[group]Run sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5
+2026-11-26T13:24:43.1172681Z with:
+2026-11-26T13:24:43.1173213Z   cosign-release: v2.6.5
+2026-11-26T13:24:43.1173818Z   install-dir: $HOME/.cosign
+2026-11-26T13:24:43.1174428Z   use-sudo: false
+2026-11-26T13:24:43.1174979Z env:
+2026-11-26T13:24:43.1175966Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:43.1177090Z ##[endgroup]
+2026-11-26T13:24:43.1323944Z ##[start-action display=Run #!/bin/bash;id=__sigstore_cosign-installer.__run]
+2026-11-26T13:24:43.1377465Z ##[group]Run #!/bin/bash
+2026-11-26T13:24:43.1378849Z #!/bin/bash
+2026-11-26T13:24:43.1379407Z # cosign install script
+2026-11-26T13:24:43.1380047Z shopt -s expand_aliases
+2026-11-26T13:24:43.1380720Z if [ -z "$NO_COLOR" ]; then
+2026-11-26T13:24:43.1381470Z   alias log_info="echo -e \"\033[1;32mINFO\033[0m:\""
+2026-11-26T13:24:43.1382618Z   alias log_error="echo -e \"\033[1;31mERROR\033[0m:\""
+2026-11-26T13:24:43.1383419Z else
+2026-11-26T13:24:43.1383946Z   alias log_info="echo \"INFO:\""
+2026-11-26T13:24:43.1384648Z   alias log_error="echo \"ERROR:\""
+2026-11-26T13:24:43.1385303Z fi
+2026-11-26T13:24:43.1385769Z set -e
+2026-11-26T13:24:43.1386251Z 
+2026-11-26T13:24:43.1386903Z # Check for unsupported old versions (anything below v2.0.0)
+2026-11-26T13:24:43.1387765Z if [[ "v2.6.5" != "main" ]]; then
+2026-11-26T13:24:43.1388546Z   # Extract version without 'v' prefix for comparison
+2026-11-26T13:24:43.1389346Z   version_num="v2.6.5"
+2026-11-26T13:24:43.1390054Z   version_num="${version_num#v}"
+2026-11-26T13:24:43.1390698Z 
+2026-11-26T13:24:43.1391222Z   # Check if version is less than v2.0.0
+2026-11-26T13:24:43.1392616Z   if [[ "$version_num" =~ ^[01]\. ]] || [[ "$version_num" =~ ^0\. ]]; then
+2026-11-26T13:24:43.1394348Z     log_error "cosign versions below v2.0.0 are no longer supported."
+2026-11-26T13:24:43.1395803Z     log_error "Requested version: v2.6.5"
+2026-11-26T13:24:43.1396957Z     log_error "Please use cosign v2.4.0 or later."
+2026-11-26T13:24:43.1399051Z     log_error "See https://github.com/sigstore/cosign/releases for available versions."
+2026-11-26T13:24:43.1400535Z     exit 1
+2026-11-26T13:24:43.1401263Z   fi
+2026-11-26T13:24:43.1402152Z fi
+2026-11-26T13:24:43.1402823Z 
+2026-11-26T13:24:43.1403517Z mkdir -p $HOME/.cosign
+2026-11-26T13:24:43.1404501Z 
+2026-11-26T13:24:43.1405230Z if [[ v2.6.5 == "main" ]]; then
+2026-11-26T13:24:43.1406242Z   log_info "installing cosign via 'go install' from its main version"
+2026-11-26T13:24:43.1407377Z   GOBIN=$(go env GOPATH)/bin
+2026-11-26T13:24:43.1408199Z   go install github.com/sigstore/cosign/v2/cmd/cosign@main
+2026-11-26T13:24:43.1409117Z   ln -s $GOBIN/cosign $HOME/.cosign/cosign
+2026-11-26T13:24:43.1409829Z   exit 0
+2026-11-26T13:24:43.1410346Z fi
+2026-11-26T13:24:43.1410811Z 
+2026-11-26T13:24:43.1411287Z shaprog() {
+2026-11-26T13:24:43.1411989Z   case Linux in
+2026-11-26T13:24:43.1412589Z     Linux|linux)
+2026-11-26T13:24:43.1413193Z       sha256sum $1 | cut -d' ' -f1
+2026-11-26T13:24:43.1413848Z       ;;
+2026-11-26T13:24:43.1414355Z     macOS|macos)
+2026-11-26T13:24:43.1414986Z       shasum -a256 $1 | cut -d' ' -f1
+2026-11-26T13:24:43.1415673Z       ;;
+2026-11-26T13:24:43.1416215Z     Windows|windows)
+2026-11-26T13:24:43.1417382Z       powershell -command "(Get-FileHash $1 -Algorithm SHA256 | Select-Object -ExpandProperty Hash).ToLower()"
+2026-11-26T13:24:43.1418601Z       ;;
+2026-11-26T13:24:43.1419111Z     *)
+2026-11-26T13:24:43.1419860Z       log_error "unsupported OS Linux"
+2026-11-26T13:24:43.1420571Z       exit 1
+2026-11-26T13:24:43.1421099Z       ;;
+2026-11-26T13:24:43.1421593Z   esac
+2026-11-26T13:24:43.1422280Z }
+2026-11-26T13:24:43.1422753Z 
+2026-11-26T13:24:43.1423253Z bootstrap_version='v2.6.1'
+2026-11-26T13:24:43.1424350Z bootstrap_linux_amd64_sha='064954c5d8c7e3b28188eee5b1727b31c411550bc5fefd41aa672d3c761d103a'
+2026-11-26T13:24:43.1425902Z bootstrap_linux_arm_sha='8da897764b68ef2c6291a27244e7a274a09b98f80c9d1b6c5e81ef2e2e4eb9ec'
+2026-11-26T13:24:43.1427401Z bootstrap_linux_arm64_sha='56a16480bdd56ec789abaa65924402f6b92c0041f06885995853c05567b76f34'
+2026-11-26T13:24:43.1428937Z bootstrap_darwin_amd64_sha='f1ed2787cc9648fd3c644fcb279e43f3f55da63b788d69a527aa14ad97ffdca1'
+2026-11-26T13:24:43.1430478Z bootstrap_darwin_arm64_sha='54047052cf46f40a5c3c95a510db276e164ba77e096aea1ca1b733f770359689'
+2026-11-26T13:24:43.1432124Z bootstrap_windows_amd64_sha='049026dae3246d6ea8201512ec3efce3aab0c7f1d338d52e26c525dd02b418a0'
+2026-11-26T13:24:43.1433251Z cosign_executable_name=cosign
+2026-11-26T13:24:43.1433888Z 
+2026-11-26T13:24:43.1434384Z trap "popd >/dev/null" EXIT
+2026-11-26T13:24:43.1435001Z 
+2026-11-26T13:24:43.1435508Z pushd $HOME/.cosign > /dev/null
+2026-11-26T13:24:43.1436139Z 
+2026-11-26T13:24:43.1436606Z case Linux in
+2026-11-26T13:24:43.1437157Z   Linux|linux)
+2026-11-26T13:24:43.1437697Z     case X64 in
+2026-11-26T13:24:43.1438232Z       X64|amd64)
+2026-11-26T13:24:43.1438889Z         bootstrap_filename='cosign-linux-amd64'
+2026-11-26T13:24:43.1439732Z         bootstrap_sha=${bootstrap_linux_amd64_sha}
+2026-11-26T13:24:43.1440582Z         desired_cosign_filename='cosign-linux-amd64'
+2026-11-26T13:24:43.1441334Z         ;;
+2026-11-26T13:24:43.1441885Z 
+2026-11-26T13:24:43.1442337Z       ARM|arm)
+2026-11-26T13:24:43.1442957Z         bootstrap_filename='cosign-linux-arm'
+2026-11-26T13:24:43.1443817Z         bootstrap_sha=${bootstrap_linux_arm_sha}
+2026-11-26T13:24:43.1444660Z         desired_cosign_filename='cosign-linux-arm'
+2026-11-26T13:24:43.1445385Z         ;;
+2026-11-26T13:24:43.1445875Z 
+2026-11-26T13:24:43.1446338Z       ARM64|arm64)
+2026-11-26T13:24:43.1446989Z         bootstrap_filename='cosign-linux-arm64'
+2026-11-26T13:24:43.1447815Z         bootstrap_sha=${bootstrap_linux_arm64_sha}
+2026-11-26T13:24:43.1448663Z         desired_cosign_filename='cosign-linux-arm64'
+2026-11-26T13:24:43.1449517Z         ;;
+2026-11-26T13:24:43.1450003Z 
+2026-11-26T13:24:43.1450454Z       *)
+2026-11-26T13:24:43.1451042Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:43.1451762Z         exit 1
+2026-11-26T13:24:43.1452346Z         ;;
+2026-11-26T13:24:43.1452835Z     esac
+2026-11-26T13:24:43.1453309Z     ;;
+2026-11-26T13:24:43.1453771Z 
+2026-11-26T13:24:43.1454231Z   macOS|macos)
+2026-11-26T13:24:43.1454762Z     case X64 in
+2026-11-26T13:24:43.1455293Z       X64|amd64)
+2026-11-26T13:24:43.1455945Z         bootstrap_filename='cosign-darwin-amd64'
+2026-11-26T13:24:43.1456805Z         bootstrap_sha=${bootstrap_darwin_amd64_sha}
+2026-11-26T13:24:43.1457664Z         desired_cosign_filename='cosign-darwin-amd64'
+2026-11-26T13:24:43.1458415Z         ;;
+2026-11-26T13:24:43.1458906Z 
+2026-11-26T13:24:43.1459366Z       ARM64|arm64)
+2026-11-26T13:24:43.1460041Z         bootstrap_filename='cosign-darwin-arm64'
+2026-11-26T13:24:43.1460885Z         bootstrap_sha=${bootstrap_darwin_arm64_sha}
+2026-11-26T13:24:43.1461917Z         desired_cosign_filename='cosign-darwin-arm64'
+2026-11-26T13:24:43.1462660Z         ;;
+2026-11-26T13:24:43.1463155Z 
+2026-11-26T13:24:43.1463602Z       *)
+2026-11-26T13:24:43.1464199Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:43.1464930Z         exit 1
+2026-11-26T13:24:43.1465461Z         ;;
+2026-11-26T13:24:43.1465958Z     esac
+2026-11-26T13:24:43.1466437Z     ;;
+2026-11-26T13:24:43.1466911Z 
+2026-11-26T13:24:43.1467381Z   Windows|windows)
+2026-11-26T13:24:43.1467949Z     case X64 in
+2026-11-26T13:24:43.1468482Z       X64|amd64)
+2026-11-26T13:24:43.1469163Z         bootstrap_filename='cosign-windows-amd64.exe'
+2026-11-26T13:24:43.1470046Z         bootstrap_sha=${bootstrap_windows_amd64_sha}
+2026-11-26T13:24:43.1470957Z         desired_cosign_filename='cosign-windows-amd64.exe'
+2026-11-26T13:24:43.1471879Z         cosign_executable_name=cosign.exe
+2026-11-26T13:24:43.1472556Z         ;;
+2026-11-26T13:24:43.1473055Z       *)
+2026-11-26T13:24:43.1473651Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:43.1474377Z         exit 1
+2026-11-26T13:24:43.1474902Z         ;;
+2026-11-26T13:24:43.1475399Z     esac
+2026-11-26T13:24:43.1475878Z     ;;
+2026-11-26T13:24:43.1476359Z   *)
+2026-11-26T13:24:43.1476884Z     log_error "unsupported os Linux"
+2026-11-26T13:24:43.1477550Z     exit 1
+2026-11-26T13:24:43.1478044Z     ;;
+2026-11-26T13:24:43.1478515Z esac
+2026-11-26T13:24:43.1478979Z 
+2026-11-26T13:24:43.1479427Z SUDO=
+2026-11-26T13:24:43.1480086Z if [[ "false" == "true" ]] && command -v sudo >/dev/null; then
+2026-11-26T13:24:43.1480874Z   SUDO=sudo
+2026-11-26T13:24:43.1481376Z fi
+2026-11-26T13:24:43.1481893Z 
+2026-11-26T13:24:43.1482512Z expected_bootstrap_version_digest=${bootstrap_sha}
+2026-11-26T13:24:43.1484507Z log_info "Downloading bootstrap version '${bootstrap_version}' of cosign to verify version to be installed...\n      https://github.com/sigstore/cosign/releases/download/${bootstrap_version}/${bootstrap_filename}"
+2026-11-26T13:24:43.1487106Z $SUDO curl -fsL https://github.com/sigstore/cosign/releases/download/${bootstrap_version}/${bootstrap_filename} -o ${cosign_executable_name}
+2026-11-26T13:24:43.1488608Z shaBootstrap=$(shaprog ${cosign_executable_name});
+2026-11-26T13:24:43.1489628Z if [[ $shaBootstrap != ${expected_bootstrap_version_digest} ]]; then
+2026-11-26T13:24:43.1490641Z   log_error "Unable to validate cosign version: 'v2.6.5'"
+2026-11-26T13:24:43.1491510Z   exit 1
+2026-11-26T13:24:43.1492084Z fi
+2026-11-26T13:24:43.1492624Z $SUDO chmod +x ${cosign_executable_name}
+2026-11-26T13:24:43.1493294Z 
+2026-11-26T13:24:43.1494030Z # If the bootstrap and specified `cosign` releases are the same, we're done.
+2026-11-26T13:24:43.1495019Z if [[ v2.6.5 == ${bootstrap_version} ]]; then
+2026-11-26T13:24:43.1496193Z   log_info "bootstrap version successfully verified and matches requested version so nothing else to do"
+2026-11-26T13:24:43.1497292Z   exit 0
+2026-11-26T13:24:43.1497774Z fi
+2026-11-26T13:24:43.1498233Z 
+2026-11-26T13:24:43.1498814Z semver='^v([0-9]+\.){0,2}(\*|[0-9]+)(-?r?c?)(\.[0-9]+)$'
+2026-11-26T13:24:43.1499587Z if [[ v2.6.5 =~ $semver ]]; then
+2026-11-26T13:24:43.1500346Z   log_info "Custom cosign version 'v2.6.5' requested"
+2026-11-26T13:24:43.1501084Z else
+2026-11-26T13:24:43.1501856Z   log_error "Unable to validate requested cosign version: 'v2.6.5'"
+2026-11-26T13:24:43.1502692Z   exit 1
+2026-11-26T13:24:43.1503178Z fi
+2026-11-26T13:24:43.1503720Z 
+2026-11-26T13:24:43.1504211Z # Download custom cosign
+2026-11-26T13:24:43.1505698Z log_info "Downloading platform-specific version 'v2.6.5' of cosign...\n      https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}"
+2026-11-26T13:24:43.1507802Z $SUDO curl -fsL https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename} -o cosign_v2.6.5
+2026-11-26T13:24:43.1509076Z shaCustom=$(shaprog cosign_v2.6.5);
+2026-11-26T13:24:43.1509723Z 
+2026-11-26T13:24:43.1510257Z # same hash means it is the same release
+2026-11-26T13:24:43.1511014Z if [[ $shaCustom != $shaBootstrap ]]; then
+2026-11-26T13:24:43.1512778Z   log_info "Downloading detached signature for platform-specific 'v2.6.5' of cosign...\n      https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}.sig"
+2026-11-26T13:24:43.1514946Z   $SUDO curl -fsLO https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}.sig
+2026-11-26T13:24:43.1516086Z 
+2026-11-26T13:24:43.1517333Z   log_info "Downloading cosign public key 'v2.6.5' of cosign...\n    https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub"
+2026-11-26T13:24:43.1519250Z   RELEASE_COSIGN_PUB_KEY=https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub
+2026-11-26T13:24:43.1520812Z   RELEASE_COSIGN_PUB_KEY_SHA='f4cea466e5e887a45da5031757fa1d32655d83420639dc1758749b744179f126'
+2026-11-26T13:24:43.1521896Z 
+2026-11-26T13:24:43.1522517Z   log_info "Verifying public key matches expected value"
+2026-11-26T13:24:43.1523426Z   $SUDO curl -fsL $RELEASE_COSIGN_PUB_KEY -o public.key
+2026-11-26T13:24:43.1524255Z   sha_fetched_key=$(shaprog public.key)
+2026-11-26T13:24:43.1525122Z   if [[ $sha_fetched_key != $RELEASE_COSIGN_PUB_KEY_SHA ]]; then
+2026-11-26T13:24:43.1526167Z     log_error "Fetched public key does not match expected digest, exiting"
+2026-11-26T13:24:43.1527048Z     exit 1
+2026-11-26T13:24:43.1527546Z   fi
+2026-11-26T13:24:43.1528013Z 
+2026-11-26T13:24:43.1528778Z   log_info "Using bootstrap cosign to verify signature of desired cosign version"
+2026-11-26T13:24:43.1530124Z   ./cosign verify-blob --key public.key --signature ${desired_cosign_filename}.sig cosign_v2.6.5
+2026-11-26T13:24:43.1531141Z 
+2026-11-26T13:24:43.1531608Z   $SUDO rm cosign
+2026-11-26T13:24:43.1532326Z   $SUDO mv cosign_v2.6.5 ${cosign_executable_name}
+2026-11-26T13:24:43.1533118Z   $SUDO chmod +x ${cosign_executable_name}
+2026-11-26T13:24:43.1533950Z   log_info "Installation complete!"
+2026-11-26T13:24:43.1534591Z fi
+2026-11-26T13:24:43.1567609Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:43.1568391Z env:
+2026-11-26T13:24:43.1569303Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:43.1570365Z ##[endgroup]
+2026-11-26T13:24:43.1671110Z INFO: Downloading bootstrap version 'v2.6.1' of cosign to verify version to be installed...
+2026-11-26T13:24:43.1672691Z       https://github.com/sigstore/cosign/releases/download/v2.6.1/cosign-linux-amd64
+2026-11-26T13:24:43.8593844Z INFO: Custom cosign version 'v2.6.5' requested
+2026-11-26T13:24:43.8594769Z INFO: Downloading platform-specific version 'v2.6.5' of cosign...
+2026-11-26T13:24:43.8595398Z       https://github.com/sigstore/cosign/releases/download/v2.6.5/cosign-linux-amd64
+2026-11-26T13:24:44.4979236Z INFO: Downloading detached signature for platform-specific 'v2.6.5' of cosign...
+2026-11-26T13:24:44.4979922Z       https://github.com/sigstore/cosign/releases/download/v2.6.5/cosign-linux-amd64.sig
+2026-11-26T13:24:44.7193971Z INFO: Downloading cosign public key 'v2.6.5' of cosign...
+2026-11-26T13:24:44.7194961Z     https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub
+2026-11-26T13:24:44.7195358Z INFO: Verifying public key matches expected value
+2026-11-26T13:24:44.8283435Z INFO: Using bootstrap cosign to verify signature of desired cosign version
+2026-11-26T13:24:46.6521585Z Verified OK
+2026-11-26T13:24:46.6924097Z INFO: Installation complete!
+2026-11-26T13:24:46.6939980Z ##[end-action id=__sigstore_cosign-installer.__run;outcome=success;conclusion=success;duration_ms=3561]
+2026-11-26T13:24:46.6946188Z ##[start-action display=Run echo "$HOME/.cosign" >> $GITHUB_PATH;id=__sigstore_cosign-installer.__run_2]
+2026-11-26T13:24:46.6977667Z ##[group]Run echo "$HOME/.cosign" >> $GITHUB_PATH
+2026-11-26T13:24:46.6977931Z echo "$HOME/.cosign" >> $GITHUB_PATH
+2026-11-26T13:24:46.7007617Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:46.7007843Z env:
+2026-11-26T13:24:46.7008097Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:46.7008378Z ##[endgroup]
+2026-11-26T13:24:46.7057837Z ##[end-action id=__sigstore_cosign-installer.__run_2;outcome=success;conclusion=success;duration_ms=11]
+2026-11-26T13:24:46.7060432Z ##[start-action display=Run echo "$HOME/.cosign" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append;id=__sigstore_cosign-installer.__run_3]
+2026-11-26T13:24:46.7064261Z ##[end-action id=__sigstore_cosign-installer.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+﻿2026-11-26T13:24:46.7091633Z ##[group]Run ./scripts/setup-kind.ps1 -RegistryPullSecret ghcr -RegistryServer ghcr.io `
+2026-11-26T13:24:46.7092310Z ./scripts/setup-kind.ps1 -RegistryPullSecret ghcr -RegistryServer ghcr.io `
+2026-11-26T13:24:46.7092675Z   -RegistryUsername 'MahdiKacem' -RegistryPasswordEnv GHCR_TOKEN
+2026-11-26T13:24:46.7122774Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-11-26T13:24:46.7122954Z env:
+2026-11-26T13:24:46.7123217Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:46.7124923Z   GHCR_TOKEN: ***
+2026-11-26T13:24:46.7125079Z ##[endgroup]
+2026-11-26T13:24:51.5960734Z Creating cluster "tp4" ...
+2026-11-26T13:24:51.5962012Z  • Ensuring node image (kindest/node:v1.33.1) 🖼️  ...
+2026-11-26T13:24:57.9423635Z  ✓ Ensuring node image (kindest/node:v1.33.1) 🖼️
+2026-11-26T13:24:57.9424031Z  • Preparing nodes 📦   ...
+2026-11-26T13:25:08.6654739Z  ✓ Preparing nodes 📦 
+2026-11-26T13:25:08.6947248Z  • Writing configuration 📜  ...
+2026-11-26T13:25:09.0907509Z  ✓ Writing configuration 📜
+2026-11-26T13:25:09.0907959Z  • Starting control-plane 🕹️  ...
+2026-11-26T13:25:17.8709946Z  ✓ Starting control-plane 🕹️
+2026-11-26T13:25:17.8716930Z  • Installing CNI 🔌  ...
+2026-11-26T13:25:18.1318447Z  ✓ Installing CNI 🔌
+2026-11-26T13:25:18.1318884Z  • Installing StorageClass 💾  ...
+2026-11-26T13:25:18.3948935Z  ✓ Installing StorageClass 💾
+2026-11-26T13:25:18.5539960Z Set kubectl context to "kind-tp4"
+2026-11-26T13:25:18.5540416Z You can now use your cluster with:
+2026-11-26T13:25:18.5540597Z 
+2026-11-26T13:25:18.5540699Z kubectl cluster-info --context kind-tp4
+2026-11-26T13:25:18.5540827Z 
+2026-11-26T13:25:18.5541502Z Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+2026-11-26T13:25:21.3182338Z namespace/kyverno created
+2026-11-26T13:25:21.5487852Z namespace/app created
+2026-11-26T13:25:22.0946638Z "kyverno" has been added to your repositories
+2026-11-26T13:25:22.1503523Z Hang tight while we grab the latest from your chart repositories...
+2026-11-26T13:25:22.2574991Z ...Successfully got an update from the "kyverno" chart repository
+2026-11-26T13:25:22.2576233Z Update Complete. ⎈Happy Helming!⎈
+2026-11-26T13:25:22.4913707Z Release "kyverno" does not exist. Installing it now.
+2026-11-26T13:26:07.2124858Z NAME: kyverno
+2026-11-26T13:26:07.2163811Z LAST DEPLOYED: Thu Nov 26 13:25:22 2026
+2026-11-26T13:26:07.2192925Z NAMESPACE: kyverno
+2026-11-26T13:26:07.2225970Z STATUS: deployed
+2026-11-26T13:26:07.2245485Z REVISION: 1
+2026-11-26T13:26:07.2293722Z DESCRIPTION: Install complete
+2026-11-26T13:26:07.2308187Z NOTES:
+2026-11-26T13:26:07.2308504Z Chart version: 3.6.4
+2026-11-26T13:26:07.2352898Z Kyverno version: v1.16.4
+2026-11-26T13:26:07.2382565Z 
+2026-11-26T13:26:07.2412784Z Thank you for installing kyverno! Your release is named kyverno.
+2026-11-26T13:26:07.2428833Z 
+2026-11-26T13:26:07.2429725Z The following components have been installed in your cluster:
+2026-11-26T13:26:07.2430372Z - CRDs
+2026-11-26T13:26:07.2430711Z - Admission controller
+2026-11-26T13:26:07.2430933Z - Reports controller
+2026-11-26T13:26:07.2431136Z - Cleanup controller
+2026-11-26T13:26:07.2431345Z - Background controller
+2026-11-26T13:26:07.2431479Z 
+2026-11-26T13:26:07.2431485Z 
+2026-11-26T13:26:07.2432306Z ⚠️  WARNING: Setting the admission controller replica count below 2 means Kyverno is not running in high availability mode.
+2026-11-26T13:26:07.2432747Z 
+2026-11-26T13:26:07.2432752Z 
+2026-11-26T13:26:07.2433136Z ⚠️  WARNING: PolicyExceptions are disabled by default. To enable them, set '--enablePolicyException' to true.
+2026-11-26T13:26:07.2433509Z 
+2026-11-26T13:26:07.2434343Z 💡 Note: There is a trade-off when deciding which approach to take regarding Namespace exclusions. Please see the documentation at https://kyverno.io/docs/installation/#security-vs-operability to understand the risks.
+2026-11-26T13:26:07.4057729Z deployment.apps/kyverno-admission-controller condition met
+2026-11-26T13:26:07.5070639Z deployment.apps/kyverno-background-controller condition met
+2026-11-26T13:26:07.6080469Z deployment.apps/kyverno-cleanup-controller condition met
+2026-11-26T13:26:07.7092191Z deployment.apps/kyverno-reports-controller condition met
+2026-11-26T13:26:07.8334463Z Cluster Kind 'tp4' prêt avec Kyverno (chart 3.6.4).
+﻿2026-11-26T13:26:07.9826912Z ##[group]Run ./scripts/deploy.ps1 -Image 'ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d' -PullSecret ghcr
+2026-11-26T13:26:07.9827608Z ./scripts/deploy.ps1 -Image 'ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d' -PullSecret ghcr
+2026-11-26T13:26:07.9858882Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-11-26T13:26:07.9859054Z env:
+2026-11-26T13:26:07.9859300Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:26:07.9859578Z ##[endgroup]
+2026-11-26T13:26:08.9916879Z 
+2026-11-26T13:26:08.9916953Z 
+2026-11-26T13:26:08.9917849Z Verification for ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d --
+2026-11-26T13:26:08.9923627Z [{"critical":{"identity":{"docker-reference":"ghcr.io/mahdikacem/tp4-devsecops"},"image":{"docker-manifest-digest":"sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d"},"type":"cosign container image signature"},"optional":{"Bundle":{"SignedEntryTimestamp":"MEYCIQCkVq4YH2oVFne+IE19BP5iSczIXp3qQKTNU7XLxusHQgIhAMnwHp5XkYn3fOeH3TPSIco+D21M0mwL/mGnUuLDmO7r","Payload":{"body":"eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiaGFzaGVkcmVrb3JkIiwic3BlYyI6eyJkYXRhIjp7Imhhc2giOnsiYWxnb3JpdGhtIjoic2hhMjU2IiwidmFsdWUiOiIxZjc0YmFjMTE2NTliYWNkYzhhYjU0Y2U5ZmUyMzI3ODIyZjJiZjk1MGIwNDZmZjJkNWViY2Q0NDc2OGNhOTk0In19LCJzaWduYXR1cmUiOnsiY29udGVudCI6Ik1FUUNJQm5OWTBlL3FMK0VQOXpNYnJyTlJEOGxIVG9JM0Z2MUl5bm04V2pQc2YyeUFpQWZSL1VwQjJERDlaUWVnOFVQTWtPc0dQUWdmZFh3SU5VVGlSbkYwUkduM1E9PSIsInB1YmxpY0tleSI6eyJjb250ZW50IjoiTFMwdExTMUNSVWRKVGlCUVZVSk1TVU1nUzBWWkxTMHRMUzBLVFVacmQwVjNXVWhMYjFwSmVtb3dRMEZSV1VsTGIxcEplbW93UkVGUlkwUlJaMEZGV2xWdWQzbEdSRGRFTlM4NUt6ZG9jbmx0VkVKVlVVOWliVXA2Y1FwWFkybDFWWGg2Um5SdVltZEdVRWh3VWtOSVMwVnhVemxCZG5aU01reEVZVmhoUlZWT2FTdFlSVXhJY2pCalNFSXJRblUzTlUxWmMxcFJQVDBLTFMwdExTMUZUa1FnVUZWQ1RFbERJRXRGV1MwdExTMHRDZz09In19fX0=","integratedTime":1795699459,"logIndex":4126853797,"logID":"c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"}}}}]
+2026-11-26T13:26:08.9928515Z The following checks were performed on each of these signatures:
+2026-11-26T13:26:08.9928726Z   - The cosign claims were validated
+2026-11-26T13:26:08.9928933Z   - Existence of the claims in the transparency log was verified offline
+2026-11-26T13:26:08.9929186Z   - The signatures were verified against the specified public key
+2026-11-26T13:26:09.1958865Z clusterpolicy.kyverno.io/require-hardened-app-pods created
+2026-11-26T13:26:09.3812739Z clusterpolicy.kyverno.io/require-signed-app-images created
+2026-11-26T13:26:09.5708612Z clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+2026-11-26T13:26:09.7306951Z clusterpolicy.kyverno.io/require-signed-app-images condition met
+2026-11-26T13:26:09.9272519Z namespace/app configured
+2026-11-26T13:26:09.9324256Z serviceaccount/api created
+2026-11-26T13:26:11.4624866Z deployment.apps/api created
+2026-11-26T13:26:11.4734998Z service/api created
+2026-11-26T13:26:11.4942690Z networkpolicy.networking.k8s.io/api-restrict-traffic created
+2026-11-26T13:26:11.5582447Z Waiting for deployment "api" rollout to finish: 0 out of 1 new replicas have been updated...
+2026-11-26T13:26:11.8847136Z Waiting for deployment "api" rollout to finish: 0 of 1 updated replicas are available...
+2026-11-26T13:26:20.9799154Z deployment "api" successfully rolled out
+﻿2026-11-26T13:26:21.0230332Z ##[group]Run $repo = 'ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d'.Split('@')[0]
+2026-11-26T13:26:21.0230898Z $repo = 'ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d'.Split('@')[0]
+2026-11-26T13:26:21.0231378Z # Image du dépôt surveillé mais non signée : digest d'un manifeste inexistant/non signé.
+2026-11-26T13:26:21.0231678Z $unsigned = "$repo@sha256:" + ('1' * 64)
+2026-11-26T13:26:21.0232695Z ./tests/test-admission.ps1 -ImageRepository $repo `
+2026-11-26T13:26:21.0233097Z   -SignedImage 'ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d' -UnsignedImage $unsigned
+2026-11-26T13:26:21.0262532Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-11-26T13:26:21.0262688Z env:
+2026-11-26T13:26:21.0262924Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:26:21.0263232Z ##[endgroup]
+2026-11-26T13:26:22.0169238Z clusterpolicy.kyverno.io/require-hardened-app-pods configured
+2026-11-26T13:26:22.1928093Z clusterpolicy.kyverno.io/require-signed-app-images configured
+2026-11-26T13:26:22.3529054Z clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+2026-11-26T13:26:22.5104695Z clusterpolicy.kyverno.io/require-signed-app-images condition met
+2026-11-26T13:26:22.6873471Z namespace/app unchanged (dry run)
+2026-11-26T13:26:22.7443618Z serviceaccount/api unchanged (dry run)
+2026-11-26T13:26:22.7652216Z deployment.apps/api configured (dry run)
+2026-11-26T13:26:22.8096263Z service/api unchanged (dry run)
+2026-11-26T13:26:22.8223599Z networkpolicy.networking.k8s.io/api-restrict-traffic unchanged (dry run)
+2026-11-26T13:26:22.9614387Z namespace/app configured
+2026-11-26T13:26:23.0618027Z namespace/app labeled
+2026-11-26T13:26:23.1639083Z pod/signed-test created
+2026-11-26T13:26:23.1765975Z Test admission réussi : le Pod conforme signé est accepté.
+2026-11-26T13:26:25.2818819Z Test admission réussi : require-signed-app-images a refusé unsigned-test.
+2026-11-26T13:26:25.3659793Z Test admission réussi : require-hardened-app-pods a refusé privileged-test.
+2026-11-26T13:26:25.4476875Z Test admission réussi : require-hardened-app-pods|require-signed-app-images a refusé latest-test.
+2026-11-26T13:26:25.5279937Z Test admission réussi : restrict-to-pipeline-repository a refusé foreign-registry-test.
+2026-11-26T13:26:25.5286815Z Tous les tests d'admission sont réussis.
+﻿2026-11-26T13:26:25.5667826Z ##[group]Run kubectl get clusterpolicy
+2026-11-26T13:26:25.5668051Z kubectl get clusterpolicy
+2026-11-26T13:26:25.5668259Z kubectl get deploy,pods,svc,networkpolicy -n app -o wide
+2026-11-26T13:26:25.5668518Z kubectl get events -n app --sort-by=.lastTimestamp | tail -20
+2026-11-26T13:26:25.5696371Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:26:25.5696520Z env:
+2026-11-26T13:26:25.5696759Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:26:25.5697033Z ##[endgroup]
+2026-11-26T13:26:25.6165812Z NAME                        ADMISSION   BACKGROUND   READY   AGE   MESSAGE
+2026-11-26T13:26:25.6166446Z require-hardened-app-pods   true        true         True    16s   Ready
+2026-11-26T13:26:25.6167259Z require-signed-app-images   true        false        True    16s   Ready
+2026-11-26T13:26:25.6707541Z NAME                  READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                                     SELECTOR
+2026-11-26T13:26:25.6708474Z deployment.apps/api   1/1     1            1           14s   api          ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d   app=api
+2026-11-26T13:26:25.6708937Z 
+2026-11-26T13:26:25.6709167Z NAME                       READY   STATUS    RESTARTS   AGE   IP           NODE                NOMINATED NODE   READINESS GATES
+2026-11-26T13:26:25.6709760Z pod/api-5b5959c989-qvv9h   1/1     Running   0          14s   10.244.0.9   tp4-control-plane   <none>           <none>
+2026-11-26T13:26:25.6710039Z 
+2026-11-26T13:26:25.6710155Z NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+2026-11-26T13:26:25.6710507Z service/api   ClusterIP   10.96.158.60   <none>        80/TCP    14s   app=api
+2026-11-26T13:26:25.6710682Z 
+2026-11-26T13:26:25.6710767Z NAME                                                   POD-SELECTOR   AGE
+2026-11-26T13:26:25.6711026Z networkpolicy.networking.k8s.io/api-restrict-traffic   app=api        14s
+2026-11-26T13:26:25.7195017Z LAST SEEN   TYPE     REASON              OBJECT                      MESSAGE
+2026-11-26T13:26:25.7195736Z 14s         Normal   Scheduled           pod/api-5b5959c989-qvv9h    Successfully assigned app/api-5b5959c989-qvv9h to tp4-control-plane
+2026-11-26T13:26:25.7196460Z 14s         Normal   SuccessfulCreate    replicaset/api-5b5959c989   Created pod: api-5b5959c989-qvv9h
+2026-11-26T13:26:25.7197057Z 14s         Normal   ScalingReplicaSet   deployment/api              Scaled up replica set api-5b5959c989 from 0 to 1
+2026-11-26T13:26:25.7197875Z 13s         Normal   Pulling             pod/api-5b5959c989-qvv9h    Pulling image "ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d"
+2026-11-26T13:26:25.7199482Z 12s         Normal   Pulled              pod/api-5b5959c989-qvv9h    Successfully pulled image "ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d" in 1.73s (1.73s including waiting). Image size: 11729639 bytes.
+2026-11-26T13:26:25.7200228Z 12s         Normal   Created             pod/api-5b5959c989-qvv9h    Created container: api
+2026-11-26T13:26:25.7200513Z 11s         Normal   Started             pod/api-5b5959c989-qvv9h    Started container api
+2026-11-26T13:26:25.7200953Z 2s          Normal   Scheduled           pod/signed-test             Successfully assigned app/signed-test to tp4-control-plane
+﻿2026-11-26T13:26:25.7286379Z Post job cleanup.
+2026-11-26T13:26:25.7907172Z [command]/usr/bin/git version
+2026-11-26T13:26:25.7957345Z git version 2.56.1
+2026-11-26T13:26:25.7995377Z Temporarily overriding HOME='/home/runner/work/_temp/c986064e-355d-4a3c-bbc3-490078a9c990' before making global git config changes
+2026-11-26T13:26:25.8002728Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T13:26:25.8003441Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:26:25.8039254Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:26:25.8088398Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:26:25.8353808Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:26:25.8398341Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:26:25.8652183Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:26:25.8689832Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+﻿2026-11-26T13:26:25.9092598Z Cleaning up orphan processes
+2026-11-26T13:26:25.9661110Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

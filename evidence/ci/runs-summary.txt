@@ -1,0 +1,113 @@
+
+X test/t1-secret-ci Secure build · 45829330323
+Triggered via workflow_dispatch about 1 minute ago
+
+JOBS
+X checks in 28s (ID 139941644360)
+  ✓ Set up job
+  ✓ Checkout complete history
+  X Scan secrets and Git history (Gitleaks)
+  - Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  - SAST (Semgrep, blocking)
+  - SCA and filesystem secrets (Trivy, blocking)
+  - Structural regression tests
+  X Export IaC report (JSON)
+  X Export SCA report (JSON)
+  ✓ Upload security reports
+  ✓ Post Export SCA report (JSON)
+  ✓ Post Export IaC report (JSON)
+  ✓ Post Checkout complete history
+  ✓ Complete job
+- publish in 0s (ID 139941926901)
+- defectdojo (ID 139941928116)
+- deploy-e2e (ID 139941928278)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+checks: .github#2
+
+X Process completed with exit code 1.
+checks: .github#223
+
+X Process completed with exit code 1.
+checks: .github#221
+
+! 🛑 Leaks detected, see job summary for details
+checks: .github#51
+
+
+To see what failed, try: gh run view 45829330323 --log-failed
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45829330323
+
+
+X test/t2-privileged-ci Secure build · 45829267958
+Triggered via workflow_dispatch about 2 minutes ago
+
+JOBS
+X checks in 28s (ID 139941422430)
+  ✓ Set up job
+  ✓ Checkout complete history
+  ✓ Scan secrets and Git history (Gitleaks)
+  X Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  - SAST (Semgrep, blocking)
+  - SCA and filesystem secrets (Trivy, blocking)
+  - Structural regression tests
+  X Export IaC report (JSON)
+  X Export SCA report (JSON)
+  ✓ Upload security reports
+  ✓ Post Export SCA report (JSON)
+  ✓ Post Export IaC report (JSON)
+  ✓ Post Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+  ✓ Post Checkout complete history
+  ✓ Complete job
+- deploy-e2e in 0s (ID 139941693494)
+- publish in 0s (ID 139941694527)
+- defectdojo in 0s (ID 139941695040)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+checks: .github#2
+
+X Process completed with exit code 1.
+checks: .github#221
+
+X Process completed with exit code 1.
+checks: .github#219
+
+X Process completed with exit code 1.
+checks: .github#260
+
+
+To see what failed, try: gh run view 45829267958 --log-failed
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45829267958
+
+
+✓ main Secure build · 45828547561
+Triggered via push about 6 minutes ago
+
+JOBS
+✓ checks in 56s (ID 139938937654)
+✓ publish in 57s (ID 139939477327)
+✓ deploy-e2e in 1m47s (ID 139940028135)
+- defectdojo in 0s (ID 139940030317)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+checks: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8, docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+publish: .github#4
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+deploy-e2e: .github#2
+
+
+ARTIFACTS
+security-reports-checks
+sbom-cyclonedx
+security-reports-image
+MahdiKacem~tp4-devsecops~LMDRSM.dockerbuild
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45828547561
+

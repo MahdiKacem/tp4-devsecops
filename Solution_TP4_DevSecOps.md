@@ -15,7 +15,7 @@ Les configurations sont maintenant matérialisées dans le dépôt de démonstra
 État d'avancement (26/11/2026) :
 
 - **Exécuté localement et prouvé** (journaux dans `evidence/`, voir §9) : T1 (hook pre-commit), T2 (Trivy IaC), T3 (rejet Kyverno d'une image non signée) et T4 (pipeline rejoué localement : build → scan → SBOM → signature Cosign → admission Kyverno → Pod `Running`).
-- **Préparé mais exécuté seulement après push sur GitHub** : la version CI de T1/T2/T4 (workflow `.github/workflows/secure-build.yml`, qui inclut un job `deploy-e2e` rejouant T3/T4 dans un cluster Kind éphémère). Les secrets `COSIGN_PRIVATE_KEY`/`COSIGN_PASSWORD` doivent être déclarés sur le dépôt.
+- **Exécuté en CI sur GitHub** (https://github.com/MahdiKacem/tp4-devsecops, preuves dans `evidence/ci/`) : T1 et T2 font échouer le pipeline avant tout build ; sur `main`, le pipeline complet est vert, y compris le job `deploy-e2e` qui rejoue T3/T4 dans un cluster Kind éphémère avec Kyverno.
 - Le registre local (`kind-registry:5000`, exposé en `localhost:5001`) remplace GHCR pour la démonstration locale ; il est en HTTP et hors ligne, donc la signature locale n'est pas publiée dans Rekor (`ignoreTlog: true` uniquement dans ce mode). En CI, la signature est publiée dans Rekor et vérifiée avec le journal de transparence.
 
 ## 2. Secrets : Gitleaks, révocation et SOPS
@@ -550,14 +550,14 @@ kubectl describe clusterpolicy require-hardened-app-pods
 
 ### Tableau de preuves à compléter après exécution
 
-| Test | Preuve | Résultat observé (local, 26/11/2026) | CI GitHub |
-|---|---|---|---|
-| T1 | `evidence/T1-precommit-gitleaks.log` | Commit refusé par le hook : `Detect hardcoded secrets ... Failed`, `leaks found: 3` (token GitHub + clé AWS factices), aucun commit créé. | À collecter après push (job `checks`, étape Gitleaks). |
-| T2 | `evidence/T2-test-static.log` | Manifestes conformes : 0 misconfiguration. Variante `privileged: true` : Trivy sort en erreur (exit 1). | À collecter : commit de test sur une branche avec `privileged: true` → `checks` échoue, `publish` non exécuté. |
-| T3 | `evidence/T3-kubectl-unsigned.log`, `evidence/T3-admission-tests.log` | `kubectl run` refusé : `require-signed-app-images ... no signatures found`. Tests : image non signée, Pod privilégié, tag `:latest` et image d'un registre tiers refusés ; Pod signé accepté. | Job `deploy-e2e`, étape « Prove the admission controller blocks bypasses ». |
-| T4 | `evidence/T4-local-pipeline.log`, `evidence/T4-deploy.log`, `evidence/T4-verification.log`, `evidence/sbom.cdx.json` | Trivy image : 0 HIGH/CRITICAL ; SBOM CycloneDX générée et attestée ; `cosign verify` OK ; Deployment `1/1`, Pod `Running`, HTTP 200. | Jobs `publish` + `deploy-e2e` verts, artefact `sbom-cyclonedx`. |
+| Test | Résultat local (`evidence/`) | Résultat CI GitHub (`evidence/ci/`, dépôt MahdiKacem/tp4-devsecops) |
+|---|---|---|
+| T1 | `T1-precommit-gitleaks.log` : commit refusé par le hook (`leaks found: 3`), aucun commit créé. | Clé AWS factice : **push refusé par GitHub Push Protection** (`T1-github-push-protection.log`). Clé API factice commitée avec `--no-verify` : job `checks` en échec à l'étape Gitleaks (`RuleID: generic-api-key`, `app/config.js`), aucune étape suivante (`T1-ci-gitleaks-checks.log`, run 45829330323). |
+| T2 | `T2-test-static.log` : manifeste conforme accepté, variante `privileged: true` rejetée. | Job `checks` en échec à l'étape Trivy IaC : `KSV-0017 (HIGH) ... should set 'securityContext.privileged' to false` ; `publish` et `deploy-e2e` sautés, aucune image construite (`T2-ci-trivy-iac-checks.log`, run 45829267958). |
+| T3 | `T3-kubectl-unsigned.log` : `require-signed-app-images ... no signatures found`. `T3-admission-tests.log` : image non signée, Pod privilégié, `:latest` et registre tiers refusés. | Job `deploy-e2e` : les mêmes 5 tests d'admission réussis contre GHCR (`T4-ci-deploy-e2e.log`). |
+| T4 | `T4-*.log` : 0 HIGH/CRITICAL, SBOM attestée, `cosign verify` OK, Deployment `1/1`, HTTP 200. | Run 45828547561 entièrement vert : `checks` → `publish` (image `ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf…`, signature et attestation inscrites dans Rekor, `cosign verify` OK, artefact `sbom-cyclonedx` → `ci/sbom.cdx.json`) → `deploy-e2e` (rollout réussi, Pod `1/1 Running`) (`T4-ci-publish.log`, `T4-ci-deploy-e2e.log`). |
 
-Les preuves CI ne sont pas inventées : elles restent à collecter après le premier push sur GitHub.
+Les branches de test T1/T2 ont été supprimées après collecte des preuves.
 
 ## 7. Bonus — Import DefectDojo
 

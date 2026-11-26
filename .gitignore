@@ -18,3 +18,4 @@ rendered-*.yaml
 # Preuves d'exécution versionnées.
 !evidence/sbom.cdx.json
 reports/
+!evidence/ci/sbom.cdx.json

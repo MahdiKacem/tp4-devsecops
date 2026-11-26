@@ -1,0 +1,1898 @@
+﻿2026-11-26T13:23:41.9676897Z Current runner version: '2.338.2'
+2026-11-26T13:23:41.9700118Z ##[group]Runner Image Provisioner
+2026-11-26T13:23:41.9700984Z Hosted Compute Agent
+2026-11-26T13:23:41.9701633Z Version: 20261111.635
+2026-11-26T13:23:41.9702301Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T13:23:41.9703085Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T13:23:41.9703816Z Worker ID: {c7a13326-6841-4245-a6af-d4932c2b05e4}
+2026-11-26T13:23:41.9704561Z Region: eastus2
+2026-11-26T13:23:41.9705153Z Cloud: Azure
+2026-11-26T13:23:41.9705768Z ##[endgroup]
+2026-11-26T13:23:41.9706998Z ##[group]Operating System
+2026-11-26T13:23:41.9707606Z Ubuntu
+2026-11-26T13:23:41.9708221Z 26.04.1
+2026-11-26T13:23:41.9709059Z LTS
+2026-11-26T13:23:41.9709743Z ##[endgroup]
+2026-11-26T13:23:41.9710307Z ##[group]Runner Image
+2026-11-26T13:23:41.9710986Z Image: ubuntu-26.04
+2026-11-26T13:23:41.9711584Z Version: 20261116.202.1
+2026-11-26T13:23:41.9712643Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T13:23:41.9714236Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-26T13:23:41.9715165Z ##[endgroup]
+2026-11-26T13:23:41.9716403Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T13:23:41.9718327Z Contents: read
+2026-11-26T13:23:41.9719242Z Metadata: read
+2026-11-26T13:23:41.9719874Z Packages: write
+2026-11-26T13:23:41.9720430Z ##[endgroup]
+2026-11-26T13:23:41.9722308Z Secret source: Actions
+2026-11-26T13:23:41.9723240Z Cache mode: write
+2026-11-26T13:23:41.9723954Z Prepare workflow directory
+2026-11-26T13:23:42.0039928Z Prepare all required actions
+2026-11-26T13:23:42.0079004Z Getting action download info
+2026-11-26T13:23:42.2184442Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T13:23:42.3100471Z Download action repository 'docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f' (SHA:8d2750c68a42422c14e847fe6c8ac0403b4cbd6f)
+2026-11-26T13:23:42.5640588Z Download action repository 'docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9' (SHA:c94ce9fb468520275223c153574b00df6fe4bcc9)
+2026-11-26T13:23:42.7724194Z Download action repository 'docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8' (SHA:10e90e3645eae34f1e60eeb005ba3a3d33f178e8)
+2026-11-26T13:23:43.0046755Z Download action repository 'aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25' (SHA:ed142fd0673e97e23eac54620cfb913e5ce36c25)
+2026-11-26T13:23:43.1413496Z Download action repository 'anchore/sbom-action@dfcb83b97731532d72be422cbc51ee64adb6fd56' (SHA:dfcb83b97731532d72be422cbc51ee64adb6fd56)
+2026-11-26T13:23:43.2880853Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-26T13:23:43.4044583Z Download action repository 'sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5' (SHA:7e8b541eb2e61bf99390e1afd4be13a184e9ebc5)
+2026-11-26T13:23:43.6124298Z Getting action download info
+2026-11-26T13:23:43.6982777Z Download action repository 'aquasecurity/setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514' (SHA:3fb12ec12f41e471780db15c232d5dd185dcb514)
+2026-11-26T13:23:43.7949735Z Download action repository 'actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae' (SHA:27d5ce7f107fe9357f9df03efb73ab90386fccae)
+2026-11-26T13:23:43.9698288Z Getting action download info
+2026-11-26T13:23:44.0395795Z Download action repository 'actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb' (SHA:9255dc7a253b0ccc959486e2bca901246202afeb)
+2026-11-26T13:23:44.2232510Z Download action repository 'actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2026-11-26T13:23:44.3110623Z Getting action download info
+2026-11-26T13:23:44.4123993Z Getting action download info
+2026-11-26T13:23:44.5526751Z Complete job name: publish
+﻿2026-11-26T13:23:44.6211542Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-26T13:23:44.6212514Z with:
+2026-11-26T13:23:44.6212863Z   persist-credentials: false
+2026-11-26T13:23:44.6213253Z   repository: MahdiKacem/tp4-devsecops
+2026-11-26T13:23:44.6215312Z   token: ***
+2026-11-26T13:23:44.6215656Z   ssh-strict: true
+2026-11-26T13:23:44.6216002Z   ssh-user: git
+2026-11-26T13:23:44.6216324Z   clean: true
+2026-11-26T13:23:44.6216674Z   sparse-checkout-cone-mode: true
+2026-11-26T13:23:44.6217053Z   fetch-depth: 1
+2026-11-26T13:23:44.6217381Z   fetch-tags: false
+2026-11-26T13:23:44.6217718Z   show-progress: true
+2026-11-26T13:23:44.6218050Z   lfs: false
+2026-11-26T13:23:44.6218505Z   submodules: false
+2026-11-26T13:23:44.6218847Z   set-safe-directory: true
+2026-11-26T13:23:44.6219226Z   allow-unsafe-pr-checkout: false
+2026-11-26T13:23:44.6219760Z env:
+2026-11-26T13:23:44.6220260Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:44.6220859Z ##[endgroup]
+2026-11-26T13:23:44.8665675Z Syncing repository: MahdiKacem/tp4-devsecops
+2026-11-26T13:23:44.8667928Z ##[group]Getting Git version info
+2026-11-26T13:23:44.8668928Z Working directory is '/home/runner/work/tp4-devsecops/tp4-devsecops'
+2026-11-26T13:23:44.8670057Z [command]/usr/bin/git version
+2026-11-26T13:23:44.8670672Z git version 2.56.1
+2026-11-26T13:23:44.8681674Z ##[endgroup]
+2026-11-26T13:23:44.8695287Z Temporarily overriding HOME='/home/runner/work/_temp/327ff1c3-84b8-42f2-8011-3261f9a13e0d' before making global git config changes
+2026-11-26T13:23:44.8696689Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T13:23:44.8699982Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:23:44.8759469Z Deleting the contents of '/home/runner/work/tp4-devsecops/tp4-devsecops'
+2026-11-26T13:23:44.8762990Z ##[group]Initializing the repository
+2026-11-26T13:23:44.8766780Z [command]/usr/bin/git init /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:23:44.8864225Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T13:23:44.8865498Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T13:23:44.8866590Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T13:23:44.8867516Z hint: call:
+2026-11-26T13:23:44.8868171Z hint:
+2026-11-26T13:23:44.8869050Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T13:23:44.8869838Z hint:
+2026-11-26T13:23:44.8870601Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T13:23:44.8871641Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T13:23:44.8872528Z hint:
+2026-11-26T13:23:44.8873164Z hint: 	git branch -m <name>
+2026-11-26T13:23:44.8873840Z hint:
+2026-11-26T13:23:44.8874831Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T13:23:44.8876136Z Initialized empty Git repository in /home/runner/work/tp4-devsecops/tp4-devsecops/.git/
+2026-11-26T13:23:44.8887270Z [command]/usr/bin/git remote add origin https://github.com/MahdiKacem/tp4-devsecops
+2026-11-26T13:23:44.8949015Z ##[endgroup]
+2026-11-26T13:23:44.8949970Z ##[group]Disabling automatic garbage collection
+2026-11-26T13:23:44.8952270Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T13:23:44.8983028Z ##[endgroup]
+2026-11-26T13:23:44.8983852Z ##[group]Setting up auth
+2026-11-26T13:23:44.8988950Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:23:44.9019892Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:23:44.9544090Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:23:44.9572870Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:23:44.9821099Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:23:44.9856844Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T13:23:45.0108009Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T13:23:45.0156265Z ##[endgroup]
+2026-11-26T13:23:45.0164689Z ##[group]Fetching the repository
+2026-11-26T13:23:45.0166268Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +07db7e0e356c314fe3aaba8abc2b8897ca5b79a3:refs/remotes/origin/main
+2026-11-26T13:23:45.2438112Z From https://github.com/MahdiKacem/tp4-devsecops
+2026-11-26T13:23:45.2439109Z  * [new ref]         07db7e0e356c314fe3aaba8abc2b8897ca5b79a3 -> origin/main
+2026-11-26T13:23:45.2441806Z ##[endgroup]
+2026-11-26T13:23:45.2442564Z ##[group]Determining the checkout info
+2026-11-26T13:23:45.2443972Z ##[endgroup]
+2026-11-26T13:23:45.2449007Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T13:23:45.2496553Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T13:23:45.2523052Z ##[group]Checking out the ref
+2026-11-26T13:23:45.2533504Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-26T13:23:45.2627831Z Switched to a new branch 'main'
+2026-11-26T13:23:45.2632513Z branch 'main' set up to track 'origin/main'.
+2026-11-26T13:23:45.2637602Z ##[endgroup]
+2026-11-26T13:23:45.2677158Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T13:23:45.2697880Z 07db7e0e356c314fe3aaba8abc2b8897ca5b79a3
+2026-11-26T13:23:45.2705852Z ##[group]Removing auth
+2026-11-26T13:23:45.2708666Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:23:45.2734869Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:23:45.2971382Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:23:45.2991687Z http.https://github.com/.extraheader
+2026-11-26T13:23:45.2997216Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T13:23:45.3024330Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:23:45.3254277Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:23:45.3279464Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T13:23:45.3506853Z ##[endgroup]
+﻿2026-11-26T13:23:45.3688194Z ##[group]Run echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+2026-11-26T13:23:45.3689178Z echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+2026-11-26T13:23:45.3724096Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:23:45.3724492Z env:
+2026-11-26T13:23:45.3724991Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:45.3725539Z ##[endgroup]
+﻿2026-11-26T13:23:45.3870488Z ##[group]Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f
+2026-11-26T13:23:45.3871030Z with:
+2026-11-26T13:23:45.3871345Z   driver: docker-container
+2026-11-26T13:23:45.3871703Z   use: true
+2026-11-26T13:23:45.3872020Z   keep-state: false
+2026-11-26T13:23:45.3872353Z   cache-binary: true
+2026-11-26T13:23:45.3872687Z   cleanup: true
+2026-11-26T13:23:45.3873009Z   install: false
+2026-11-26T13:23:45.3873323Z env:
+2026-11-26T13:23:45.3873809Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:45.3874535Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:45.3874919Z ##[endgroup]
+2026-11-26T13:23:45.5875076Z (node:2310) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:23:45.5876295Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:23:45.5918947Z ##[group]Docker info
+2026-11-26T13:23:45.5937712Z [command]/usr/bin/docker version
+2026-11-26T13:23:45.7087329Z Client: Docker Engine - Community
+2026-11-26T13:23:45.7090022Z  Version:           29.4.2
+2026-11-26T13:23:45.7091020Z  API version:       1.54
+2026-11-26T13:23:45.7092672Z  Go version:        go1.26.2
+2026-11-26T13:23:45.7093414Z  Git commit:        055a478
+2026-11-26T13:23:45.7094009Z  Built:             Fri May  1 10:24:04 2026
+2026-11-26T13:23:45.7094771Z  OS/Arch:           linux/amd64
+2026-11-26T13:23:45.7095337Z  Context:           default
+2026-11-26T13:23:45.7095690Z 
+2026-11-26T13:23:45.7095953Z Server: Docker Engine - Community
+2026-11-26T13:23:45.7096532Z  Engine:
+2026-11-26T13:23:45.7097492Z   Version:          29.4.2
+2026-11-26T13:23:45.7098100Z   API version:      1.54 (minimum version 1.40)
+2026-11-26T13:23:45.7098864Z   Go version:       go1.26.2
+2026-11-26T13:23:45.7099420Z   Git commit:       d329809
+2026-11-26T13:23:45.7100013Z   Built:            Fri May  1 10:24:04 2026
+2026-11-26T13:23:45.7100618Z   OS/Arch:          linux/amd64
+2026-11-26T13:23:45.7101194Z   Experimental:     false
+2026-11-26T13:23:45.7101733Z  containerd:
+2026-11-26T13:23:45.7102245Z   Version:          v2.4.2
+2026-11-26T13:23:45.7102872Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-26T13:23:45.7103550Z  runc:
+2026-11-26T13:23:45.7104051Z   Version:          1.5.3
+2026-11-26T13:23:45.7104605Z   GitCommit:        v1.5.3-0-g46365c62
+2026-11-26T13:23:45.7105181Z  docker-init:
+2026-11-26T13:23:45.7105672Z   Version:          0.19.0
+2026-11-26T13:23:45.7106288Z   GitCommit:        de40ad0
+2026-11-26T13:23:45.7133085Z [command]/usr/bin/docker info
+2026-11-26T13:23:45.9945928Z Client: Docker Engine - Community
+2026-11-26T13:23:45.9947081Z  Version:    29.4.2
+2026-11-26T13:23:45.9947552Z  Context:    default
+2026-11-26T13:23:45.9947955Z  Debug Mode: false
+2026-11-26T13:23:45.9948475Z  Plugins:
+2026-11-26T13:23:45.9948853Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-26T13:23:45.9949302Z     Version:  v0.39.0
+2026-11-26T13:23:45.9949780Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-26T13:23:45.9950366Z   compose: Docker Compose (Docker Inc.)
+2026-11-26T13:23:45.9950815Z     Version:  v5.1.3
+2026-11-26T13:23:45.9951316Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-26T13:23:45.9951659Z 
+2026-11-26T13:23:45.9951764Z Server:
+2026-11-26T13:23:45.9951966Z  Containers: 0
+2026-11-26T13:23:45.9952171Z   Running: 0
+2026-11-26T13:23:45.9952439Z   Paused: 0
+2026-11-26T13:23:45.9952641Z   Stopped: 0
+2026-11-26T13:23:45.9952853Z  Images: 6
+2026-11-26T13:23:45.9953223Z  Server Version: 29.4.2
+2026-11-26T13:23:45.9953464Z  Storage Driver: overlayfs
+2026-11-26T13:23:45.9953832Z   driver-type: io.containerd.snapshotter.v1
+2026-11-26T13:23:45.9954113Z  Logging Driver: json-file
+2026-11-26T13:23:45.9954343Z  Cgroup Driver: systemd
+2026-11-26T13:23:45.9954564Z  Cgroup Version: 2
+2026-11-26T13:23:45.9954776Z  Plugins:
+2026-11-26T13:23:45.9954979Z   Volume: local
+2026-11-26T13:23:45.9955244Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-26T13:23:45.9955962Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-26T13:23:45.9956310Z  CDI spec directories:
+2026-11-26T13:23:45.9956527Z   /etc/cdi
+2026-11-26T13:23:45.9956725Z   /var/run/cdi
+2026-11-26T13:23:45.9956935Z  Swarm: inactive
+2026-11-26T13:23:45.9957173Z  Runtimes: io.containerd.runc.v2 runc
+2026-11-26T13:23:45.9957437Z  Default Runtime: runc
+2026-11-26T13:23:45.9957661Z  Init Binary: docker-init
+2026-11-26T13:23:45.9958105Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-26T13:23:45.9958707Z  runc version: v1.5.3-0-g46365c62
+2026-11-26T13:23:45.9959081Z  init version: de40ad0
+2026-11-26T13:23:45.9959407Z  Security Options:
+2026-11-26T13:23:45.9959672Z   apparmor
+2026-11-26T13:23:45.9959868Z   seccomp
+2026-11-26T13:23:45.9960066Z    Profile: builtin
+2026-11-26T13:23:45.9960269Z   cgroupns
+2026-11-26T13:23:45.9960469Z  Kernel Version: 7.0.0-1020-azure
+2026-11-26T13:23:45.9960726Z  Operating System: Ubuntu 26.04.1 LTS
+2026-11-26T13:23:45.9960992Z  OSType: linux
+2026-11-26T13:23:45.9961200Z  Architecture: x86_64
+2026-11-26T13:23:45.9961416Z  CPUs: 4
+2026-11-26T13:23:45.9961608Z  Total Memory: 15.61GiB
+2026-11-26T13:23:45.9961830Z  Name: runnervm0hi8g
+2026-11-26T13:23:45.9962058Z  ID: 636b573e-1748-48fb-a027-4a5f710f78e2
+2026-11-26T13:23:45.9962328Z  Docker Root Dir: /var/lib/docker
+2026-11-26T13:23:45.9962568Z  Debug Mode: false
+2026-11-26T13:23:45.9962785Z  Username: githubactions
+2026-11-26T13:23:45.9963121Z  Experimental: false
+2026-11-26T13:23:45.9963417Z  Insecure Registries:
+2026-11-26T13:23:45.9966268Z   ::1/128
+2026-11-26T13:23:45.9966611Z   127.0.0.0/8
+2026-11-26T13:23:45.9966890Z  Live Restore Enabled: false
+2026-11-26T13:23:45.9967159Z  Firewall Backend: iptables
+2026-11-26T13:23:45.9967308Z 
+2026-11-26T13:23:45.9970083Z ##[endgroup]
+2026-11-26T13:23:46.0692543Z ##[group]Buildx version
+2026-11-26T13:23:46.0712436Z [command]/usr/bin/docker buildx version
+2026-11-26T13:23:46.1241574Z github.com/docker/buildx v0.39.0 360040a78d6113dc84e5d4dcdf0f438e1be7a41f
+2026-11-26T13:23:46.1276164Z ##[endgroup]
+2026-11-26T13:23:46.1473042Z ##[group]Inspecting default docker context
+2026-11-26T13:23:46.1631493Z [
+2026-11-26T13:23:46.1632106Z   {
+2026-11-26T13:23:46.1632457Z     "Name": "default",
+2026-11-26T13:23:46.1632985Z     "Metadata": {},
+2026-11-26T13:23:46.1633350Z     "Endpoints": {
+2026-11-26T13:23:46.1633691Z       "docker": {
+2026-11-26T13:23:46.1634045Z         "Host": "unix:///var/run/docker.sock",
+2026-11-26T13:23:46.1634546Z         "SkipTLSVerify": false
+2026-11-26T13:23:46.1634883Z       }
+2026-11-26T13:23:46.1635139Z     },
+2026-11-26T13:23:46.1635343Z     "TLSMaterial": {},
+2026-11-26T13:23:46.1635569Z     "Storage": {
+2026-11-26T13:23:46.1635793Z       "MetadataPath": "<IN MEMORY>",
+2026-11-26T13:23:46.1636059Z       "TLSPath": "<IN MEMORY>"
+2026-11-26T13:23:46.1636298Z     }
+2026-11-26T13:23:46.1636484Z   }
+2026-11-26T13:23:46.1636672Z ]
+2026-11-26T13:23:46.1637182Z ##[endgroup]
+2026-11-26T13:23:46.1637559Z ##[group]Creating a new builder instance
+2026-11-26T13:23:46.3026798Z [command]/usr/bin/docker buildx create --name builder-2b38b2ba-ea3d-4da4-a836-5c0499152675 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+2026-11-26T13:23:46.3890613Z builder-2b38b2ba-ea3d-4da4-a836-5c0499152675
+2026-11-26T13:23:46.3940869Z ##[endgroup]
+2026-11-26T13:23:46.3941874Z ##[group]Booting builder
+2026-11-26T13:23:46.3972384Z [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-2b38b2ba-ea3d-4da4-a836-5c0499152675
+2026-11-26T13:23:46.4595798Z #1 [internal] booting buildkit
+2026-11-26T13:23:46.6096532Z #1 pulling image moby/buildkit:buildx-stable-1
+2026-11-26T13:23:48.6611381Z #1 pulling image moby/buildkit:buildx-stable-1 2.2s done
+2026-11-26T13:23:49.3425449Z #1 creating container buildx_buildkit_builder-2b38b2ba-ea3d-4da4-a836-5c04991526750
+2026-11-26T13:23:50.9712868Z #1 creating container buildx_buildkit_builder-2b38b2ba-ea3d-4da4-a836-5c04991526750 1.6s done
+2026-11-26T13:23:50.9990396Z #1 DONE 4.5s
+2026-11-26T13:23:51.0252686Z Name:          builder-2b38b2ba-ea3d-4da4-a836-5c0499152675
+2026-11-26T13:23:51.0253492Z Driver:        docker-container
+2026-11-26T13:23:51.0275044Z Last Activity: 2026-11-26 13:23:46 +0000 UTC
+2026-11-26T13:23:51.0275786Z 
+2026-11-26T13:23:51.0276225Z Nodes:
+2026-11-26T13:23:51.0276784Z Name:                  builder-2b38b2ba-ea3d-4da4-a836-5c04991526750
+2026-11-26T13:23:51.0278965Z Endpoint:              unix:///var/run/docker.sock
+2026-11-26T13:23:51.0279385Z Status:                running
+2026-11-26T13:23:51.0280067Z BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2026-11-26T13:23:51.0280792Z BuildKit version:      v0.35.1
+2026-11-26T13:23:51.0281229Z Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/amd64/v4, linux/386
+2026-11-26T13:23:51.0281594Z Labels:
+2026-11-26T13:23:51.0281845Z  org.mobyproject.buildkit.worker.executor:         oci
+2026-11-26T13:23:51.0282247Z  org.mobyproject.buildkit.worker.hostname:         f447a5651c3c
+2026-11-26T13:23:51.0282622Z  org.mobyproject.buildkit.worker.network:          host
+2026-11-26T13:23:51.0282980Z  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+2026-11-26T13:23:51.0283354Z  org.mobyproject.buildkit.worker.selinux.enabled:  false
+2026-11-26T13:23:51.0283735Z  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+2026-11-26T13:23:51.0284073Z GC Policy rule#0:
+2026-11-26T13:23:51.0284279Z  All:            false
+2026-11-26T13:23:51.0284600Z  Filters:        type==source.local type==exec.cachemount type==source.git.checkout
+2026-11-26T13:23:51.0284953Z  Keep Duration:  48h0m0s
+2026-11-26T13:23:51.0285174Z  Max Used Space: 488.3MiB
+2026-11-26T13:23:51.0285416Z GC Policy rule#1:
+2026-11-26T13:23:51.0285638Z  All:            false
+2026-11-26T13:23:51.0285941Z  Keep Duration:  1440h0m0s
+2026-11-26T13:23:51.0286164Z  Reserved Space: 9.313GiB
+2026-11-26T13:23:51.0286400Z  Max Used Space: 93.13GiB
+2026-11-26T13:23:51.0286613Z  Min Free Space: 27.01GiB
+2026-11-26T13:23:51.0286823Z GC Policy rule#2:
+2026-11-26T13:23:51.0287017Z  All:            false
+2026-11-26T13:23:51.0287219Z  Reserved Space: 9.313GiB
+2026-11-26T13:23:51.0287436Z  Max Used Space: 93.13GiB
+2026-11-26T13:23:51.0287673Z  Min Free Space: 27.01GiB
+2026-11-26T13:23:51.0287881Z GC Policy rule#3:
+2026-11-26T13:23:51.0288078Z  All:            true
+2026-11-26T13:23:51.0288278Z  Reserved Space: 9.313GiB
+2026-11-26T13:23:51.0288792Z  Max Used Space: 93.13GiB
+2026-11-26T13:23:51.0289158Z  Min Free Space: 27.01GiB
+2026-11-26T13:23:51.0315359Z ##[endgroup]
+2026-11-26T13:23:51.1163578Z ##[group]Inspect builder
+2026-11-26T13:23:51.1216748Z {
+2026-11-26T13:23:51.1217069Z   "nodes": [
+2026-11-26T13:23:51.1217285Z     {
+2026-11-26T13:23:51.1217551Z       "name": "builder-2b38b2ba-ea3d-4da4-a836-5c04991526750",
+2026-11-26T13:23:51.1218033Z       "endpoint": "unix:///var/run/docker.sock",
+2026-11-26T13:23:51.1218549Z       "status": "running",
+2026-11-26T13:23:51.1219138Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2026-11-26T13:23:51.1219633Z       "buildkit": "v0.35.1",
+2026-11-26T13:23:51.1220012Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+2026-11-26T13:23:51.1220367Z       "features": {
+2026-11-26T13:23:51.1220721Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-26T13:23:51.1221080Z         "Cache export": true,
+2026-11-26T13:23:51.1221314Z         "Direct push": true,
+2026-11-26T13:23:51.1221537Z         "Docker exporter": true,
+2026-11-26T13:23:51.1221809Z         "Multi-platform build": true,
+2026-11-26T13:23:51.1222135Z         "OCI exporter": true
+2026-11-26T13:23:51.1222350Z       },
+2026-11-26T13:23:51.1222536Z       "labels": {
+2026-11-26T13:23:51.1222788Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2026-11-26T13:23:51.1223145Z         "org.mobyproject.buildkit.worker.hostname": "f447a5651c3c",
+2026-11-26T13:23:51.1223754Z         "org.mobyproject.buildkit.worker.network": "host",
+2026-11-26T13:23:51.1224126Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2026-11-26T13:23:51.1224520Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2026-11-26T13:23:51.1224891Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2026-11-26T13:23:51.1225191Z       },
+2026-11-26T13:23:51.1225498Z       "gcPolicy": [
+2026-11-26T13:23:51.1225723Z         {
+2026-11-26T13:23:51.1225908Z           "all": false,
+2026-11-26T13:23:51.1226114Z           "filter": [
+2026-11-26T13:23:51.1226434Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+2026-11-26T13:23:51.1226770Z           ],
+2026-11-26T13:23:51.1226982Z           "keepDuration": "48h0m0s",
+2026-11-26T13:23:51.1227228Z           "maxUsedSpace": "488.3MiB"
+2026-11-26T13:23:51.1227456Z         },
+2026-11-26T13:23:51.1227638Z         {
+2026-11-26T13:23:51.1227835Z           "all": false,
+2026-11-26T13:23:51.1228050Z           "keepDuration": "1440h0m0s",
+2026-11-26T13:23:51.1228313Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:51.1228870Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:51.1229126Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:51.1229350Z         },
+2026-11-26T13:23:51.1229522Z         {
+2026-11-26T13:23:51.1229696Z           "all": false,
+2026-11-26T13:23:51.1229910Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:51.1230149Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:51.1230382Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:51.1230595Z         },
+2026-11-26T13:23:51.1230779Z         {
+2026-11-26T13:23:51.1230962Z           "all": true,
+2026-11-26T13:23:51.1231216Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:51.1231471Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:51.1231726Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:51.1231958Z         }
+2026-11-26T13:23:51.1232146Z       ]
+2026-11-26T13:23:51.1232337Z     }
+2026-11-26T13:23:51.1232520Z   ],
+2026-11-26T13:23:51.1232762Z   "name": "builder-2b38b2ba-ea3d-4da4-a836-5c0499152675",
+2026-11-26T13:23:51.1233084Z   "driver": "docker-container",
+2026-11-26T13:23:51.1233352Z   "lastActivity": "2026-11-26T13:23:46.000Z"
+2026-11-26T13:23:51.1233597Z }
+2026-11-26T13:23:51.1234449Z ##[endgroup]
+2026-11-26T13:23:51.1234843Z ##[group]BuildKit version
+2026-11-26T13:23:51.1235137Z builder-2b38b2ba-ea3d-4da4-a836-5c04991526750: v0.35.1
+2026-11-26T13:23:51.1235594Z ##[endgroup]
+﻿2026-11-26T13:23:51.1386333Z ##[group]Run docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9
+2026-11-26T13:23:51.1386687Z with:
+2026-11-26T13:23:51.1386881Z   registry: ghcr.io
+2026-11-26T13:23:51.1387092Z   username: MahdiKacem
+2026-11-26T13:23:51.1389580Z   password: ***
+2026-11-26T13:23:51.1389918Z   logout: true
+2026-11-26T13:23:51.1390141Z env:
+2026-11-26T13:23:51.1390532Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:51.1390974Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:51.1391232Z ##[endgroup]
+2026-11-26T13:23:51.3773821Z Logging into ghcr.io...
+2026-11-26T13:23:51.3792892Z (node:2789) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:23:51.3794094Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:23:51.5614235Z Login Succeeded!
+﻿2026-11-26T13:23:51.5798065Z ##[group]Run docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8
+2026-11-26T13:23:51.5798711Z with:
+2026-11-26T13:23:51.5798906Z   context: .
+2026-11-26T13:23:51.5799104Z   pull: true
+2026-11-26T13:23:51.5799285Z   push: true
+2026-11-26T13:23:51.5799470Z   provenance: false
+2026-11-26T13:23:51.5799784Z   tags: ghcr.io/mahdikacem/tp4-devsecops:07db7e0e356c314fe3aaba8abc2b8897ca5b79a3
+2026-11-26T13:23:51.5800137Z   load: false
+2026-11-26T13:23:51.5800331Z   no-cache: false
+2026-11-26T13:23:51.5802169Z   github-token: ***
+2026-11-26T13:23:51.5802383Z env:
+2026-11-26T13:23:51.5802748Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:51.5803183Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:51.5803434Z ##[endgroup]
+2026-11-26T13:23:51.7787598Z (node:2810) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:23:51.7789092Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:23:51.7804594Z ##[group]GitHub Actions runtime token ACs
+2026-11-26T13:23:51.7812427Z refs/heads/main: read/write
+2026-11-26T13:23:51.7813211Z ##[endgroup]
+2026-11-26T13:23:51.7813872Z ##[group]Docker info
+2026-11-26T13:23:51.7847448Z [command]/usr/bin/docker version
+2026-11-26T13:23:51.8074130Z Client: Docker Engine - Community
+2026-11-26T13:23:51.8074991Z  Version:           29.4.2
+2026-11-26T13:23:51.8075563Z  API version:       1.54
+2026-11-26T13:23:51.8076047Z  Go version:        go1.26.2
+2026-11-26T13:23:51.8076530Z  Git commit:        055a478
+2026-11-26T13:23:51.8077037Z  Built:             Fri May  1 10:24:04 2026
+2026-11-26T13:23:51.8077726Z  OS/Arch:           linux/amd64
+2026-11-26T13:23:51.8078630Z  Context:           default
+2026-11-26T13:23:51.8078961Z 
+2026-11-26T13:23:51.8079271Z Server: Docker Engine - Community
+2026-11-26T13:23:51.8079738Z  Engine:
+2026-11-26T13:23:51.8080163Z   Version:          29.4.2
+2026-11-26T13:23:51.8080668Z   API version:      1.54 (minimum version 1.40)
+2026-11-26T13:23:51.8081211Z   Go version:       go1.26.2
+2026-11-26T13:23:51.8081667Z   Git commit:       d329809
+2026-11-26T13:23:51.8082137Z   Built:            Fri May  1 10:24:04 2026
+2026-11-26T13:23:51.8082645Z   OS/Arch:          linux/amd64
+2026-11-26T13:23:51.8083121Z   Experimental:     false
+2026-11-26T13:23:51.8083584Z  containerd:
+2026-11-26T13:23:51.8083998Z   Version:          v2.4.2
+2026-11-26T13:23:51.8084513Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-26T13:23:51.8085102Z  runc:
+2026-11-26T13:23:51.8085500Z   Version:          1.5.3
+2026-11-26T13:23:51.8085956Z   GitCommit:        v1.5.3-0-g46365c62
+2026-11-26T13:23:51.8086432Z  docker-init:
+2026-11-26T13:23:51.8086826Z   Version:          0.19.0
+2026-11-26T13:23:51.8087260Z   GitCommit:        de40ad0
+2026-11-26T13:23:51.8121693Z [command]/usr/bin/docker info
+2026-11-26T13:23:51.8687089Z Client: Docker Engine - Community
+2026-11-26T13:23:51.8687991Z  Version:    29.4.2
+2026-11-26T13:23:51.8688684Z  Context:    default
+2026-11-26T13:23:51.8689118Z  Debug Mode: false
+2026-11-26T13:23:51.8689560Z  Plugins:
+2026-11-26T13:23:51.8689981Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-26T13:23:51.8690486Z     Version:  v0.39.0
+2026-11-26T13:23:51.8691018Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-26T13:23:51.8691657Z   compose: Docker Compose (Docker Inc.)
+2026-11-26T13:23:51.8692176Z     Version:  v5.1.3
+2026-11-26T13:23:51.8692707Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-26T13:23:51.8693199Z 
+2026-11-26T13:23:51.8693464Z Server:
+2026-11-26T13:23:51.8693896Z  Containers: 1
+2026-11-26T13:23:51.8694320Z   Running: 1
+2026-11-26T13:23:51.8694743Z   Paused: 0
+2026-11-26T13:23:51.8695157Z   Stopped: 0
+2026-11-26T13:23:51.8695571Z  Images: 7
+2026-11-26T13:23:51.8695986Z  Server Version: 29.4.2
+2026-11-26T13:23:51.8696448Z  Storage Driver: overlayfs
+2026-11-26T13:23:51.8696937Z   driver-type: io.containerd.snapshotter.v1
+2026-11-26T13:23:51.8697893Z  Logging Driver: json-file
+2026-11-26T13:23:51.8698482Z  Cgroup Driver: systemd
+2026-11-26T13:23:51.8699013Z  Cgroup Version: 2
+2026-11-26T13:23:51.8699453Z  Plugins:
+2026-11-26T13:23:51.8699863Z   Volume: local
+2026-11-26T13:23:51.8700370Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-26T13:23:51.8701090Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-26T13:23:51.8701774Z  CDI spec directories:
+2026-11-26T13:23:51.8702245Z   /etc/cdi
+2026-11-26T13:23:51.8702660Z   /var/run/cdi
+2026-11-26T13:23:51.8703086Z  Swarm: inactive
+2026-11-26T13:23:51.8703560Z  Runtimes: io.containerd.runc.v2 runc
+2026-11-26T13:23:51.8704086Z  Default Runtime: runc
+2026-11-26T13:23:51.8704543Z  Init Binary: docker-init
+2026-11-26T13:23:51.8705108Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-26T13:23:51.8705761Z  runc version: v1.5.3-0-g46365c62
+2026-11-26T13:23:51.8706285Z  init version: de40ad0
+2026-11-26T13:23:51.8706937Z  Security Options:
+2026-11-26T13:23:51.8707415Z   apparmor
+2026-11-26T13:23:51.8707839Z   seccomp
+2026-11-26T13:23:51.8708272Z    Profile: builtin
+2026-11-26T13:23:51.8709047Z   cgroupns
+2026-11-26T13:23:51.8709475Z  Kernel Version: 7.0.0-1020-azure
+2026-11-26T13:23:51.8709997Z  Operating System: Ubuntu 26.04.1 LTS
+2026-11-26T13:23:51.8710512Z  OSType: linux
+2026-11-26T13:23:51.8710952Z  Architecture: x86_64
+2026-11-26T13:23:51.8711403Z  CPUs: 4
+2026-11-26T13:23:51.8711831Z  Total Memory: 15.61GiB
+2026-11-26T13:23:51.8712305Z  Name: runnervm0hi8g
+2026-11-26T13:23:51.8712782Z  ID: 636b573e-1748-48fb-a027-4a5f710f78e2
+2026-11-26T13:23:51.8713360Z  Docker Root Dir: /var/lib/docker
+2026-11-26T13:23:51.8713867Z  Debug Mode: false
+2026-11-26T13:23:51.8714536Z  Username: githubactions
+2026-11-26T13:23:51.8715181Z  Experimental: false
+2026-11-26T13:23:51.8715910Z  Insecure Registries:
+2026-11-26T13:23:51.8724411Z   ::1/128
+2026-11-26T13:23:51.8742503Z   127.0.0.0/8
+2026-11-26T13:23:51.8743212Z  Live Restore Enabled: false
+2026-11-26T13:23:51.8743981Z  Firewall Backend: iptables
+2026-11-26T13:23:51.8744463Z 
+2026-11-26T13:23:51.8745320Z ##[endgroup]
+2026-11-26T13:23:51.8746273Z ##[group]Proxy configuration
+2026-11-26T13:23:51.8747037Z No proxy configuration found
+2026-11-26T13:23:51.8763037Z ##[endgroup]
+2026-11-26T13:23:51.9478162Z ##[group]Buildx version
+2026-11-26T13:23:51.9494971Z [command]/usr/bin/docker buildx version
+2026-11-26T13:23:51.9986236Z github.com/docker/buildx v0.39.0 360040a78d6113dc84e5d4dcdf0f438e1be7a41f
+2026-11-26T13:23:52.0019339Z ##[endgroup]
+2026-11-26T13:23:52.0019893Z ##[group]Builder info
+2026-11-26T13:23:52.0877091Z {
+2026-11-26T13:23:52.0877498Z   "nodes": [
+2026-11-26T13:23:52.0877736Z     {
+2026-11-26T13:23:52.0878023Z       "name": "builder-2b38b2ba-ea3d-4da4-a836-5c04991526750",
+2026-11-26T13:23:52.0878586Z       "endpoint": "unix:///var/run/docker.sock",
+2026-11-26T13:23:52.0878889Z       "status": "running",
+2026-11-26T13:23:52.0879333Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2026-11-26T13:23:52.0879845Z       "buildkit": "v0.35.1",
+2026-11-26T13:23:52.0880186Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+2026-11-26T13:23:52.0880532Z       "features": {
+2026-11-26T13:23:52.0880819Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-26T13:23:52.0881150Z         "Cache export": true,
+2026-11-26T13:23:52.0881378Z         "Direct push": true,
+2026-11-26T13:23:52.0881615Z         "Docker exporter": true,
+2026-11-26T13:23:52.0881859Z         "Multi-platform build": true,
+2026-11-26T13:23:52.0882133Z         "OCI exporter": true
+2026-11-26T13:23:52.0882344Z       },
+2026-11-26T13:23:52.0882523Z       "labels": {
+2026-11-26T13:23:52.0882766Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2026-11-26T13:23:52.0883135Z         "org.mobyproject.buildkit.worker.hostname": "f447a5651c3c",
+2026-11-26T13:23:52.0883485Z         "org.mobyproject.buildkit.worker.network": "host",
+2026-11-26T13:23:52.0884140Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2026-11-26T13:23:52.0884535Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2026-11-26T13:23:52.0884908Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2026-11-26T13:23:52.0885225Z       },
+2026-11-26T13:23:52.0885409Z       "gcPolicy": [
+2026-11-26T13:23:52.0885599Z         {
+2026-11-26T13:23:52.0885777Z           "all": false,
+2026-11-26T13:23:52.0885983Z           "filter": [
+2026-11-26T13:23:52.0886274Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+2026-11-26T13:23:52.0886593Z           ],
+2026-11-26T13:23:52.0886820Z           "keepDuration": "48h0m0s",
+2026-11-26T13:23:52.0887060Z           "maxUsedSpace": "488.3MiB"
+2026-11-26T13:23:52.0887277Z         },
+2026-11-26T13:23:52.0887449Z         {
+2026-11-26T13:23:52.0887625Z           "all": false,
+2026-11-26T13:23:52.0887978Z           "keepDuration": "1440h0m0s",
+2026-11-26T13:23:52.0888227Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:52.0888682Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:52.0888956Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:52.0889182Z         },
+2026-11-26T13:23:52.0889366Z         {
+2026-11-26T13:23:52.0889545Z           "all": false,
+2026-11-26T13:23:52.0889784Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:52.0890038Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:52.0890273Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:52.0890497Z         },
+2026-11-26T13:23:52.0890669Z         {
+2026-11-26T13:23:52.0890844Z           "all": true,
+2026-11-26T13:23:52.0891050Z           "reservedSpace": "9.313GiB",
+2026-11-26T13:23:52.0891279Z           "maxUsedSpace": "93.13GiB",
+2026-11-26T13:23:52.0891503Z           "minFreeSpace": "27.01GiB"
+2026-11-26T13:23:52.0891734Z         }
+2026-11-26T13:23:52.0891910Z       ]
+2026-11-26T13:23:52.0892091Z     }
+2026-11-26T13:23:52.0892261Z   ],
+2026-11-26T13:23:52.0892522Z   "name": "builder-2b38b2ba-ea3d-4da4-a836-5c0499152675",
+2026-11-26T13:23:52.0892818Z   "driver": "docker-container",
+2026-11-26T13:23:52.0893061Z   "lastActivity": "2026-11-26T13:23:46.000Z"
+2026-11-26T13:23:52.0893302Z }
+2026-11-26T13:23:52.0893868Z ##[endgroup]
+2026-11-26T13:23:52.1565718Z [command]/usr/bin/docker buildx build --iidfile /home/runner/work/_temp/docker-actions-toolkit-0DY2ex/build-iidfile-348d7c7e67.txt --attest type=provenance,disabled=true --tag ghcr.io/mahdikacem/tp4-devsecops:07db7e0e356c314fe3aaba8abc2b8897ca5b79a3 --metadata-file /home/runner/work/_temp/docker-actions-toolkit-0DY2ex/build-metadata-34b248ae97.json --pull --push .
+2026-11-26T13:23:52.4738538Z #0 building with "builder-2b38b2ba-ea3d-4da4-a836-5c0499152675" instance using docker-container driver
+2026-11-26T13:23:52.4739141Z 
+2026-11-26T13:23:52.4739275Z #1 [internal] load build definition from Dockerfile
+2026-11-26T13:23:52.4739585Z #1 transferring dockerfile: 551B done
+2026-11-26T13:23:52.4739872Z #1 DONE 0.0s
+2026-11-26T13:23:52.4740001Z 
+2026-11-26T13:23:52.4740186Z #2 [auth] nginxinc/nginx-unprivileged:pull token for registry-1.docker.io
+2026-11-26T13:23:52.4740518Z #2 DONE 0.0s
+2026-11-26T13:23:52.4740626Z 
+2026-11-26T13:23:52.4741061Z #3 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+2026-11-26T13:23:52.6784582Z #3 DONE 0.4s
+2026-11-26T13:23:52.8411370Z 
+2026-11-26T13:23:52.8412040Z #4 [internal] load .dockerignore
+2026-11-26T13:23:52.8412507Z #4 transferring context: 124B done
+2026-11-26T13:23:52.8413026Z #4 DONE 0.0s
+2026-11-26T13:23:52.8413762Z 
+2026-11-26T13:23:52.8414127Z #5 [internal] load build context
+2026-11-26T13:23:52.8414731Z #5 transferring context: 871B done
+2026-11-26T13:23:52.8415223Z #5 DONE 0.0s
+2026-11-26T13:23:52.8415501Z 
+2026-11-26T13:23:52.8416144Z #6 [1/3] FROM docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+2026-11-26T13:23:52.8417683Z #6 resolve docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7 done
+2026-11-26T13:23:52.8418989Z #6 sha256:ba11abd8fbe489719ae490e8daec4c36f2d77b3ae6a9f8739b00a837228b40e2 1.40kB / 1.40kB 0.0s done
+2026-11-26T13:23:52.8419830Z #6 sha256:be5591e0fb89da30df0304b9663ba39c937c2fa5f09d6f9f3964aa0c6ea9b8c8 965B / 965B 0.0s done
+2026-11-26T13:23:52.8420396Z #6 sha256:f0d04b8df5099f1ca7f24fcfbfe3eae596ed7d5a52751db75e2dceec95d0dd3f 1.20kB / 1.20kB 0.0s done
+2026-11-26T13:23:52.8420944Z #6 sha256:42fc578c1955cb0c7d3d16356c313746c45bee691d7a99789700bd274d612474 403B / 403B 0.0s done
+2026-11-26T13:23:52.8421457Z #6 sha256:98f56d1336e80a6213c7fa6b57a44591d903a5ba0367ffcf7e17d23945a45ae2 628B / 628B 0.0s done
+2026-11-26T13:23:52.8421999Z #6 sha256:3c794113eaed57fcabb112aef3dfa212b90a3716693f9a1880f1b467d16efb22 2.79kB / 2.79kB 0.0s done
+2026-11-26T13:23:52.8422738Z #6 sha256:07332018f47f09de2e232cff8415a4dce3c2fb7129ebb83e2444201db0ae49dc 4.42MB / 4.42MB 0.1s done
+2026-11-26T13:23:52.9423290Z #6 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 3.85MB / 3.85MB 0.1s done
+2026-11-26T13:23:52.9424279Z #6 extracting sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 0.1s done
+2026-11-26T13:23:52.9424933Z #6 DONE 0.3s
+2026-11-26T13:23:53.0435678Z 
+2026-11-26T13:23:53.0437630Z #6 [1/3] FROM docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+2026-11-26T13:23:53.0438801Z #6 extracting sha256:07332018f47f09de2e232cff8415a4dce3c2fb7129ebb83e2444201db0ae49dc 0.1s done
+2026-11-26T13:23:53.0439350Z #6 extracting sha256:3c794113eaed57fcabb112aef3dfa212b90a3716693f9a1880f1b467d16efb22 done
+2026-11-26T13:23:53.0439724Z #6 DONE 0.4s
+2026-11-26T13:23:53.2127716Z 
+2026-11-26T13:23:53.2128950Z #6 [1/3] FROM docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+2026-11-26T13:23:53.2129815Z #6 extracting sha256:98f56d1336e80a6213c7fa6b57a44591d903a5ba0367ffcf7e17d23945a45ae2 done
+2026-11-26T13:23:53.2130337Z #6 extracting sha256:be5591e0fb89da30df0304b9663ba39c937c2fa5f09d6f9f3964aa0c6ea9b8c8 done
+2026-11-26T13:23:53.2130833Z #6 extracting sha256:42fc578c1955cb0c7d3d16356c313746c45bee691d7a99789700bd274d612474 done
+2026-11-26T13:23:53.2131341Z #6 extracting sha256:f0d04b8df5099f1ca7f24fcfbfe3eae596ed7d5a52751db75e2dceec95d0dd3f done
+2026-11-26T13:23:53.2131843Z #6 extracting sha256:ba11abd8fbe489719ae490e8daec4c36f2d77b3ae6a9f8739b00a837228b40e2 done
+2026-11-26T13:23:53.2132211Z #6 DONE 0.4s
+2026-11-26T13:23:53.2132324Z 
+2026-11-26T13:23:53.2132430Z #7 [2/3] RUN apk upgrade --no-cache
+2026-11-26T13:23:53.6209030Z #7 0.558 Preupgrading:
+2026-11-26T13:23:53.6211302Z #7 0.558 (1/2) Upgrading libapk (3.0.8-r0 -> 3.0.9-r0)
+2026-11-26T13:23:53.8176960Z #7 0.566 (2/2) Upgrading apk-tools (3.0.8-r0 -> 3.0.9-r0)
+2026-11-26T13:23:53.8177590Z #7 0.573 Executing busybox-1.37.0-r31.trigger
+2026-11-26T13:23:53.8178044Z #7 0.605 Continuing with the main upgrade transaction:
+2026-11-26T13:23:53.9713642Z #7 0.909 (1/8) Upgrading musl (1.2.6-r2 -> 1.2.6-r3)
+2026-11-26T13:23:54.1040335Z #7 0.921 (2/8) Upgrading alpine-release (3.24.2-r0 -> 3.24.4-r0)
+2026-11-26T13:23:54.1040782Z #7 0.928 (3/8) Upgrading libcrypto3 (3.5.9-r0 -> 3.5.9-r1)
+2026-11-26T13:23:54.1041181Z #7 0.955 (4/8) Upgrading libssl3 (3.5.9-r0 -> 3.5.9-r1)
+2026-11-26T13:23:54.1041475Z #7 0.967 (5/8) Upgrading zlib (1.3.2-r0 -> 1.4-r0)
+2026-11-26T13:23:54.1041890Z #7 0.974 (6/8) Upgrading ca-certificates-bundle (20260909-r0 -> 20261020-r0)
+2026-11-26T13:23:54.1042268Z #7 0.983 (7/8) Upgrading musl-utils (1.2.6-r2 -> 1.2.6-r3)
+2026-11-26T13:23:54.1042665Z #7 0.992 (8/8) Upgrading tzdata (2026e-r0 -> 2026f-r0)
+2026-11-26T13:23:54.1042985Z #7 1.042 Executing busybox-1.37.0-r31.trigger
+2026-11-26T13:23:54.2602680Z #7 1.047 OK: 12.2 MiB in 21 packages
+2026-11-26T13:23:54.3015278Z #7 DONE 1.2s
+2026-11-26T13:23:54.4632753Z 
+2026-11-26T13:23:54.4633464Z #8 [3/3] COPY --chown=101:101 app/ /usr/share/nginx/html/
+2026-11-26T13:23:54.4634163Z #8 DONE 0.0s
+2026-11-26T13:23:54.4634474Z 
+2026-11-26T13:23:54.4634633Z #9 exporting to image
+2026-11-26T13:23:54.4634979Z #9 exporting layers
+2026-11-26T13:23:54.5944875Z #9 exporting layers 0.3s done
+2026-11-26T13:23:54.7883018Z #9 ...
+2026-11-26T13:23:54.7883707Z 
+2026-11-26T13:23:54.7884351Z #10 [auth] mahdikacem/tp4-devsecops:pull,push token for ghcr.io
+2026-11-26T13:23:54.7885156Z #10 DONE 0.0s
+2026-11-26T13:23:54.7885475Z 
+2026-11-26T13:23:54.7885875Z #9 exporting to image
+2026-11-26T13:23:54.7886717Z #9 exporting manifest sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d done
+2026-11-26T13:23:54.7887796Z #9 exporting config sha256:edea61c9d8b0ee115f5beac86f3efae9da0f47d418056b857f56a4577fa4a84e done
+2026-11-26T13:23:54.7888702Z #9 pushing layers
+2026-11-26T13:23:56.9685169Z #9 pushing layers 2.4s done
+2026-11-26T13:23:56.9686621Z #9 pushing manifest for ghcr.io/mahdikacem/tp4-devsecops:07db7e0e356c314fe3aaba8abc2b8897ca5b79a3@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:23:58.0758075Z #9 pushing manifest for ghcr.io/mahdikacem/tp4-devsecops:07db7e0e356c314fe3aaba8abc2b8897ca5b79a3@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d 1.1s done
+2026-11-26T13:23:58.0759223Z #9 DONE 3.8s
+2026-11-26T13:23:58.0931195Z 
+2026-11-26T13:23:58.0931805Z #11 resolving provenance for metadata file
+2026-11-26T13:23:58.0932263Z #11 DONE 0.0s
+2026-11-26T13:23:58.1010272Z ##[group]ImageID
+2026-11-26T13:23:58.1010647Z sha256:edea61c9d8b0ee115f5beac86f3efae9da0f47d418056b857f56a4577fa4a84e
+2026-11-26T13:23:58.1011334Z ##[endgroup]
+2026-11-26T13:23:58.1022570Z ##[group]Digest
+2026-11-26T13:23:58.1023001Z sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:23:58.1023653Z ##[endgroup]
+2026-11-26T13:23:58.1024147Z ##[group]Metadata
+2026-11-26T13:23:58.1024427Z {
+2026-11-26T13:23:58.1024754Z   "buildx.build.provenance": {
+2026-11-26T13:23:58.1025097Z     "builder": {
+2026-11-26T13:23:58.1025363Z       "id": ""
+2026-11-26T13:23:58.1025653Z     },
+2026-11-26T13:23:58.1026020Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2026-11-26T13:23:58.1026469Z     "materials": [
+2026-11-26T13:23:58.1026742Z       {
+2026-11-26T13:23:58.1027679Z         "uri": "pkg:docker/nginxinc/nginx-unprivileged@mainline-alpine-slim?digest=sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7&platform=linux%2Famd64",
+2026-11-26T13:23:58.1028791Z         "digest": {
+2026-11-26T13:23:58.1029273Z           "sha256": "a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7"
+2026-11-26T13:23:58.1029638Z         }
+2026-11-26T13:23:58.1029813Z       }
+2026-11-26T13:23:58.1029987Z     ],
+2026-11-26T13:23:58.1030190Z     "invocation": {
+2026-11-26T13:23:58.1030385Z       "configSource": {
+2026-11-26T13:23:58.1030634Z         "entryPoint": "Dockerfile"
+2026-11-26T13:23:58.1030899Z       },
+2026-11-26T13:23:58.1031153Z       "parameters": {
+2026-11-26T13:23:58.1031391Z         "frontend": "dockerfile.v0",
+2026-11-26T13:23:58.1031651Z         "locals": [
+2026-11-26T13:23:58.1031877Z           {
+2026-11-26T13:23:58.1032083Z             "name": "context"
+2026-11-26T13:23:58.1032316Z           },
+2026-11-26T13:23:58.1032495Z           {
+2026-11-26T13:23:58.1032698Z             "name": "dockerfile"
+2026-11-26T13:23:58.1032933Z           }
+2026-11-26T13:23:58.1033116Z         ],
+2026-11-26T13:23:58.1033295Z         "root": {
+2026-11-26T13:23:58.1033512Z           "configSource": {
+2026-11-26T13:23:58.1033762Z             "path": "Dockerfile"
+2026-11-26T13:23:58.1034008Z           },
+2026-11-26T13:23:58.1034210Z           "request": {
+2026-11-26T13:23:58.1034426Z             "args": {
+2026-11-26T13:23:58.1034659Z               "vcs:localdir:context": ".",
+2026-11-26T13:23:58.1034926Z               "vcs:localdir:dockerfile": ".",
+2026-11-26T13:23:58.1035250Z               "vcs:revision": "07db7e0e356c314fe3aaba8abc2b8897ca5b79a3",
+2026-11-26T13:23:58.1035862Z               "vcs:source": "https://github.com/MahdiKacem/tp4-devsecops"
+2026-11-26T13:23:58.1036161Z             }
+2026-11-26T13:23:58.1036348Z           }
+2026-11-26T13:23:58.1036524Z         },
+2026-11-26T13:23:58.1036720Z         "compatibilityVersion": 30
+2026-11-26T13:23:58.1036947Z       },
+2026-11-26T13:23:58.1037144Z       "environment": {
+2026-11-26T13:23:58.1037360Z         "dockerfileVersion": "1.29.0",
+2026-11-26T13:23:58.1037611Z         "github_actor": "MahdiKacem",
+2026-11-26T13:23:58.1037854Z         "github_actor_id": "145048953",
+2026-11-26T13:23:58.1038106Z         "github_event_name": "push",
+2026-11-26T13:23:58.1038553Z         "github_event_payload": {
+2026-11-26T13:23:58.1038941Z           "after": "07db7e0e356c314fe3aaba8abc2b8897ca5b79a3",
+2026-11-26T13:23:58.1039395Z           "base_ref": null,
+2026-11-26T13:23:58.1039710Z           "before": "0d79d0d86ebfa3fd9190e3d836dea4b6a5757189",
+2026-11-26T13:23:58.1040571Z           "commits": [
+2026-11-26T13:23:58.1040876Z             {
+2026-11-26T13:23:58.1041160Z               "author": {
+2026-11-26T13:23:58.1041499Z                 "email": "mahdi.kacem003@gmail.com",
+2026-11-26T13:23:58.1041903Z                 "name": "mahdiK",
+2026-11-26T13:23:58.1042258Z                 "username": "MahdiKacem"
+2026-11-26T13:23:58.1042610Z               },
+2026-11-26T13:23:58.1042885Z               "committer": {
+2026-11-26T13:23:58.1043257Z                 "email": "mahdi.kacem003@gmail.com",
+2026-11-26T13:23:58.1043629Z                 "name": "mahdiK",
+2026-11-26T13:23:58.1043998Z                 "username": "MahdiKacem"
+2026-11-26T13:23:58.1044369Z               },
+2026-11-26T13:23:58.1044680Z               "distinct": true,
+2026-11-26T13:23:58.1045119Z               "id": "07db7e0e356c314fe3aaba8abc2b8897ca5b79a3",
+2026-11-26T13:23:58.1045957Z               "message": "fix(tests): code de sortie explicite des tests d'admission\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+2026-11-26T13:23:58.1046575Z               "timestamp": "2026-11-26T14:22:31+01:00",
+2026-11-26T13:23:58.1046922Z               "tree_id": "bba263d7b2aea9de998af3654b22796f4af779c5",
+2026-11-26T13:23:58.1047429Z               "url": "https://github.com/MahdiKacem/tp4-devsecops/commit/07db7e0e356c314fe3aaba8abc2b8897ca5b79a3"
+2026-11-26T13:23:58.1047879Z             }
+2026-11-26T13:23:58.1048088Z           ],
+2026-11-26T13:23:58.1048664Z           "compare": "https://github.com/MahdiKacem/tp4-devsecops/compare/0d79d0d86ebf...07db7e0e356c",
+2026-11-26T13:23:58.1049110Z           "created": false,
+2026-11-26T13:23:58.1049351Z           "deleted": false,
+2026-11-26T13:23:58.1049576Z           "forced": false,
+2026-11-26T13:23:58.1049806Z           "head_commit": {
+2026-11-26T13:23:58.1050040Z             "author": {
+2026-11-26T13:23:58.1050307Z               "email": "mahdi.kacem003@gmail.com",
+2026-11-26T13:23:58.1050604Z               "name": "mahdiK",
+2026-11-26T13:23:58.1050858Z               "username": "MahdiKacem"
+2026-11-26T13:23:58.1051107Z             },
+2026-11-26T13:23:58.1051316Z             "committer": {
+2026-11-26T13:23:58.1051553Z               "email": "mahdi.kacem003@gmail.com",
+2026-11-26T13:23:58.1051817Z               "name": "mahdiK",
+2026-11-26T13:23:58.1052066Z               "username": "MahdiKacem"
+2026-11-26T13:23:58.1052305Z             },
+2026-11-26T13:23:58.1052509Z             "distinct": true,
+2026-11-26T13:23:58.1052785Z             "id": "07db7e0e356c314fe3aaba8abc2b8897ca5b79a3",
+2026-11-26T13:23:58.1053339Z             "message": "fix(tests): code de sortie explicite des tests d'admission\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+2026-11-26T13:23:58.1053883Z             "timestamp": "2026-11-26T14:22:31+01:00",
+2026-11-26T13:23:58.1054212Z             "tree_id": "bba263d7b2aea9de998af3654b22796f4af779c5",
+2026-11-26T13:23:58.1054703Z             "url": "https://github.com/MahdiKacem/tp4-devsecops/commit/07db7e0e356c314fe3aaba8abc2b8897ca5b79a3"
+2026-11-26T13:23:58.1055418Z           },
+2026-11-26T13:23:58.1055624Z           "pusher": {
+2026-11-26T13:23:58.1055900Z             "email": "145048953+MahdiKacem@users.noreply.github.com",
+2026-11-26T13:23:58.1056220Z             "name": "MahdiKacem"
+2026-11-26T13:23:58.1056471Z           },
+2026-11-26T13:23:58.1056683Z           "ref": "refs/heads/main",
+2026-11-26T13:23:58.1056941Z           "repository": {
+2026-11-26T13:23:58.1057183Z             "allow_forking": true,
+2026-11-26T13:23:58.1057593Z             "archive_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/{archive_format}{/ref}",
+2026-11-26T13:23:58.1058026Z             "archived": false,
+2026-11-26T13:23:58.1059051Z             "assignees_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/assignees{/user}",
+2026-11-26T13:23:58.1059844Z             "blobs_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/git/blobs{/sha}",
+2026-11-26T13:23:58.1060513Z             "branches_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/branches{/branch}",
+2026-11-26T13:23:58.1061164Z             "clone_url": "https://github.com/MahdiKacem/tp4-devsecops.git",
+2026-11-26T13:23:58.1061723Z             "collaborators_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/collaborators{/collaborator}",
+2026-11-26T13:23:58.1062349Z             "comments_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/comments{/number}",
+2026-11-26T13:23:58.1062831Z             "commits_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/commits{/sha}",
+2026-11-26T13:23:58.1063315Z             "compare_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/compare/{base}...{head}",
+2026-11-26T13:23:58.1063810Z             "contents_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/contents/{+path}",
+2026-11-26T13:23:58.1064314Z             "contributors_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/contributors",
+2026-11-26T13:23:58.1064706Z             "created_at": 1795698812,
+2026-11-26T13:23:58.1064954Z             "default_branch": "main",
+2026-11-26T13:23:58.1065320Z             "deployments_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/deployments",
+2026-11-26T13:23:58.1065689Z             "description": null,
+2026-11-26T13:23:58.1065953Z             "disabled": false,
+2026-11-26T13:23:58.1066584Z             "downloads_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/downloads",
+2026-11-26T13:23:58.1067260Z             "events_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/events",
+2026-11-26T13:23:58.1067603Z             "fork": false,
+2026-11-26T13:23:58.1067807Z             "forks": 0,
+2026-11-26T13:23:58.1068013Z             "forks_count": 0,
+2026-11-26T13:23:58.1068320Z             "forks_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/forks",
+2026-11-26T13:23:58.1068845Z             "full_name": "MahdiKacem/tp4-devsecops",
+2026-11-26T13:23:58.1069282Z             "git_commits_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/git/commits{/sha}",
+2026-11-26T13:23:58.1069838Z             "git_refs_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/git/refs{/sha}",
+2026-11-26T13:23:58.1070322Z             "git_tags_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/git/tags{/sha}",
+2026-11-26T13:23:58.1070733Z             "git_url": "git://github.com/MahdiKacem/tp4-devsecops.git",
+2026-11-26T13:23:58.1071036Z             "has_discussions": false,
+2026-11-26T13:23:58.1071271Z             "has_downloads": true,
+2026-11-26T13:23:58.1071499Z             "has_issues": true,
+2026-11-26T13:23:58.1071721Z             "has_pages": false,
+2026-11-26T13:23:58.1072146Z             "has_projects": true,
+2026-11-26T13:23:58.1072483Z             "has_pull_requests": true,
+2026-11-26T13:23:58.1072829Z             "has_wiki": true,
+2026-11-26T13:23:58.1073153Z             "homepage": null,
+2026-11-26T13:23:58.1073618Z             "hooks_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/hooks",
+2026-11-26T13:23:58.1074309Z             "html_url": "https://github.com/MahdiKacem/tp4-devsecops",
+2026-11-26T13:23:58.1074597Z             "id": 1473182122,
+2026-11-26T13:23:58.1074808Z             "is_template": false,
+2026-11-26T13:23:58.1075190Z             "issue_comment_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/issues/comments{/number}",
+2026-11-26T13:23:58.1075735Z             "issue_events_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/issues/events{/number}",
+2026-11-26T13:23:58.1076236Z             "issues_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/issues{/number}",
+2026-11-26T13:23:58.1076695Z             "keys_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/keys{/key_id}",
+2026-11-26T13:23:58.1077148Z             "labels_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/labels{/name}",
+2026-11-26T13:23:58.1077506Z             "language": "PowerShell",
+2026-11-26T13:23:58.1077963Z             "languages_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/languages",
+2026-11-26T13:23:58.1078324Z             "license": null,
+2026-11-26T13:23:58.1078748Z             "master_branch": "main",
+2026-11-26T13:23:58.1079089Z             "merges_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/merges",
+2026-11-26T13:23:58.1079566Z             "milestones_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/milestones{/number}",
+2026-11-26T13:23:58.1079942Z             "mirror_url": null,
+2026-11-26T13:23:58.1080163Z             "name": "tp4-devsecops",
+2026-11-26T13:23:58.1080397Z             "node_id": "R_kgDOV875qg",
+2026-11-26T13:23:58.1080839Z             "notifications_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/notifications{?since,all,participating}",
+2026-11-26T13:23:58.1081284Z             "open_issues": 5,
+2026-11-26T13:23:58.1081501Z             "open_issues_count": 5,
+2026-11-26T13:23:58.1081727Z             "owner": {
+2026-11-26T13:23:58.1082028Z               "avatar_url": "https://avatars.githubusercontent.com/u/145048953?v=4",
+2026-11-26T13:23:58.1082416Z               "email": "145048953+MahdiKacem@users.noreply.github.com",
+2026-11-26T13:23:58.1082795Z               "events_url": "https://api.github.com/users/MahdiKacem/events{/privacy}",
+2026-11-26T13:23:58.1083211Z               "followers_url": "https://api.github.com/users/MahdiKacem/followers",
+2026-11-26T13:23:58.1083637Z               "following_url": "https://api.github.com/users/MahdiKacem/following{/other_user}",
+2026-11-26T13:23:58.1084063Z               "gists_url": "https://api.github.com/users/MahdiKacem/gists{/gist_id}",
+2026-11-26T13:23:58.1084383Z               "gravatar_id": "",
+2026-11-26T13:23:58.1084640Z               "html_url": "https://github.com/MahdiKacem",
+2026-11-26T13:23:58.1084910Z               "id": 145048953,
+2026-11-26T13:23:58.1085119Z               "login": "MahdiKacem",
+2026-11-26T13:23:58.1085353Z               "name": "MahdiKacem",
+2026-11-26T13:23:58.1085592Z               "node_id": "U_kgDOCKVFeQ",
+2026-11-26T13:23:58.1085914Z               "organizations_url": "https://api.github.com/users/MahdiKacem/orgs",
+2026-11-26T13:23:58.1086345Z               "received_events_url": "https://api.github.com/users/MahdiKacem/received_events",
+2026-11-26T13:23:58.1086759Z               "repos_url": "https://api.github.com/users/MahdiKacem/repos",
+2026-11-26T13:23:58.1087229Z               "site_admin": false,
+2026-11-26T13:23:58.1087758Z               "starred_url": "https://api.github.com/users/MahdiKacem/starred{/owner}{/repo}",
+2026-11-26T13:23:58.1088564Z               "subscriptions_url": "https://api.github.com/users/MahdiKacem/subscriptions",
+2026-11-26T13:23:58.1089114Z               "type": "User",
+2026-11-26T13:23:58.1089500Z               "url": "https://api.github.com/users/MahdiKacem",
+2026-11-26T13:23:58.1089934Z               "user_view_type": "public"
+2026-11-26T13:23:58.1090284Z             },
+2026-11-26T13:23:58.1090565Z             "private": false,
+2026-11-26T13:23:58.1090935Z             "pull_request_creation_policy": "all",
+2026-11-26T13:23:58.1091694Z             "pulls_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/pulls{/number}",
+2026-11-26T13:23:58.1092259Z             "pushed_at": 1795699359,
+2026-11-26T13:23:58.1092806Z             "releases_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/releases{/id}",
+2026-11-26T13:23:58.1093363Z             "size": 0,
+2026-11-26T13:23:58.1093750Z             "ssh_url": "git@github.com:MahdiKacem/tp4-devsecops.git",
+2026-11-26T13:23:58.1094198Z             "stargazers": 0,
+2026-11-26T13:23:58.1094521Z             "stargazers_count": 0,
+2026-11-26T13:23:58.1095062Z             "stargazers_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/stargazers",
+2026-11-26T13:23:58.1095816Z             "statuses_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/statuses/{sha}",
+2026-11-26T13:23:58.1096585Z             "subscribers_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/subscribers",
+2026-11-26T13:23:58.1097519Z             "subscription_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/subscription",
+2026-11-26T13:23:58.1098185Z             "svn_url": "https://github.com/MahdiKacem/tp4-devsecops",
+2026-11-26T13:23:58.1099045Z             "tags_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/tags",
+2026-11-26T13:23:58.1099727Z             "teams_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/teams",
+2026-11-26T13:23:58.1100244Z             "topics": [],
+2026-11-26T13:23:58.1100753Z             "trees_url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops/git/trees{/sha}",
+2026-11-26T13:23:58.1101334Z             "updated_at": "2026-11-26T13:14:15Z",
+2026-11-26T13:23:58.1101803Z             "url": "https://api.github.com/repos/MahdiKacem/tp4-devsecops",
+2026-11-26T13:23:58.1102290Z             "visibility": "public",
+2026-11-26T13:23:58.1102687Z             "watchers": 0,
+2026-11-26T13:23:58.1103024Z             "watchers_count": 0,
+2026-11-26T13:23:58.1103415Z             "web_commit_signoff_required": false
+2026-11-26T13:23:58.1103809Z           },
+2026-11-26T13:23:58.1104078Z           "sender": {
+2026-11-26T13:23:58.1104503Z             "avatar_url": "https://avatars.githubusercontent.com/u/145048953?v=4",
+2026-11-26T13:23:58.1105126Z             "events_url": "https://api.github.com/users/MahdiKacem/events{/privacy}",
+2026-11-26T13:23:58.1105734Z             "followers_url": "https://api.github.com/users/MahdiKacem/followers",
+2026-11-26T13:23:58.1106395Z             "following_url": "https://api.github.com/users/MahdiKacem/following{/other_user}",
+2026-11-26T13:23:58.1107070Z             "gists_url": "https://api.github.com/users/MahdiKacem/gists{/gist_id}",
+2026-11-26T13:23:58.1107572Z             "gravatar_id": "",
+2026-11-26T13:23:58.1107950Z             "html_url": "https://github.com/MahdiKacem",
+2026-11-26T13:23:58.1108495Z             "id": 145048953,
+2026-11-26T13:23:58.1108829Z             "login": "MahdiKacem",
+2026-11-26T13:23:58.1109187Z             "node_id": "U_kgDOCKVFeQ",
+2026-11-26T13:23:58.1109692Z             "organizations_url": "https://api.github.com/users/MahdiKacem/orgs",
+2026-11-26T13:23:58.1110380Z             "received_events_url": "https://api.github.com/users/MahdiKacem/received_events",
+2026-11-26T13:23:58.1111035Z             "repos_url": "https://api.github.com/users/MahdiKacem/repos",
+2026-11-26T13:23:58.1111555Z             "site_admin": false,
+2026-11-26T13:23:58.1112074Z             "starred_url": "https://api.github.com/users/MahdiKacem/starred{/owner}{/repo}",
+2026-11-26T13:23:58.1112794Z             "subscriptions_url": "https://api.github.com/users/MahdiKacem/subscriptions",
+2026-11-26T13:23:58.1113340Z             "type": "User",
+2026-11-26T13:23:58.1113729Z             "url": "https://api.github.com/users/MahdiKacem",
+2026-11-26T13:23:58.1114167Z             "user_view_type": "public"
+2026-11-26T13:23:58.1114517Z           }
+2026-11-26T13:23:58.1114783Z         },
+2026-11-26T13:23:58.1115071Z         "github_job": "publish",
+2026-11-26T13:23:58.1115628Z         "github_ref": "refs/heads/main",
+2026-11-26T13:23:58.1116011Z         "github_ref_name": "main",
+2026-11-26T13:23:58.1116377Z         "github_ref_protected": "false",
+2026-11-26T13:23:58.1116744Z         "github_ref_type": "branch",
+2026-11-26T13:23:58.1117139Z         "github_repository": "MahdiKacem/tp4-devsecops",
+2026-11-26T13:23:58.1117527Z         "github_repository_id": "1473182122",
+2026-11-26T13:23:58.1117876Z         "github_repository_owner": "MahdiKacem",
+2026-11-26T13:23:58.1118246Z         "github_repository_owner_id": "145048953",
+2026-11-26T13:23:58.1118733Z         "github_run_attempt": "1",
+2026-11-26T13:23:58.1119081Z         "github_run_id": "45828547561",
+2026-11-26T13:23:58.1119451Z         "github_run_number": "8",
+2026-11-26T13:23:58.1119800Z         "github_runner_arch": "X64",
+2026-11-26T13:23:58.1120204Z         "github_runner_environment": "github-hosted",
+2026-11-26T13:23:58.1120762Z         "github_runner_image_os": "ubuntu26",
+2026-11-26T13:23:58.1121215Z         "github_runner_image_version": "20261116.202.1",
+2026-11-26T13:23:58.1121646Z         "github_runner_name": "GitHub Actions 1000000060",
+2026-11-26T13:23:58.1122074Z         "github_runner_os": "Linux",
+2026-11-26T13:23:58.1122542Z         "github_runner_tracking_id": "github_8745552e-5c5e-4069-90c7-8ff1d53254d2",
+2026-11-26T13:23:58.1123093Z         "github_server_url": "https://github.com",
+2026-11-26T13:23:58.1123515Z         "github_triggering_actor": "MahdiKacem",
+2026-11-26T13:23:58.1123916Z         "github_workflow": "Secure build",
+2026-11-26T13:23:58.1124580Z         "github_workflow_ref": "MahdiKacem/tp4-devsecops/.github/workflows/secure-build.yml@refs/heads/main",
+2026-11-26T13:23:58.1125314Z         "github_workflow_sha": "07db7e0e356c314fe3aaba8abc2b8897ca5b79a3",
+2026-11-26T13:23:58.1125712Z         "platform": "linux/amd64"
+2026-11-26T13:23:58.1125944Z       }
+2026-11-26T13:23:58.1126121Z     }
+2026-11-26T13:23:58.1126303Z   },
+2026-11-26T13:23:58.1126757Z   "buildx.build.ref": "builder-2b38b2ba-ea3d-4da4-a836-5c0499152675/builder-2b38b2ba-ea3d-4da4-a836-5c04991526750/lmdrsm3c1t22frhhhqogenue3",
+2026-11-26T13:23:58.1127492Z   "containerimage.config.digest": "sha256:edea61c9d8b0ee115f5beac86f3efae9da0f47d418056b857f56a4577fa4a84e",
+2026-11-26T13:23:58.1127932Z   "containerimage.descriptor": {
+2026-11-26T13:23:58.1128235Z     "mediaType": "application/vnd.oci.image.manifest.v1+json",
+2026-11-26T13:23:58.1128835Z     "digest": "sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d",
+2026-11-26T13:23:58.1129194Z     "size": 2185,
+2026-11-26T13:23:58.1129394Z     "platform": {
+2026-11-26T13:23:58.1129595Z       "architecture": "amd64",
+2026-11-26T13:23:58.1129814Z       "os": "linux"
+2026-11-26T13:23:58.1130000Z     }
+2026-11-26T13:23:58.1130173Z   },
+2026-11-26T13:23:58.1130503Z   "containerimage.digest": "sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d",
+2026-11-26T13:23:58.1131035Z   "image.name": "ghcr.io/mahdikacem/tp4-devsecops:07db7e0e356c314fe3aaba8abc2b8897ca5b79a3"
+2026-11-26T13:23:58.1131397Z }
+2026-11-26T13:23:58.1131768Z ##[endgroup]
+2026-11-26T13:23:58.1132110Z ##[group]Reference
+2026-11-26T13:23:58.1132531Z builder-2b38b2ba-ea3d-4da4-a836-5c0499152675/builder-2b38b2ba-ea3d-4da4-a836-5c04991526750/lmdrsm3c1t22frhhhqogenue3
+2026-11-26T13:23:58.1133106Z ##[endgroup]
+2026-11-26T13:23:58.1133425Z ##[group]Check build summary support
+2026-11-26T13:23:58.1133792Z Build summary supported!
+2026-11-26T13:23:58.1134122Z ##[endgroup]
+﻿2026-11-26T13:23:58.1194292Z ##[group]Run echo "image=${IMAGE}@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d" >> "$GITHUB_OUTPUT"
+2026-11-26T13:23:58.1195046Z echo "image=${IMAGE}@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d" >> "$GITHUB_OUTPUT"
+2026-11-26T13:23:58.1195538Z mkdir -p reports
+2026-11-26T13:23:58.1224595Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:23:58.1224836Z env:
+2026-11-26T13:23:58.1225221Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.1225667Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.1225927Z ##[endgroup]
+﻿2026-11-26T13:23:58.1443912Z ##[group]Run aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
+2026-11-26T13:23:58.1444289Z with:
+2026-11-26T13:23:58.1444699Z   image-ref: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:23:58.1445153Z   severity: CRITICAL,HIGH
+2026-11-26T13:23:58.1445375Z   exit-code: 1
+2026-11-26T13:23:58.1445573Z   scan-type: image
+2026-11-26T13:23:58.1445769Z   scan-ref: .
+2026-11-26T13:23:58.1446071Z   ignore-unfixed: false
+2026-11-26T13:23:58.1446282Z   vuln-type: os,library
+2026-11-26T13:23:58.1446487Z   format: table
+2026-11-26T13:23:58.1446772Z   cache-dir: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:23:58.1447102Z   list-all-pkgs: false
+2026-11-26T13:23:58.1447472Z   version: v0.70.0
+2026-11-26T13:23:58.1447672Z   cache: true
+2026-11-26T13:23:58.1447868Z   skip-setup-trivy: false
+2026-11-26T13:23:58.1449948Z   token-setup-trivy: ***
+2026-11-26T13:23:58.1450189Z env:
+2026-11-26T13:23:58.1450559Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.1451027Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.1451275Z ##[endgroup]
+2026-11-26T13:23:58.1501043Z ##[start-action display=Install Trivy;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy]
+2026-11-26T13:23:58.1582321Z ##[group]Run aquasecurity/setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514
+2026-11-26T13:23:58.1582676Z with:
+2026-11-26T13:23:58.1582870Z   version: v0.70.0
+2026-11-26T13:23:58.1583069Z   cache: true
+2026-11-26T13:23:58.1584894Z   token: ***
+2026-11-26T13:23:58.1585112Z   path: $HOME/.local/bin
+2026-11-26T13:23:58.1585363Z   github-server-url: https://github.com
+2026-11-26T13:23:58.1585627Z env:
+2026-11-26T13:23:58.1585994Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.1586423Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.1586676Z ##[endgroup]
+2026-11-26T13:23:58.1592287Z ##[start-action display=Binary dir;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.binary-dir]
+2026-11-26T13:23:58.1607017Z ##[group]Run echo "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT
+2026-11-26T13:23:58.1607418Z echo "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT
+2026-11-26T13:23:58.1636316Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:23:58.1636638Z env:
+2026-11-26T13:23:58.1637000Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.1637457Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.1637706Z ##[endgroup]
+2026-11-26T13:23:58.1692947Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.binary-dir;outcome=success;conclusion=success;duration_ms=9]
+2026-11-26T13:23:58.1695071Z ##[start-action display=Check the version for caching;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run]
+2026-11-26T13:23:58.1700714Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:23:58.1702615Z ##[start-action display=Restore Trivy binary from cache;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.cache]
+2026-11-26T13:23:58.1736069Z ##[group]Run actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb
+2026-11-26T13:23:58.1736424Z with:
+2026-11-26T13:23:58.1736645Z   path: /home/runner/.local/bin/trivy-bin
+2026-11-26T13:23:58.1736919Z   key: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:23:58.1737180Z   enableCrossOsArchive: false
+2026-11-26T13:23:58.1737420Z   fail-on-cache-miss: false
+2026-11-26T13:23:58.1737643Z   lookup-only: false
+2026-11-26T13:23:58.1737854Z env:
+2026-11-26T13:23:58.1738215Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.1738846Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.1739105Z ##[endgroup]
+2026-11-26T13:23:58.3691650Z Cache hit for: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:23:58.7073752Z Received 43744456 of 43744456 (100.0%), 142.4 MBs/sec
+2026-11-26T13:23:58.7074307Z Cache Size: ~42 MB (43744456 B)
+2026-11-26T13:23:58.7093819Z [command]/usr/bin/tar -xf /home/runner/work/_temp/09ff9b4a-232c-4637-a9f4-dd6786268edb/cache.tzst -P -C /home/runner/work/tp4-devsecops/tp4-devsecops --use-compress-program unzstd
+2026-11-26T13:23:58.9127923Z Cache restored successfully
+2026-11-26T13:23:58.9281232Z Cache restored from key: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:23:58.9415697Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.cache;outcome=success;conclusion=success;duration_ms=771]
+2026-11-26T13:23:58.9418849Z ##[start-action display=Checkout install script;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__actions_checkout]
+2026-11-26T13:23:58.9425383Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__actions_checkout;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:23:58.9427402Z ##[start-action display=Install Trivy;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run_2]
+2026-11-26T13:23:58.9431871Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:23:58.9433721Z ##[start-action display=Add Trivy binary to $GITHUB_PATH;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run_3]
+2026-11-26T13:23:58.9451533Z ##[group]Run echo /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH
+2026-11-26T13:23:58.9451957Z echo /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH
+2026-11-26T13:23:58.9480997Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:23:58.9481342Z env:
+2026-11-26T13:23:58.9481723Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.9482166Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.9482425Z ##[endgroup]
+2026-11-26T13:23:58.9536876Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__run_3;outcome=success;conclusion=success;duration_ms=10]
+2026-11-26T13:23:58.9539100Z ##[start-action display=Save Trivy binary to cache;id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__actions_cache]
+2026-11-26T13:23:58.9545583Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:23:58.9556258Z ##[end-action id=__aquasecurity_trivy-action.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=805]
+2026-11-26T13:23:58.9558071Z ##[start-action display=Get current date;id=__aquasecurity_trivy-action.date]
+2026-11-26T13:23:58.9572849Z ##[group]Run echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+2026-11-26T13:23:58.9573249Z echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+2026-11-26T13:23:58.9601586Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:23:58.9601926Z env:
+2026-11-26T13:23:58.9602315Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.9602779Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.9603043Z ##[endgroup]
+2026-11-26T13:23:58.9685663Z ##[end-action id=__aquasecurity_trivy-action.date;outcome=success;conclusion=success;duration_ms=12]
+2026-11-26T13:23:58.9687535Z ##[start-action display=Restore DB from cache;id=__aquasecurity_trivy-action.__actions_cache]
+2026-11-26T13:23:58.9725905Z ##[group]Run actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+2026-11-26T13:23:58.9726222Z with:
+2026-11-26T13:23:58.9726495Z   path: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:23:58.9726843Z   key: cache-trivy-2026-11-26
+2026-11-26T13:23:58.9727097Z   restore-keys: cache-trivy-
+2026-11-26T13:23:58.9727343Z   enableCrossOsArchive: false
+2026-11-26T13:23:58.9727582Z   fail-on-cache-miss: false
+2026-11-26T13:23:58.9727812Z   lookup-only: false
+2026-11-26T13:23:58.9728199Z   save-always: false
+2026-11-26T13:23:58.9728611Z env:
+2026-11-26T13:23:58.9728977Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:23:58.9729418Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:23:58.9729688Z ##[endgroup]
+2026-11-26T13:23:59.1567231Z Cache hit for: cache-trivy-2026-11-26
+2026-11-26T13:23:59.7155726Z Received 103259577 of 103259577 (100.0%), 200.6 MBs/sec
+2026-11-26T13:23:59.7156121Z Cache Size: ~98 MB (103259577 B)
+2026-11-26T13:23:59.7180692Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f10f7471-7b1b-4255-b3d4-d294151b68c2/cache.tzst -P -C /home/runner/work/tp4-devsecops/tp4-devsecops --use-compress-program unzstd
+2026-11-26T13:24:01.5883059Z Cache restored successfully
+2026-11-26T13:24:01.5987105Z Cache restored from key: cache-trivy-2026-11-26
+2026-11-26T13:24:01.6164781Z ##[end-action id=__aquasecurity_trivy-action.__actions_cache;outcome=success;conclusion=success;duration_ms=2647]
+2026-11-26T13:24:01.6168281Z ##[start-action display=Set GitHub Path;id=__aquasecurity_trivy-action.__run]
+2026-11-26T13:24:01.7278690Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-11-26T13:24:01.7279252Z echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-11-26T13:24:01.8369892Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:01.8370428Z env:
+2026-11-26T13:24:01.8370873Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:01.8371362Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:01.8371833Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/aquasecurity/trivy-action/ed142fd0673e97e23eac54620cfb913e5ce36c25
+2026-11-26T13:24:01.8372311Z ##[endgroup]
+2026-11-26T13:24:01.8438051Z ##[end-action id=__aquasecurity_trivy-action.__run;outcome=success;conclusion=success;duration_ms=226]
+2026-11-26T13:24:01.8440610Z ##[start-action display=Clear Trivy Envs file;id=__aquasecurity_trivy-action.__run_2]
+2026-11-26T13:24:01.9692292Z ##[group]Run rm -f trivy_envs.txt
+2026-11-26T13:24:01.9692757Z rm -f trivy_envs.txt
+2026-11-26T13:24:01.9693137Z touch trivy_envs.txt
+2026-11-26T13:24:01.9733490Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:01.9734012Z env:
+2026-11-26T13:24:01.9734647Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:01.9735383Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:01.9735810Z ##[endgroup]
+2026-11-26T13:24:02.0820117Z ##[end-action id=__aquasecurity_trivy-action.__run_2;outcome=success;conclusion=success;duration_ms=237]
+2026-11-26T13:24:02.0825296Z ##[start-action display=Set Trivy environment variables;id=__aquasecurity_trivy-action.__run_3]
+2026-11-26T13:24:02.0852547Z ##[group]Run # Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.
+2026-11-26T13:24:02.0853378Z # Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.
+2026-11-26T13:24:02.0854246Z # This limitation affects how we handle default values and empty inputs.
+2026-11-26T13:24:02.0854955Z # For more information, see: https://github.com/actions/runner/issues/924
+2026-11-26T13:24:02.0855479Z 
+2026-11-26T13:24:02.0855970Z # The following logic implements the configuration priority described in the README:
+2026-11-26T13:24:02.0856537Z #
+2026-11-26T13:24:02.0856844Z # Inputs
+2026-11-26T13:24:02.0857162Z # Environment Variables
+2026-11-26T13:24:02.0857538Z # Config File
+2026-11-26T13:24:02.0857873Z # Defaults
+2026-11-26T13:24:02.0858135Z #
+2026-11-26T13:24:02.0858679Z # As noted above defaults are awkward to handle as GitHub Actions will inject those values as the input
+2026-11-26T13:24:02.0859265Z # if the caller doesn't provide them, thus if the input matches the default we don't set it as we
+2026-11-26T13:24:02.0860009Z # can't tell the difference.  Plus if we did set it when it was the default value then it could potentially
+2026-11-26T13:24:02.0861006Z # override an external environment variable, or something in the callers configuration file, which then wouldn't
+2026-11-26T13:24:02.0861774Z # match the configuration priority that is documented.
+2026-11-26T13:24:02.0862265Z set_env_var_if_provided() {
+2026-11-26T13:24:02.0862644Z   local var_name="$1"
+2026-11-26T13:24:02.0863004Z   local input_value="$2"
+2026-11-26T13:24:02.0863372Z   local default_value="$3"
+2026-11-26T13:24:02.0863903Z 
+2026-11-26T13:24:02.0864322Z   if [ -n "$input_value" ] && [ "$input_value" != "$default_value" ]; then
+2026-11-26T13:24:02.0864880Z     # If action was provided with explicit input by the caller set that
+2026-11-26T13:24:02.0865354Z     # Use printf %q to safely escape special characters and prevent command injection
+2026-11-26T13:24:02.0865818Z     printf 'export %s=%q\n' "$var_name" "$input_value" >> trivy_envs.txt
+2026-11-26T13:24:02.0866152Z   fi
+2026-11-26T13:24:02.0866354Z }
+2026-11-26T13:24:02.0866644Z 
+2026-11-26T13:24:02.0867055Z # Set environment variables, handling those with default values
+2026-11-26T13:24:02.0867808Z # cf. https://aquasecurity.github.io/trivy/latest/docs/configuration/#environment-variables
+2026-11-26T13:24:02.0868634Z set_env_var_if_provided "TRIVY_INPUT" "$INPUT_INPUT" ""
+2026-11-26T13:24:02.0869210Z set_env_var_if_provided "TRIVY_EXIT_CODE" "$INPUT_EXIT_CODE" ""
+2026-11-26T13:24:02.0869870Z set_env_var_if_provided "TRIVY_IGNORE_UNFIXED" "$INPUT_IGNORE_UNFIXED" "false"
+2026-11-26T13:24:02.0870565Z set_env_var_if_provided "TRIVY_PKG_TYPES" "$INPUT_VULN_TYPE" "os,library"
+2026-11-26T13:24:02.0871335Z set_env_var_if_provided "TRIVY_SEVERITY" "$INPUT_SEVERITY" "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+2026-11-26T13:24:02.0871848Z set_env_var_if_provided "TRIVY_FORMAT" "$INPUT_FORMAT" "table"
+2026-11-26T13:24:02.0872230Z set_env_var_if_provided "TRIVY_TEMPLATE" "$INPUT_TEMPLATE" ""
+2026-11-26T13:24:02.0872616Z set_env_var_if_provided "TRIVY_OUTPUT" "$INPUT_OUTPUT" ""
+2026-11-26T13:24:02.0872992Z set_env_var_if_provided "TRIVY_SKIP_DIRS" "$INPUT_SKIP_DIRS" ""
+2026-11-26T13:24:02.0873386Z set_env_var_if_provided "TRIVY_SKIP_FILES" "$INPUT_SKIP_FILES" ""
+2026-11-26T13:24:02.0873770Z set_env_var_if_provided "TRIVY_TIMEOUT" "$INPUT_TIMEOUT" ""
+2026-11-26T13:24:02.0874184Z set_env_var_if_provided "TRIVY_IGNORE_POLICY" "$INPUT_IGNORE_POLICY" ""
+2026-11-26T13:24:02.0874607Z set_env_var_if_provided "TRIVY_QUIET" "$INPUT_HIDE_PROGRESS" ""
+2026-11-26T13:24:02.0875022Z set_env_var_if_provided "TRIVY_LIST_ALL_PKGS" "$INPUT_LIST_ALL_PKGS" "false"
+2026-11-26T13:24:02.0875444Z set_env_var_if_provided "TRIVY_SCANNERS" "$INPUT_SCANNERS" ""
+2026-11-26T13:24:02.0875816Z set_env_var_if_provided "TRIVY_CONFIG" "$INPUT_TRIVY_CONFIG" ""
+2026-11-26T13:24:02.0876220Z set_env_var_if_provided "TRIVY_TF_VARS" "$INPUT_TF_VARS" ""
+2026-11-26T13:24:02.0876839Z set_env_var_if_provided "TRIVY_DOCKER_HOST" "$INPUT_DOCKER_HOST" ""
+2026-11-26T13:24:02.0913176Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:02.0913648Z env:
+2026-11-26T13:24:02.0914222Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:02.0914925Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:02.0915315Z   INPUT_INPUT: 
+2026-11-26T13:24:02.0915610Z   INPUT_EXIT_CODE: 1
+2026-11-26T13:24:02.0915942Z   INPUT_IGNORE_UNFIXED: false
+2026-11-26T13:24:02.0916309Z   INPUT_VULN_TYPE: os,library
+2026-11-26T13:24:02.0916812Z   INPUT_SEVERITY: CRITICAL,HIGH
+2026-11-26T13:24:02.0917160Z   INPUT_FORMAT: table
+2026-11-26T13:24:02.0917474Z   INPUT_TEMPLATE: 
+2026-11-26T13:24:02.0917771Z   INPUT_OUTPUT: 
+2026-11-26T13:24:02.0918067Z   INPUT_SKIP_DIRS: 
+2026-11-26T13:24:02.0918522Z   INPUT_SKIP_FILES: 
+2026-11-26T13:24:02.0918822Z   INPUT_TIMEOUT: 
+2026-11-26T13:24:02.0919121Z   INPUT_IGNORE_POLICY: 
+2026-11-26T13:24:02.0919449Z   INPUT_HIDE_PROGRESS: 
+2026-11-26T13:24:02.0919760Z   INPUT_LIST_ALL_PKGS: false
+2026-11-26T13:24:02.0920090Z   INPUT_SCANNERS: 
+2026-11-26T13:24:02.0920386Z   INPUT_TRIVY_CONFIG: 
+2026-11-26T13:24:02.0920696Z   INPUT_TF_VARS: 
+2026-11-26T13:24:02.0920986Z   INPUT_DOCKER_HOST: 
+2026-11-26T13:24:02.0921286Z ##[endgroup]
+2026-11-26T13:24:02.2108781Z ##[end-action id=__aquasecurity_trivy-action.__run_3;outcome=success;conclusion=success;duration_ms=128]
+2026-11-26T13:24:02.2112320Z ##[start-action display=Run Trivy;id=__aquasecurity_trivy-action.__run_4]
+2026-11-26T13:24:02.3268659Z ##[group]Run entrypoint.sh
+2026-11-26T13:24:02.3269079Z entrypoint.sh
+2026-11-26T13:24:02.3300065Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:02.3300404Z env:
+2026-11-26T13:24:02.3300788Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:02.3301250Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:02.3301535Z   INPUT_SCAN_TYPE: image
+2026-11-26T13:24:02.3301995Z   INPUT_IMAGE_REF: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:02.3302463Z   INPUT_SCAN_REF: .
+2026-11-26T13:24:02.3302682Z   INPUT_TRIVYIGNORES: 
+2026-11-26T13:24:02.3302909Z   INPUT_GITHUB_PAT: 
+2026-11-26T13:24:02.3303156Z   INPUT_LIMIT_SEVERITIES_FOR_SARIF: 
+2026-11-26T13:24:02.3303516Z   TRIVY_CACHE_DIR: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:24:02.3303869Z ##[endgroup]
+2026-11-26T13:24:02.4919063Z Running Trivy with options: trivy image ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:02.5405319Z 2026-11-26T13:24:02Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-26T13:24:02.5413884Z 2026-11-26T13:24:02Z	INFO	[secret] Secret scanning is enabled
+2026-11-26T13:24:02.5414762Z 2026-11-26T13:24:02Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-26T13:24:02.5415612Z 2026-11-26T13:24:02Z	INFO	[secret] Please see https://trivy.dev/docs/v0.70/guide/scanner/secret#recommendation for faster secret detection
+2026-11-26T13:24:04.6026655Z 2026-11-26T13:24:04Z	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-11-26T13:24:04.6027338Z 2026-11-26T13:24:04Z	WARN	This OS version is not on the EOL list	family="alpine" version="3.24"
+2026-11-26T13:24:04.6027935Z 2026-11-26T13:24:04Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=21
+2026-11-26T13:24:04.6061405Z 2026-11-26T13:24:04Z	INFO	Number of language-specific files	num=0
+2026-11-26T13:24:04.6066173Z 
+2026-11-26T13:24:04.6066400Z Report Summary
+2026-11-26T13:24:04.6066589Z 
+2026-11-26T13:24:04.6067226Z ┌──────────────────────────────────────────────────────────────────────────────────┬────────┬─────────────────┬─────────┐
+2026-11-26T13:24:04.6067995Z │                                      Target                                      │  Type  │ Vulnerabilities │ Secrets │
+2026-11-26T13:24:04.6069025Z ├──────────────────────────────────────────────────────────────────────────────────┼────────┼─────────────────┼─────────┤
+2026-11-26T13:24:04.6070271Z │ ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b333513- │ alpine │        0        │    -    │
+2026-11-26T13:24:04.6071017Z │ 0c02f4e7a86a5b1bf8a85470d (alpine 3.24.2)                                        │        │                 │         │
+2026-11-26T13:24:04.6071633Z └──────────────────────────────────────────────────────────────────────────────────┴────────┴─────────────────┴─────────┘
+2026-11-26T13:24:04.6072293Z Legend:
+2026-11-26T13:24:04.6072489Z - '-': Not scanned
+2026-11-26T13:24:04.6072728Z - '0': Clean (no security findings detected)
+2026-11-26T13:24:04.6072919Z 
+2026-11-26T13:24:04.6072942Z 
+2026-11-26T13:24:04.6073072Z 📣 Notices:
+2026-11-26T13:24:04.6073377Z   - Version 0.76.2 of Trivy is now available, current version is 0.70.0
+2026-11-26T13:24:04.6073617Z 
+2026-11-26T13:24:04.6073814Z To suppress version checks, run Trivy scans with the --skip-version-check flag
+2026-11-26T13:24:04.6074080Z 
+2026-11-26T13:24:04.6147313Z ##[end-action id=__aquasecurity_trivy-action.__run_4;outcome=success;conclusion=success;duration_ms=2403]
+2026-11-26T13:24:04.6149964Z ##[start-action display=Remove Trivy Envs file;id=__aquasecurity_trivy-action.__run_5]
+2026-11-26T13:24:04.6168274Z ##[group]Run rm -f trivy_envs.txt
+2026-11-26T13:24:04.6168734Z rm -f trivy_envs.txt
+2026-11-26T13:24:04.6198273Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:04.6198801Z env:
+2026-11-26T13:24:04.6199176Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:04.6199635Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:04.6199918Z ##[endgroup]
+2026-11-26T13:24:04.6261544Z ##[end-action id=__aquasecurity_trivy-action.__run_5;outcome=success;conclusion=success;duration_ms=11]
+﻿2026-11-26T13:24:04.6402675Z ##[group]Run aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
+2026-11-26T13:24:04.6403168Z with:
+2026-11-26T13:24:04.6403682Z   image-ref: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:04.6404241Z   format: json
+2026-11-26T13:24:04.6404483Z   output: reports/trivy-image.json
+2026-11-26T13:24:04.6404742Z   exit-code: 0
+2026-11-26T13:24:04.6405030Z   scan-type: image
+2026-11-26T13:24:04.6405250Z   scan-ref: .
+2026-11-26T13:24:04.6405462Z   ignore-unfixed: false
+2026-11-26T13:24:04.6405761Z   vuln-type: os,library
+2026-11-26T13:24:04.6406019Z   severity: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+2026-11-26T13:24:04.6406400Z   cache-dir: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:24:04.6406829Z   list-all-pkgs: false
+2026-11-26T13:24:04.6407057Z   version: v0.70.0
+2026-11-26T13:24:04.6407333Z   cache: true
+2026-11-26T13:24:04.6407563Z   skip-setup-trivy: false
+2026-11-26T13:24:04.6409881Z   token-setup-trivy: ***
+2026-11-26T13:24:04.6410226Z env:
+2026-11-26T13:24:04.6410621Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:04.6411170Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:04.6411460Z ##[endgroup]
+2026-11-26T13:24:04.6435347Z ##[start-action display=Install Trivy;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy]
+2026-11-26T13:24:04.6499111Z ##[group]Run aquasecurity/setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514
+2026-11-26T13:24:04.6499482Z with:
+2026-11-26T13:24:04.6499689Z   version: v0.70.0
+2026-11-26T13:24:04.6499901Z   cache: true
+2026-11-26T13:24:04.6501742Z   token: ***
+2026-11-26T13:24:04.6501966Z   path: $HOME/.local/bin
+2026-11-26T13:24:04.6502229Z   github-server-url: https://github.com
+2026-11-26T13:24:04.6502510Z env:
+2026-11-26T13:24:04.6502894Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:04.6503342Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:04.6503625Z ##[endgroup]
+2026-11-26T13:24:04.6509208Z ##[start-action display=Binary dir;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.binary-dir]
+2026-11-26T13:24:04.6523124Z ##[group]Run echo "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT
+2026-11-26T13:24:04.6523548Z echo "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT
+2026-11-26T13:24:04.6550675Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:04.6551012Z env:
+2026-11-26T13:24:04.6551399Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:04.6551853Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:04.6552123Z ##[endgroup]
+2026-11-26T13:24:04.6602492Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.binary-dir;outcome=success;conclusion=success;duration_ms=9]
+2026-11-26T13:24:04.6604499Z ##[start-action display=Check the version for caching;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run]
+2026-11-26T13:24:04.6609022Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:24:04.6610787Z ##[start-action display=Restore Trivy binary from cache;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.cache]
+2026-11-26T13:24:04.6640450Z ##[group]Run actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb
+2026-11-26T13:24:04.6640796Z with:
+2026-11-26T13:24:04.6641014Z   path: /home/runner/.local/bin/trivy-bin
+2026-11-26T13:24:04.6641296Z   key: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:24:04.6641577Z   enableCrossOsArchive: false
+2026-11-26T13:24:04.6641822Z   fail-on-cache-miss: false
+2026-11-26T13:24:04.6642063Z   lookup-only: false
+2026-11-26T13:24:04.6642273Z env:
+2026-11-26T13:24:04.6642649Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:04.6643083Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:04.6643534Z ##[endgroup]
+2026-11-26T13:24:04.8428163Z Cache hit for: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:24:05.2683625Z Received 43744456 of 43744456 (100.0%), 107.2 MBs/sec
+2026-11-26T13:24:05.2684229Z Cache Size: ~42 MB (43744456 B)
+2026-11-26T13:24:05.2705103Z [command]/usr/bin/tar -xf /home/runner/work/_temp/930d977b-a2d5-4fa5-9112-525ef92256d4/cache.tzst -P -C /home/runner/work/tp4-devsecops/tp4-devsecops --use-compress-program unzstd
+2026-11-26T13:24:05.5461434Z Cache restored successfully
+2026-11-26T13:24:05.5537777Z Cache restored from key: trivy-binary-v0.70.0-Linux-X64
+2026-11-26T13:24:05.5671109Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.cache;outcome=success;conclusion=success;duration_ms=905]
+2026-11-26T13:24:05.5675211Z ##[start-action display=Checkout install script;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__actions_checkout]
+2026-11-26T13:24:05.5682505Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__actions_checkout;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:24:05.5685259Z ##[start-action display=Install Trivy;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run_2]
+2026-11-26T13:24:05.5691401Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:24:05.5694244Z ##[start-action display=Add Trivy binary to $GITHUB_PATH;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run_3]
+2026-11-26T13:24:05.5823370Z ##[group]Run echo /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH
+2026-11-26T13:24:05.5823974Z echo /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH
+2026-11-26T13:24:05.5853738Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:05.5854082Z env:
+2026-11-26T13:24:05.5854471Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:05.5854957Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:05.5855227Z ##[endgroup]
+2026-11-26T13:24:05.5908069Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__run_3;outcome=success;conclusion=success;duration_ms=21]
+2026-11-26T13:24:05.5910400Z ##[start-action display=Save Trivy binary to cache;id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__actions_cache]
+2026-11-26T13:24:05.5917272Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-26T13:24:05.5921629Z ##[end-action id=__aquasecurity_trivy-action_2.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=948]
+2026-11-26T13:24:05.5923514Z ##[start-action display=Get current date;id=__aquasecurity_trivy-action_2.date]
+2026-11-26T13:24:05.5956111Z ##[group]Run echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+2026-11-26T13:24:05.5956489Z echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+2026-11-26T13:24:05.5982216Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:05.5982551Z env:
+2026-11-26T13:24:05.5982938Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:05.5983546Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:05.5983816Z ##[endgroup]
+2026-11-26T13:24:05.6068300Z ##[end-action id=__aquasecurity_trivy-action_2.date;outcome=success;conclusion=success;duration_ms=14]
+2026-11-26T13:24:05.6070441Z ##[start-action display=Restore DB from cache;id=__aquasecurity_trivy-action_2.__actions_cache]
+2026-11-26T13:24:05.6103534Z ##[group]Run actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+2026-11-26T13:24:05.6103863Z with:
+2026-11-26T13:24:05.6104161Z   path: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:24:05.6104502Z   key: cache-trivy-2026-11-26
+2026-11-26T13:24:05.6104762Z   restore-keys: cache-trivy-
+2026-11-26T13:24:05.6105011Z   enableCrossOsArchive: false
+2026-11-26T13:24:05.6105416Z   fail-on-cache-miss: false
+2026-11-26T13:24:05.6105664Z   lookup-only: false
+2026-11-26T13:24:05.6105885Z   save-always: false
+2026-11-26T13:24:05.6106094Z env:
+2026-11-26T13:24:05.6106470Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:05.6106929Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:05.6107203Z ##[endgroup]
+2026-11-26T13:24:05.7975612Z Cache hit for: cache-trivy-2026-11-26
+2026-11-26T13:24:06.3604575Z Received 103259577 of 103259577 (100.0%), 195.4 MBs/sec
+2026-11-26T13:24:06.3605642Z Cache Size: ~98 MB (103259577 B)
+2026-11-26T13:24:06.3638127Z [command]/usr/bin/tar -xf /home/runner/work/_temp/975e8790-22ee-4c42-b16f-0b8c2c692ae6/cache.tzst -P -C /home/runner/work/tp4-devsecops/tp4-devsecops --use-compress-program unzstd
+2026-11-26T13:24:08.7976587Z Cache restored successfully
+2026-11-26T13:24:08.8081487Z Cache restored from key: cache-trivy-2026-11-26
+2026-11-26T13:24:08.8234518Z ##[end-action id=__aquasecurity_trivy-action_2.__actions_cache;outcome=success;conclusion=success;duration_ms=3216]
+2026-11-26T13:24:08.8237418Z ##[start-action display=Set GitHub Path;id=__aquasecurity_trivy-action_2.__run]
+2026-11-26T13:24:08.8292042Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-11-26T13:24:08.8292616Z echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-11-26T13:24:08.8329919Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:08.8330403Z env:
+2026-11-26T13:24:08.8330987Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:08.8331692Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:08.8332186Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/aquasecurity/trivy-action/ed142fd0673e97e23eac54620cfb913e5ce36c25
+2026-11-26T13:24:08.8332649Z ##[endgroup]
+2026-11-26T13:24:08.9421559Z ##[end-action id=__aquasecurity_trivy-action_2.__run;outcome=success;conclusion=success;duration_ms=118]
+2026-11-26T13:24:08.9424089Z ##[start-action display=Clear Trivy Envs file;id=__aquasecurity_trivy-action_2.__run_2]
+2026-11-26T13:24:09.0279522Z ##[group]Run rm -f trivy_envs.txt
+2026-11-26T13:24:09.0279985Z rm -f trivy_envs.txt
+2026-11-26T13:24:09.0280381Z touch trivy_envs.txt
+2026-11-26T13:24:09.0316230Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:09.0316583Z env:
+2026-11-26T13:24:09.0316971Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:09.0317446Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:09.0317732Z ##[endgroup]
+2026-11-26T13:24:09.1433068Z ##[end-action id=__aquasecurity_trivy-action_2.__run_2;outcome=success;conclusion=success;duration_ms=200]
+2026-11-26T13:24:09.1436689Z ##[start-action display=Set Trivy environment variables;id=__aquasecurity_trivy-action_2.__run_3]
+2026-11-26T13:24:09.2462523Z ##[group]Run # Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.
+2026-11-26T13:24:09.2463710Z # Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.
+2026-11-26T13:24:09.2464580Z # This limitation affects how we handle default values and empty inputs.
+2026-11-26T13:24:09.2465561Z # For more information, see: https://github.com/actions/runner/issues/924
+2026-11-26T13:24:09.2466121Z 
+2026-11-26T13:24:09.2466644Z # The following logic implements the configuration priority described in the README:
+2026-11-26T13:24:09.2467235Z #
+2026-11-26T13:24:09.2467535Z # Inputs
+2026-11-26T13:24:09.2467863Z # Environment Variables
+2026-11-26T13:24:09.2468249Z # Config File
+2026-11-26T13:24:09.2468698Z # Defaults
+2026-11-26T13:24:09.2469016Z #
+2026-11-26T13:24:09.2469611Z # As noted above defaults are awkward to handle as GitHub Actions will inject those values as the input
+2026-11-26T13:24:09.2470725Z # if the caller doesn't provide them, thus if the input matches the default we don't set it as we
+2026-11-26T13:24:09.2471630Z # can't tell the difference.  Plus if we did set it when it was the default value then it could potentially
+2026-11-26T13:24:09.2472613Z # override an external environment variable, or something in the callers configuration file, which then wouldn't
+2026-11-26T13:24:09.2473400Z # match the configuration priority that is documented.
+2026-11-26T13:24:09.2473895Z set_env_var_if_provided() {
+2026-11-26T13:24:09.2474292Z   local var_name="$1"
+2026-11-26T13:24:09.2474666Z   local input_value="$2"
+2026-11-26T13:24:09.2475057Z   local default_value="$3"
+2026-11-26T13:24:09.2475431Z 
+2026-11-26T13:24:09.2475849Z   if [ -n "$input_value" ] && [ "$input_value" != "$default_value" ]; then
+2026-11-26T13:24:09.2476517Z     # If action was provided with explicit input by the caller set that
+2026-11-26T13:24:09.2477228Z     # Use printf %q to safely escape special characters and prevent command injection
+2026-11-26T13:24:09.2477924Z     printf 'export %s=%q\n' "$var_name" "$input_value" >> trivy_envs.txt
+2026-11-26T13:24:09.2478271Z   fi
+2026-11-26T13:24:09.2478666Z }
+2026-11-26T13:24:09.2478877Z 
+2026-11-26T13:24:09.2479164Z # Set environment variables, handling those with default values
+2026-11-26T13:24:09.2479677Z # cf. https://aquasecurity.github.io/trivy/latest/docs/configuration/#environment-variables
+2026-11-26T13:24:09.2480155Z set_env_var_if_provided "TRIVY_INPUT" "$INPUT_INPUT" ""
+2026-11-26T13:24:09.2480553Z set_env_var_if_provided "TRIVY_EXIT_CODE" "$INPUT_EXIT_CODE" ""
+2026-11-26T13:24:09.2480995Z set_env_var_if_provided "TRIVY_IGNORE_UNFIXED" "$INPUT_IGNORE_UNFIXED" "false"
+2026-11-26T13:24:09.2481469Z set_env_var_if_provided "TRIVY_PKG_TYPES" "$INPUT_VULN_TYPE" "os,library"
+2026-11-26T13:24:09.2481985Z set_env_var_if_provided "TRIVY_SEVERITY" "$INPUT_SEVERITY" "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+2026-11-26T13:24:09.2482469Z set_env_var_if_provided "TRIVY_FORMAT" "$INPUT_FORMAT" "table"
+2026-11-26T13:24:09.2482875Z set_env_var_if_provided "TRIVY_TEMPLATE" "$INPUT_TEMPLATE" ""
+2026-11-26T13:24:09.2483257Z set_env_var_if_provided "TRIVY_OUTPUT" "$INPUT_OUTPUT" ""
+2026-11-26T13:24:09.2483659Z set_env_var_if_provided "TRIVY_SKIP_DIRS" "$INPUT_SKIP_DIRS" ""
+2026-11-26T13:24:09.2484073Z set_env_var_if_provided "TRIVY_SKIP_FILES" "$INPUT_SKIP_FILES" ""
+2026-11-26T13:24:09.2484475Z set_env_var_if_provided "TRIVY_TIMEOUT" "$INPUT_TIMEOUT" ""
+2026-11-26T13:24:09.2484890Z set_env_var_if_provided "TRIVY_IGNORE_POLICY" "$INPUT_IGNORE_POLICY" ""
+2026-11-26T13:24:09.2485308Z set_env_var_if_provided "TRIVY_QUIET" "$INPUT_HIDE_PROGRESS" ""
+2026-11-26T13:24:09.2485752Z set_env_var_if_provided "TRIVY_LIST_ALL_PKGS" "$INPUT_LIST_ALL_PKGS" "false"
+2026-11-26T13:24:09.2486187Z set_env_var_if_provided "TRIVY_SCANNERS" "$INPUT_SCANNERS" ""
+2026-11-26T13:24:09.2486736Z set_env_var_if_provided "TRIVY_CONFIG" "$INPUT_TRIVY_CONFIG" ""
+2026-11-26T13:24:09.2487119Z set_env_var_if_provided "TRIVY_TF_VARS" "$INPUT_TF_VARS" ""
+2026-11-26T13:24:09.2487520Z set_env_var_if_provided "TRIVY_DOCKER_HOST" "$INPUT_DOCKER_HOST" ""
+2026-11-26T13:24:09.2517070Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:09.2517411Z env:
+2026-11-26T13:24:09.2517805Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:09.2518278Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:09.2518725Z   INPUT_INPUT: 
+2026-11-26T13:24:09.2518953Z   INPUT_EXIT_CODE: 0
+2026-11-26T13:24:09.2519342Z   INPUT_IGNORE_UNFIXED: false
+2026-11-26T13:24:09.2519599Z   INPUT_VULN_TYPE: os,library
+2026-11-26T13:24:09.2519882Z   INPUT_SEVERITY: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+2026-11-26T13:24:09.2520176Z   INPUT_FORMAT: json
+2026-11-26T13:24:09.2520405Z   INPUT_TEMPLATE: 
+2026-11-26T13:24:09.2520643Z   INPUT_OUTPUT: reports/trivy-image.json
+2026-11-26T13:24:09.2520915Z   INPUT_SKIP_DIRS: 
+2026-11-26T13:24:09.2521132Z   INPUT_SKIP_FILES: 
+2026-11-26T13:24:09.2521353Z   INPUT_TIMEOUT: 
+2026-11-26T13:24:09.2521571Z   INPUT_IGNORE_POLICY: 
+2026-11-26T13:24:09.2521810Z   INPUT_HIDE_PROGRESS: 
+2026-11-26T13:24:09.2522046Z   INPUT_LIST_ALL_PKGS: false
+2026-11-26T13:24:09.2522288Z   INPUT_SCANNERS: 
+2026-11-26T13:24:09.2522506Z   INPUT_TRIVY_CONFIG: 
+2026-11-26T13:24:09.2522734Z   INPUT_TF_VARS: 
+2026-11-26T13:24:09.2522947Z   INPUT_DOCKER_HOST: 
+2026-11-26T13:24:09.2523169Z ##[endgroup]
+2026-11-26T13:24:09.2989642Z ##[end-action id=__aquasecurity_trivy-action_2.__run_3;outcome=success;conclusion=success;duration_ms=155]
+2026-11-26T13:24:09.2993547Z ##[start-action display=Run Trivy;id=__aquasecurity_trivy-action_2.__run_4]
+2026-11-26T13:24:09.3055789Z ##[group]Run entrypoint.sh
+2026-11-26T13:24:09.3056185Z entrypoint.sh
+2026-11-26T13:24:09.3090828Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:09.3091334Z env:
+2026-11-26T13:24:09.3091814Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:09.3092276Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:09.3092565Z   INPUT_SCAN_TYPE: image
+2026-11-26T13:24:09.3093035Z   INPUT_IMAGE_REF: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:09.3093753Z   INPUT_SCAN_REF: .
+2026-11-26T13:24:09.3094072Z   INPUT_TRIVYIGNORES: 
+2026-11-26T13:24:09.3094412Z   INPUT_GITHUB_PAT: 
+2026-11-26T13:24:09.3094750Z   INPUT_LIMIT_SEVERITIES_FOR_SARIF: 
+2026-11-26T13:24:09.3095287Z   TRIVY_CACHE_DIR: /home/runner/work/tp4-devsecops/tp4-devsecops/.cache/trivy
+2026-11-26T13:24:09.3095814Z ##[endgroup]
+2026-11-26T13:24:09.3186796Z Running Trivy with options: trivy image ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:09.4726588Z 2026-11-26T13:24:09Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-26T13:24:09.4727309Z 2026-11-26T13:24:09Z	INFO	[secret] Secret scanning is enabled
+2026-11-26T13:24:09.4728301Z 2026-11-26T13:24:09Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-26T13:24:09.4729665Z 2026-11-26T13:24:09Z	INFO	[secret] Please see https://trivy.dev/docs/v0.70/guide/scanner/secret#recommendation for faster secret detection
+2026-11-26T13:24:09.7652114Z 2026-11-26T13:24:09Z	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-11-26T13:24:09.7652776Z 2026-11-26T13:24:09Z	WARN	This OS version is not on the EOL list	family="alpine" version="3.24"
+2026-11-26T13:24:09.7653427Z 2026-11-26T13:24:09Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=21
+2026-11-26T13:24:09.7686635Z 2026-11-26T13:24:09Z	INFO	Number of language-specific files	num=0
+2026-11-26T13:24:09.7695876Z 
+2026-11-26T13:24:09.7696503Z 📣 Notices:
+2026-11-26T13:24:09.7697289Z   - Version 0.76.2 of Trivy is now available, current version is 0.70.0
+2026-11-26T13:24:09.7697673Z 
+2026-11-26T13:24:09.7697978Z To suppress version checks, run Trivy scans with the --skip-version-check flag
+2026-11-26T13:24:09.7698512Z 
+2026-11-26T13:24:09.7752706Z ##[end-action id=__aquasecurity_trivy-action_2.__run_4;outcome=success;conclusion=success;duration_ms=475]
+2026-11-26T13:24:09.7755512Z ##[start-action display=Remove Trivy Envs file;id=__aquasecurity_trivy-action_2.__run_5]
+2026-11-26T13:24:09.8345477Z ##[group]Run rm -f trivy_envs.txt
+2026-11-26T13:24:09.8345873Z rm -f trivy_envs.txt
+2026-11-26T13:24:09.8383220Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:09.8383773Z env:
+2026-11-26T13:24:09.8384161Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:09.8384633Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:09.8384920Z ##[endgroup]
+2026-11-26T13:24:09.9823792Z ##[end-action id=__aquasecurity_trivy-action_2.__run_5;outcome=success;conclusion=success;duration_ms=206]
+﻿2026-11-26T13:24:10.0710145Z ##[group]Run anchore/sbom-action/download-syft@dfcb83b97731532d72be422cbc51ee64adb6fd56
+2026-11-26T13:24:10.0710800Z with:
+2026-11-26T13:24:10.0711120Z   run: download-syft
+2026-11-26T13:24:10.0711456Z env:
+2026-11-26T13:24:10.0712061Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:10.0712784Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:10.0713216Z ##[endgroup]
+2026-11-26T13:24:10.2577289Z [command]/usr/bin/sh /home/runner/work/_temp/32f853f3-9bf4-47c6-91ff-193989c51f7e -d -b /home/runner/work/_temp/32f853f3-9bf4-47c6-91ff-193989c51f7e_syft v1.57.2
+2026-11-26T13:24:10.2645204Z [info] checking github for release tag='v1.57.2' 
+2026-11-26T13:24:10.2719742Z [debug] http_download(url=https://github.com/anchore/syft/releases/v1.57.2) 
+2026-11-26T13:24:10.3817380Z [info] using release tag='v1.57.2' version='1.57.2' os='linux' arch='amd64' 
+2026-11-26T13:24:10.3849440Z [debug] downloading files into /tmp/tmp.dkoPvXx6s2 
+2026-11-26T13:24:10.3881605Z [debug] http_download(url=https://github.com/anchore/syft/releases/download/v1.57.2/syft_1.57.2_checksums.txt) 
+2026-11-26T13:24:10.4587266Z [debug] http_download(url=https://github.com/anchore/syft/releases/download/v1.57.2/syft_1.57.2_linux_amd64.tar.gz) 
+2026-11-26T13:24:11.0300783Z [info] installed /home/runner/work/_temp/32f853f3-9bf4-47c6-91ff-193989c51f7e_syft/syft 
+﻿2026-11-26T13:24:11.7698595Z ##[group]Run syft "ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d" -o cyclonedx-json=sbom.cdx.json
+2026-11-26T13:24:11.7700044Z syft "ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d" -o cyclonedx-json=sbom.cdx.json
+2026-11-26T13:24:11.7729803Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:24:11.7730065Z env:
+2026-11-26T13:24:11.7730486Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:11.7730948Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:11.7731230Z ##[endgroup]
+﻿2026-11-26T13:24:14.7139759Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-26T13:24:14.7140155Z with:
+2026-11-26T13:24:14.7140377Z   name: sbom-cyclonedx
+2026-11-26T13:24:14.7140612Z   path: sbom.cdx.json
+2026-11-26T13:24:14.7140854Z   if-no-files-found: error
+2026-11-26T13:24:14.7141108Z   compression-level: 6
+2026-11-26T13:24:14.7141336Z   overwrite: false
+2026-11-26T13:24:14.7141569Z   include-hidden-files: false
+2026-11-26T13:24:14.7141809Z env:
+2026-11-26T13:24:14.7142192Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:14.7142635Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:14.7142918Z ##[endgroup]
+2026-11-26T13:24:14.8498891Z (node:3455) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:24:14.8500005Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:24:14.8534704Z With the provided path, there will be 1 file uploaded
+2026-11-26T13:24:14.8539048Z Artifact name is valid!
+2026-11-26T13:24:14.8539791Z Root directory input is valid!
+2026-11-26T13:24:15.0814176Z Beginning upload of artifact content to blob storage
+2026-11-26T13:24:15.0996173Z (node:3455) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T13:24:15.1226141Z Uploaded bytes 52636
+2026-11-26T13:24:15.1337260Z Finished uploading artifact content to blob storage!
+2026-11-26T13:24:15.1338113Z SHA256 digest of uploaded artifact zip is 80eb8a8f406b9b4210cfc7e19179a90f69b303b1de61faa819757324087296de
+2026-11-26T13:24:15.1363192Z Finalizing artifact upload
+2026-11-26T13:24:15.5084450Z Artifact sbom-cyclonedx.zip successfully finalized. Artifact ID 15122235521
+2026-11-26T13:24:15.5085385Z Artifact sbom-cyclonedx has been successfully uploaded! Final size is 52636 bytes. Artifact ID is 15122235521
+2026-11-26T13:24:15.5090707Z Artifact download URL: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45828547561/artifacts/15122235521
+﻿2026-11-26T13:24:15.5226340Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-26T13:24:15.5226743Z with:
+2026-11-26T13:24:15.5226976Z   name: security-reports-image
+2026-11-26T13:24:15.5227248Z   path: reports/
+2026-11-26T13:24:15.5227495Z   if-no-files-found: ignore
+2026-11-26T13:24:15.5227755Z   compression-level: 6
+2026-11-26T13:24:15.5228006Z   overwrite: false
+2026-11-26T13:24:15.5228251Z   include-hidden-files: false
+2026-11-26T13:24:15.5228778Z env:
+2026-11-26T13:24:15.5229186Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:15.5229677Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:15.5229961Z ##[endgroup]
+2026-11-26T13:24:15.6561056Z (node:3467) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:24:15.6562089Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:24:15.6602647Z With the provided path, there will be 1 file uploaded
+2026-11-26T13:24:15.6607908Z Artifact name is valid!
+2026-11-26T13:24:15.6608756Z Root directory input is valid!
+2026-11-26T13:24:15.8683864Z Beginning upload of artifact content to blob storage
+2026-11-26T13:24:15.8836989Z (node:3467) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T13:24:15.9049041Z Uploaded bytes 11946
+2026-11-26T13:24:15.9149208Z Finished uploading artifact content to blob storage!
+2026-11-26T13:24:15.9150083Z SHA256 digest of uploaded artifact zip is 63489ba8894ff18d723a13bf88704c4db8a997034f6fd6c6d46567123926eeb0
+2026-11-26T13:24:15.9151716Z Finalizing artifact upload
+2026-11-26T13:24:16.2592754Z Artifact security-reports-image.zip successfully finalized. Artifact ID 15122030738
+2026-11-26T13:24:16.2593892Z Artifact security-reports-image has been successfully uploaded! Final size is 11946 bytes. Artifact ID is 15122030738
+2026-11-26T13:24:16.2599813Z Artifact download URL: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45828547561/artifacts/15122030738
+﻿2026-11-26T13:24:16.2787849Z ##[group]Run sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5
+2026-11-26T13:24:16.2788590Z with:
+2026-11-26T13:24:16.2788894Z   cosign-release: v2.6.5
+2026-11-26T13:24:16.2789168Z   install-dir: $HOME/.cosign
+2026-11-26T13:24:16.2789425Z   use-sudo: false
+2026-11-26T13:24:16.2789654Z env:
+2026-11-26T13:24:16.2790054Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:16.2790729Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:16.2791028Z ##[endgroup]
+2026-11-26T13:24:16.2805971Z ##[start-action display=Run #!/bin/bash;id=__sigstore_cosign-installer.__run]
+2026-11-26T13:24:16.2822193Z ##[group]Run #!/bin/bash
+2026-11-26T13:24:16.2822837Z #!/bin/bash
+2026-11-26T13:24:16.2823092Z # cosign install script
+2026-11-26T13:24:16.2823381Z shopt -s expand_aliases
+2026-11-26T13:24:16.2823659Z if [ -z "$NO_COLOR" ]; then
+2026-11-26T13:24:16.2823997Z   alias log_info="echo -e \"\033[1;32mINFO\033[0m:\""
+2026-11-26T13:24:16.2824414Z   alias log_error="echo -e \"\033[1;31mERROR\033[0m:\""
+2026-11-26T13:24:16.2824742Z else
+2026-11-26T13:24:16.2824991Z   alias log_info="echo \"INFO:\""
+2026-11-26T13:24:16.2825295Z   alias log_error="echo \"ERROR:\""
+2026-11-26T13:24:16.2825588Z fi
+2026-11-26T13:24:16.2825805Z set -e
+2026-11-26T13:24:16.2826036Z 
+2026-11-26T13:24:16.2826337Z # Check for unsupported old versions (anything below v2.0.0)
+2026-11-26T13:24:16.2826703Z if [[ "v2.6.5" != "main" ]]; then
+2026-11-26T13:24:16.2827037Z   # Extract version without 'v' prefix for comparison
+2026-11-26T13:24:16.2827357Z   version_num="v2.6.5"
+2026-11-26T13:24:16.2827638Z   version_num="${version_num#v}"
+2026-11-26T13:24:16.2827928Z 
+2026-11-26T13:24:16.2828171Z   # Check if version is less than v2.0.0
+2026-11-26T13:24:16.2828659Z   if [[ "$version_num" =~ ^[01]\. ]] || [[ "$version_num" =~ ^0\. ]]; then
+2026-11-26T13:24:16.2829108Z     log_error "cosign versions below v2.0.0 are no longer supported."
+2026-11-26T13:24:16.2829497Z     log_error "Requested version: v2.6.5"
+2026-11-26T13:24:16.2829844Z     log_error "Please use cosign v2.4.0 or later."
+2026-11-26T13:24:16.2830314Z     log_error "See https://github.com/sigstore/cosign/releases for available versions."
+2026-11-26T13:24:16.2830747Z     exit 1
+2026-11-26T13:24:16.2830988Z   fi
+2026-11-26T13:24:16.2831209Z fi
+2026-11-26T13:24:16.2831417Z 
+2026-11-26T13:24:16.2831653Z mkdir -p $HOME/.cosign
+2026-11-26T13:24:16.2831916Z 
+2026-11-26T13:24:16.2832143Z if [[ v2.6.5 == "main" ]]; then
+2026-11-26T13:24:16.2832523Z   log_info "installing cosign via 'go install' from its main version"
+2026-11-26T13:24:16.2832887Z   GOBIN=$(go env GOPATH)/bin
+2026-11-26T13:24:16.2833244Z   go install github.com/sigstore/cosign/v2/cmd/cosign@main
+2026-11-26T13:24:16.2833616Z   ln -s $GOBIN/cosign $HOME/.cosign/cosign
+2026-11-26T13:24:16.2833916Z   exit 0
+2026-11-26T13:24:16.2834145Z fi
+2026-11-26T13:24:16.2834360Z 
+2026-11-26T13:24:16.2834569Z shaprog() {
+2026-11-26T13:24:16.2834817Z   case Linux in
+2026-11-26T13:24:16.2835074Z     Linux|linux)
+2026-11-26T13:24:16.2835338Z       sha256sum $1 | cut -d' ' -f1
+2026-11-26T13:24:16.2835621Z       ;;
+2026-11-26T13:24:16.2835844Z     macOS|macos)
+2026-11-26T13:24:16.2836116Z       shasum -a256 $1 | cut -d' ' -f1
+2026-11-26T13:24:16.2836397Z       ;;
+2026-11-26T13:24:16.2836622Z     Windows|windows)
+2026-11-26T13:24:16.2837089Z       powershell -command "(Get-FileHash $1 -Algorithm SHA256 | Select-Object -ExpandProperty Hash).ToLower()"
+2026-11-26T13:24:16.2837772Z       ;;
+2026-11-26T13:24:16.2837996Z     *)
+2026-11-26T13:24:16.2838248Z       log_error "unsupported OS Linux"
+2026-11-26T13:24:16.2838655Z       exit 1
+2026-11-26T13:24:16.2838890Z       ;;
+2026-11-26T13:24:16.2839114Z   esac
+2026-11-26T13:24:16.2839324Z }
+2026-11-26T13:24:16.2839663Z 
+2026-11-26T13:24:16.2839895Z bootstrap_version='v2.6.1'
+2026-11-26T13:24:16.2840352Z bootstrap_linux_amd64_sha='064954c5d8c7e3b28188eee5b1727b31c411550bc5fefd41aa672d3c761d103a'
+2026-11-26T13:24:16.2840956Z bootstrap_linux_arm_sha='8da897764b68ef2c6291a27244e7a274a09b98f80c9d1b6c5e81ef2e2e4eb9ec'
+2026-11-26T13:24:16.2841531Z bootstrap_linux_arm64_sha='56a16480bdd56ec789abaa65924402f6b92c0041f06885995853c05567b76f34'
+2026-11-26T13:24:16.2842113Z bootstrap_darwin_amd64_sha='f1ed2787cc9648fd3c644fcb279e43f3f55da63b788d69a527aa14ad97ffdca1'
+2026-11-26T13:24:16.2842697Z bootstrap_darwin_arm64_sha='54047052cf46f40a5c3c95a510db276e164ba77e096aea1ca1b733f770359689'
+2026-11-26T13:24:16.2843295Z bootstrap_windows_amd64_sha='049026dae3246d6ea8201512ec3efce3aab0c7f1d338d52e26c525dd02b418a0'
+2026-11-26T13:24:16.2843743Z cosign_executable_name=cosign
+2026-11-26T13:24:16.2844028Z 
+2026-11-26T13:24:16.2844265Z trap "popd >/dev/null" EXIT
+2026-11-26T13:24:16.2844537Z 
+2026-11-26T13:24:16.2844757Z pushd $HOME/.cosign > /dev/null
+2026-11-26T13:24:16.2845036Z 
+2026-11-26T13:24:16.2845254Z case Linux in
+2026-11-26T13:24:16.2845507Z   Linux|linux)
+2026-11-26T13:24:16.2845755Z     case X64 in
+2026-11-26T13:24:16.2845994Z       X64|amd64)
+2026-11-26T13:24:16.2846285Z         bootstrap_filename='cosign-linux-amd64'
+2026-11-26T13:24:16.2846644Z         bootstrap_sha=${bootstrap_linux_amd64_sha}
+2026-11-26T13:24:16.2847008Z         desired_cosign_filename='cosign-linux-amd64'
+2026-11-26T13:24:16.2847337Z         ;;
+2026-11-26T13:24:16.2847569Z 
+2026-11-26T13:24:16.2847776Z       ARM|arm)
+2026-11-26T13:24:16.2848058Z         bootstrap_filename='cosign-linux-arm'
+2026-11-26T13:24:16.2848514Z         bootstrap_sha=${bootstrap_linux_arm_sha}
+2026-11-26T13:24:16.2848879Z         desired_cosign_filename='cosign-linux-arm'
+2026-11-26T13:24:16.2849191Z         ;;
+2026-11-26T13:24:16.2849426Z 
+2026-11-26T13:24:16.2849636Z       ARM64|arm64)
+2026-11-26T13:24:16.2849929Z         bootstrap_filename='cosign-linux-arm64'
+2026-11-26T13:24:16.2850270Z         bootstrap_sha=${bootstrap_linux_arm64_sha}
+2026-11-26T13:24:16.2850621Z         desired_cosign_filename='cosign-linux-arm64'
+2026-11-26T13:24:16.2850927Z         ;;
+2026-11-26T13:24:16.2851154Z 
+2026-11-26T13:24:16.2851361Z       *)
+2026-11-26T13:24:16.2851630Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:16.2851939Z         exit 1
+2026-11-26T13:24:16.2852170Z         ;;
+2026-11-26T13:24:16.2852392Z     esac
+2026-11-26T13:24:16.2852606Z     ;;
+2026-11-26T13:24:16.2852827Z 
+2026-11-26T13:24:16.2853034Z   macOS|macos)
+2026-11-26T13:24:16.2853280Z     case X64 in
+2026-11-26T13:24:16.2853523Z       X64|amd64)
+2026-11-26T13:24:16.2853796Z         bootstrap_filename='cosign-darwin-amd64'
+2026-11-26T13:24:16.2854145Z         bootstrap_sha=${bootstrap_darwin_amd64_sha}
+2026-11-26T13:24:16.2854509Z         desired_cosign_filename='cosign-darwin-amd64'
+2026-11-26T13:24:16.2854821Z         ;;
+2026-11-26T13:24:16.2855047Z 
+2026-11-26T13:24:16.2855257Z       ARM64|arm64)
+2026-11-26T13:24:16.2855535Z         bootstrap_filename='cosign-darwin-arm64'
+2026-11-26T13:24:16.2855874Z         bootstrap_sha=${bootstrap_darwin_arm64_sha}
+2026-11-26T13:24:16.2856374Z         desired_cosign_filename='cosign-darwin-arm64'
+2026-11-26T13:24:16.2856692Z         ;;
+2026-11-26T13:24:16.2856925Z 
+2026-11-26T13:24:16.2857136Z       *)
+2026-11-26T13:24:16.2857399Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:16.2857815Z         exit 1
+2026-11-26T13:24:16.2858060Z         ;;
+2026-11-26T13:24:16.2858287Z     esac
+2026-11-26T13:24:16.2858603Z     ;;
+2026-11-26T13:24:16.2858815Z 
+2026-11-26T13:24:16.2859033Z   Windows|windows)
+2026-11-26T13:24:16.2859285Z     case X64 in
+2026-11-26T13:24:16.2859527Z       X64|amd64)
+2026-11-26T13:24:16.2859819Z         bootstrap_filename='cosign-windows-amd64.exe'
+2026-11-26T13:24:16.2860186Z         bootstrap_sha=${bootstrap_windows_amd64_sha}
+2026-11-26T13:24:16.2871781Z         desired_cosign_filename='cosign-windows-amd64.exe'
+2026-11-26T13:24:16.2872186Z         cosign_executable_name=cosign.exe
+2026-11-26T13:24:16.2872498Z         ;;
+2026-11-26T13:24:16.2872735Z       *)
+2026-11-26T13:24:16.2873017Z         log_error "unsupported architecture X64"
+2026-11-26T13:24:16.2873342Z         exit 1
+2026-11-26T13:24:16.2873581Z         ;;
+2026-11-26T13:24:16.2873812Z     esac
+2026-11-26T13:24:16.2874024Z     ;;
+2026-11-26T13:24:16.2874238Z   *)
+2026-11-26T13:24:16.2874484Z     log_error "unsupported os Linux"
+2026-11-26T13:24:16.2874772Z     exit 1
+2026-11-26T13:24:16.2874982Z     ;;
+2026-11-26T13:24:16.2875185Z esac
+2026-11-26T13:24:16.2875389Z 
+2026-11-26T13:24:16.2875593Z SUDO=
+2026-11-26T13:24:16.2875893Z if [[ "false" == "true" ]] && command -v sudo >/dev/null; then
+2026-11-26T13:24:16.2876220Z   SUDO=sudo
+2026-11-26T13:24:16.2876446Z fi
+2026-11-26T13:24:16.2876654Z 
+2026-11-26T13:24:16.2876922Z expected_bootstrap_version_digest=${bootstrap_sha}
+2026-11-26T13:24:16.2877759Z log_info "Downloading bootstrap version '${bootstrap_version}' of cosign to verify version to be installed...\n      https://github.com/sigstore/cosign/releases/download/${bootstrap_version}/${bootstrap_filename}"
+2026-11-26T13:24:16.2878869Z $SUDO curl -fsL https://github.com/sigstore/cosign/releases/download/${bootstrap_version}/${bootstrap_filename} -o ${cosign_executable_name}
+2026-11-26T13:24:16.2879485Z shaBootstrap=$(shaprog ${cosign_executable_name});
+2026-11-26T13:24:16.2879901Z if [[ $shaBootstrap != ${expected_bootstrap_version_digest} ]]; then
+2026-11-26T13:24:16.2880333Z   log_error "Unable to validate cosign version: 'v2.6.5'"
+2026-11-26T13:24:16.2880663Z   exit 1
+2026-11-26T13:24:16.2880889Z fi
+2026-11-26T13:24:16.2881139Z $SUDO chmod +x ${cosign_executable_name}
+2026-11-26T13:24:16.2881432Z 
+2026-11-26T13:24:16.2881748Z # If the bootstrap and specified `cosign` releases are the same, we're done.
+2026-11-26T13:24:16.2882167Z if [[ v2.6.5 == ${bootstrap_version} ]]; then
+2026-11-26T13:24:16.2882663Z   log_info "bootstrap version successfully verified and matches requested version so nothing else to do"
+2026-11-26T13:24:16.2883114Z   exit 0
+2026-11-26T13:24:16.2883334Z fi
+2026-11-26T13:24:16.2883535Z 
+2026-11-26T13:24:16.2883798Z semver='^v([0-9]+\.){0,2}(\*|[0-9]+)(-?r?c?)(\.[0-9]+)$'
+2026-11-26T13:24:16.2884122Z if [[ v2.6.5 =~ $semver ]]; then
+2026-11-26T13:24:16.2884459Z   log_info "Custom cosign version 'v2.6.5' requested"
+2026-11-26T13:24:16.2884768Z else
+2026-11-26T13:24:16.2885072Z   log_error "Unable to validate requested cosign version: 'v2.6.5'"
+2026-11-26T13:24:16.2885577Z   exit 1
+2026-11-26T13:24:16.2885797Z fi
+2026-11-26T13:24:16.2886005Z 
+2026-11-26T13:24:16.2886227Z # Download custom cosign
+2026-11-26T13:24:16.2886846Z log_info "Downloading platform-specific version 'v2.6.5' of cosign...\n      https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}"
+2026-11-26T13:24:16.2887783Z $SUDO curl -fsL https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename} -o cosign_v2.6.5
+2026-11-26T13:24:16.2888297Z shaCustom=$(shaprog cosign_v2.6.5);
+2026-11-26T13:24:16.2888707Z 
+2026-11-26T13:24:16.2888946Z # same hash means it is the same release
+2026-11-26T13:24:16.2889272Z if [[ $shaCustom != $shaBootstrap ]]; then
+2026-11-26T13:24:16.2889942Z   log_info "Downloading detached signature for platform-specific 'v2.6.5' of cosign...\n      https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}.sig"
+2026-11-26T13:24:16.2890802Z   $SUDO curl -fsLO https://github.com/sigstore/cosign/releases/download/v2.6.5/${desired_cosign_filename}.sig
+2026-11-26T13:24:16.2891258Z 
+2026-11-26T13:24:16.2891778Z   log_info "Downloading cosign public key 'v2.6.5' of cosign...\n    https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub"
+2026-11-26T13:24:16.2892554Z   RELEASE_COSIGN_PUB_KEY=https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub
+2026-11-26T13:24:16.2893195Z   RELEASE_COSIGN_PUB_KEY_SHA='f4cea466e5e887a45da5031757fa1d32655d83420639dc1758749b744179f126'
+2026-11-26T13:24:16.2893601Z 
+2026-11-26T13:24:16.2893871Z   log_info "Verifying public key matches expected value"
+2026-11-26T13:24:16.2894262Z   $SUDO curl -fsL $RELEASE_COSIGN_PUB_KEY -o public.key
+2026-11-26T13:24:16.2894614Z   sha_fetched_key=$(shaprog public.key)
+2026-11-26T13:24:16.2894987Z   if [[ $sha_fetched_key != $RELEASE_COSIGN_PUB_KEY_SHA ]]; then
+2026-11-26T13:24:16.2895425Z     log_error "Fetched public key does not match expected digest, exiting"
+2026-11-26T13:24:16.2895790Z     exit 1
+2026-11-26T13:24:16.2896012Z   fi
+2026-11-26T13:24:16.2896223Z 
+2026-11-26T13:24:16.2896561Z   log_info "Using bootstrap cosign to verify signature of desired cosign version"
+2026-11-26T13:24:16.2897105Z   ./cosign verify-blob --key public.key --signature ${desired_cosign_filename}.sig cosign_v2.6.5
+2026-11-26T13:24:16.2897508Z 
+2026-11-26T13:24:16.2897718Z   $SUDO rm cosign
+2026-11-26T13:24:16.2898021Z   $SUDO mv cosign_v2.6.5 ${cosign_executable_name}
+2026-11-26T13:24:16.2898469Z   $SUDO chmod +x ${cosign_executable_name}
+2026-11-26T13:24:16.2898794Z   log_info "Installation complete!"
+2026-11-26T13:24:16.2899077Z fi
+2026-11-26T13:24:16.2928175Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:16.2928629Z env:
+2026-11-26T13:24:16.2929028Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:16.2929502Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:16.2929788Z ##[endgroup]
+2026-11-26T13:24:16.3005443Z INFO: Downloading bootstrap version 'v2.6.1' of cosign to verify version to be installed...
+2026-11-26T13:24:16.3006163Z       https://github.com/sigstore/cosign/releases/download/v2.6.1/cosign-linux-amd64
+2026-11-26T13:24:17.0111845Z INFO: Custom cosign version 'v2.6.5' requested
+2026-11-26T13:24:17.0112681Z INFO: Downloading platform-specific version 'v2.6.5' of cosign...
+2026-11-26T13:24:17.0113313Z       https://github.com/sigstore/cosign/releases/download/v2.6.5/cosign-linux-amd64
+2026-11-26T13:24:17.7913426Z INFO: Downloading detached signature for platform-specific 'v2.6.5' of cosign...
+2026-11-26T13:24:17.7914520Z       https://github.com/sigstore/cosign/releases/download/v2.6.5/cosign-linux-amd64.sig
+2026-11-26T13:24:17.9507155Z INFO: Downloading cosign public key 'v2.6.5' of cosign...
+2026-11-26T13:24:17.9508048Z     https://raw.githubusercontent.com/sigstore/cosign/v2.6.5/release/release-cosign.pub
+2026-11-26T13:24:17.9509071Z INFO: Verifying public key matches expected value
+2026-11-26T13:24:17.9820479Z INFO: Using bootstrap cosign to verify signature of desired cosign version
+2026-11-26T13:24:19.0809589Z Verified OK
+2026-11-26T13:24:19.1151797Z INFO: Installation complete!
+2026-11-26T13:24:19.1159154Z ##[end-action id=__sigstore_cosign-installer.__run;outcome=success;conclusion=success;duration_ms=2835]
+2026-11-26T13:24:19.1162549Z ##[start-action display=Run echo "$HOME/.cosign" >> $GITHUB_PATH;id=__sigstore_cosign-installer.__run_2]
+2026-11-26T13:24:19.1187622Z ##[group]Run echo "$HOME/.cosign" >> $GITHUB_PATH
+2026-11-26T13:24:19.1187981Z echo "$HOME/.cosign" >> $GITHUB_PATH
+2026-11-26T13:24:19.1217255Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T13:24:19.1217617Z env:
+2026-11-26T13:24:19.1218023Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:19.1218583Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:19.1218892Z ##[endgroup]
+2026-11-26T13:24:19.1268668Z ##[end-action id=__sigstore_cosign-installer.__run_2;outcome=success;conclusion=success;duration_ms=10]
+2026-11-26T13:24:19.1271283Z ##[start-action display=Run echo "$HOME/.cosign" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append;id=__sigstore_cosign-installer.__run_3]
+2026-11-26T13:24:19.1274677Z ##[end-action id=__sigstore_cosign-installer.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+﻿2026-11-26T13:24:19.1297597Z ##[group]Run set -eu
+2026-11-26T13:24:19.1297870Z set -eu
+2026-11-26T13:24:19.1298258Z test -n "$COSIGN_PRIVATE_KEY" || { echo "::error::Secret COSIGN_PRIVATE_KEY manquant"; exit 1; }
+2026-11-26T13:24:19.1298927Z umask 077
+2026-11-26T13:24:19.1299260Z printf '%s' "$COSIGN_PRIVATE_KEY" > "$RUNNER_TEMP/cosign.key"
+2026-11-26T13:24:19.1299655Z trap 'rm -f "$RUNNER_TEMP/cosign.key"' EXIT
+2026-11-26T13:24:19.1300052Z cosign sign --yes --key "$RUNNER_TEMP/cosign.key" "$IMAGE_REF"
+2026-11-26T13:24:19.1300479Z cosign attest --yes --key "$RUNNER_TEMP/cosign.key" \
+2026-11-26T13:24:19.1300893Z   --type cyclonedx --predicate sbom.cdx.json "$IMAGE_REF"
+2026-11-26T13:24:19.1326010Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:24:19.1326276Z env:
+2026-11-26T13:24:19.1326679Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:19.1327155Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:19.1329736Z   COSIGN_PRIVATE_KEY: ***
+2026-11-26T13:24:19.1330051Z   COSIGN_PASSWORD: ***
+2026-11-26T13:24:19.1330511Z   IMAGE_REF: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:19.1330995Z ##[endgroup]
+2026-11-26T13:24:19.4977947Z 
+2026-11-26T13:24:19.4979100Z 	The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
+2026-11-26T13:24:19.4980555Z 	Note that if your submission includes personal data associated with this signed artifact, it will be part of an immutable record.
+2026-11-26T13:24:19.4981583Z 	This may include the email address associated with the account with which you authenticate your contractual Agreement.
+2026-11-26T13:24:19.4983073Z 	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
+2026-11-26T13:24:19.4983872Z 
+2026-11-26T13:24:19.4984355Z By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you understand and agree to the statement and the Agreement terms at the URLs listed above.
+2026-11-26T13:24:20.8770704Z tlog entry created with index: 4126853797
+2026-11-26T13:24:20.8771654Z Pushing signature to: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:23.6242657Z Using payload from: sbom.cdx.json
+2026-11-26T13:24:23.7935075Z 
+2026-11-26T13:24:23.7936475Z 	The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
+2026-11-26T13:24:23.7937493Z 	Note that if your submission includes personal data associated with this signed artifact, it will be part of an immutable record.
+2026-11-26T13:24:23.7938232Z 	This may include the email address associated with the account with which you authenticate your contractual Agreement.
+2026-11-26T13:24:23.7939570Z 	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
+2026-11-26T13:24:23.7940320Z 
+2026-11-26T13:24:23.7940792Z By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you understand and agree to the statement and the Agreement terms at the URLs listed above.
+2026-11-26T13:24:25.6016845Z tlog entry created with index: 4126857402
+﻿2026-11-26T13:24:28.2606809Z ##[group]Run cosign verify --key cosign.pub "$IMAGE_REF"
+2026-11-26T13:24:28.2607235Z cosign verify --key cosign.pub "$IMAGE_REF"
+2026-11-26T13:24:28.2607663Z echo "### Image signée" >> "$GITHUB_STEP_SUMMARY"
+2026-11-26T13:24:28.2608035Z echo "\`$IMAGE_REF\`" >> "$GITHUB_STEP_SUMMARY"
+2026-11-26T13:24:28.2637756Z shell: /usr/bin/bash -e {0}
+2026-11-26T13:24:28.2638034Z env:
+2026-11-26T13:24:28.2638587Z   SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1
+2026-11-26T13:24:28.2639192Z   IMAGE: ghcr.io/mahdikacem/tp4-devsecops
+2026-11-26T13:24:28.2639685Z   IMAGE_REF: ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d
+2026-11-26T13:24:28.2640189Z ##[endgroup]
+2026-11-26T13:24:28.8113728Z 
+2026-11-26T13:24:28.8113808Z 
+2026-11-26T13:24:28.8114917Z Verification for ghcr.io/mahdikacem/tp4-devsecops@sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d --
+2026-11-26T13:24:28.8115655Z The following checks were performed on each of these signatures:
+2026-11-26T13:24:28.8116033Z   - The cosign claims were validated
+2026-11-26T13:24:28.8116395Z   - Existence of the claims in the transparency log was verified offline
+2026-11-26T13:24:28.8116836Z   - The signatures were verified against the specified public key
+2026-11-26T13:24:28.8125026Z [{"critical":{"identity":{"docker-reference":"ghcr.io/mahdikacem/tp4-devsecops"},"image":{"docker-manifest-digest":"sha256:0d482baf837de41a137b0c220d240619b3335130c02f4e7a86a5b1bf8a85470d"},"type":"cosign container image signature"},"optional":{"Bundle":{"SignedEntryTimestamp":"MEYCIQCkVq4YH2oVFne+IE19BP5iSczIXp3qQKTNU7XLxusHQgIhAMnwHp5XkYn3fOeH3TPSIco+D21M0mwL/mGnUuLDmO7r","Payload":{"body":"eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiaGFzaGVkcmVrb3JkIiwic3BlYyI6eyJkYXRhIjp7Imhhc2giOnsiYWxnb3JpdGhtIjoic2hhMjU2IiwidmFsdWUiOiIxZjc0YmFjMTE2NTliYWNkYzhhYjU0Y2U5ZmUyMzI3ODIyZjJiZjk1MGIwNDZmZjJkNWViY2Q0NDc2OGNhOTk0In19LCJzaWduYXR1cmUiOnsiY29udGVudCI6Ik1FUUNJQm5OWTBlL3FMK0VQOXpNYnJyTlJEOGxIVG9JM0Z2MUl5bm04V2pQc2YyeUFpQWZSL1VwQjJERDlaUWVnOFVQTWtPc0dQUWdmZFh3SU5VVGlSbkYwUkduM1E9PSIsInB1YmxpY0tleSI6eyJjb250ZW50IjoiTFMwdExTMUNSVWRKVGlCUVZVSk1TVU1nUzBWWkxTMHRMUzBLVFVacmQwVjNXVWhMYjFwSmVtb3dRMEZSV1VsTGIxcEplbW93UkVGUlkwUlJaMEZGV2xWdWQzbEdSRGRFTlM4NUt6ZG9jbmx0VkVKVlVVOWliVXA2Y1FwWFkybDFWWGg2Um5SdVltZEdVRWh3VWtOSVMwVnhVemxCZG5aU01reEVZVmhoUlZWT2FTdFlSVXhJY2pCalNFSXJRblUzTlUxWmMxcFJQVDBLTFMwdExTMUZUa1FnVUZWQ1RFbERJRXRGV1MwdExTMHRDZz09In19fX0=","integratedTime":1795699459,"logIndex":4126853797,"logID":"c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"}}}}]
+﻿2026-11-26T13:24:28.8325784Z Post job cleanup.
+2026-11-26T13:24:28.8330067Z ##[start-action display=Restore DB from cache;id=__a2bc7469-0384-40da-a1c8-718ffe2de935.__actions_cache]
+2026-11-26T13:24:28.8360821Z Post job cleanup.
+2026-11-26T13:24:28.9437024Z Cache hit occurred on the primary key cache-trivy-2026-11-26, not saving cache.
+2026-11-26T13:24:28.9500504Z ##[end-action id=__a2bc7469-0384-40da-a1c8-718ffe2de935.__actions_cache;outcome=success;conclusion=success;duration_ms=116]
+2026-11-26T13:24:28.9502876Z ##[start-action display=Install Trivy;id=__a2bc7469-0384-40da-a1c8-718ffe2de935.__aquasecurity_setup-trivy]
+2026-11-26T13:24:28.9569875Z Post job cleanup.
+2026-11-26T13:24:28.9574313Z ##[end-action id=__a2bc7469-0384-40da-a1c8-718ffe2de935.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=7]
+﻿2026-11-26T13:24:28.9713628Z Post job cleanup.
+2026-11-26T13:24:28.9717138Z ##[start-action display=Restore DB from cache;id=__b1f6711e-6a9f-4047-ba89-ae62fe3c6ad8.__actions_cache]
+2026-11-26T13:24:28.9772459Z Post job cleanup.
+2026-11-26T13:24:29.0903509Z Cache hit occurred on the primary key cache-trivy-2026-11-26, not saving cache.
+2026-11-26T13:24:29.0967790Z ##[end-action id=__b1f6711e-6a9f-4047-ba89-ae62fe3c6ad8.__actions_cache;outcome=success;conclusion=success;duration_ms=124]
+2026-11-26T13:24:29.0970614Z ##[start-action display=Install Trivy;id=__b1f6711e-6a9f-4047-ba89-ae62fe3c6ad8.__aquasecurity_setup-trivy]
+2026-11-26T13:24:29.1042915Z Post job cleanup.
+2026-11-26T13:24:29.1047892Z ##[end-action id=__b1f6711e-6a9f-4047-ba89-ae62fe3c6ad8.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=7]
+﻿2026-11-26T13:24:29.1109386Z Post job cleanup.
+2026-11-26T13:24:29.3023219Z ##[group]Generating build summary
+2026-11-26T13:24:29.3026518Z exporting build record to /home/runner/work/_temp/docker-actions-toolkit-mBRMFs/export
+2026-11-26T13:24:29.3036890Z (node:3556) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:24:29.3037531Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:24:29.4789757Z [command]/usr/bin/docker buildx history export --builder builder-2b38b2ba-ea3d-4da4-a836-5c0499152675 --output /home/runner/work/_temp/docker-actions-toolkit-mBRMFs/export/MahdiKacem~tp4-devsecops~LMDRSM.dockerbuild lmdrsm3c1t22frhhhqogenue3 --finalize
+2026-11-26T13:24:29.6137362Z Build record written to /home/runner/work/_temp/docker-actions-toolkit-mBRMFs/export/MahdiKacem~tp4-devsecops~LMDRSM.dockerbuild (39.6 KB)
+2026-11-26T13:24:29.6156524Z Uploading MahdiKacem~tp4-devsecops~LMDRSM.dockerbuild to blob storage
+2026-11-26T13:24:29.8234192Z Beginning upload of artifact content to blob storage
+2026-11-26T13:24:29.8323096Z (node:3556) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T13:24:29.8330828Z Uploaded bytes 40552
+2026-11-26T13:24:29.8619790Z Finished uploading artifact content to blob storage!
+2026-11-26T13:24:29.8623174Z SHA256 hash of uploaded artifact is 7aad37c171548d2a0c0d38de615e97abf9cac42b1a9267e5cd29881a5926ed4e
+2026-11-26T13:24:29.8624609Z Finalizing artifact upload
+2026-11-26T13:24:30.2787009Z Artifact successfully finalized (15121465988)
+2026-11-26T13:24:30.2788250Z Artifact download URL: https://github.com/MahdiKacem/tp4-devsecops/actions/runs/45828547561/artifacts/15121465988
+2026-11-26T13:24:30.2806960Z Writing summary
+2026-11-26T13:24:30.2816952Z ##[endgroup]
+2026-11-26T13:24:30.2817731Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-0DY2ex
+2026-11-26T13:24:30.2847633Z ##[endgroup]
+2026-11-26T13:24:30.2848219Z ##[group]Post cache
+2026-11-26T13:24:30.2849270Z State not set
+2026-11-26T13:24:30.2849915Z ##[endgroup]
+﻿2026-11-26T13:24:30.3001486Z Post job cleanup.
+2026-11-26T13:24:30.5438226Z ##[group]Logout from ghcr.io
+2026-11-26T13:24:30.5454261Z (node:3702) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:24:30.5455244Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:24:30.5484194Z [command]/usr/bin/docker logout ghcr.io
+2026-11-26T13:24:30.5627684Z Removing login credentials for ghcr.io
+2026-11-26T13:24:30.5657381Z ##[endgroup]
+2026-11-26T13:24:30.5658009Z ##[group]Post cache
+2026-11-26T13:24:30.5658476Z State not set
+2026-11-26T13:24:30.5659043Z ##[endgroup]
+﻿2026-11-26T13:24:30.5850148Z Post job cleanup.
+2026-11-26T13:24:30.7835926Z ##[group]Removing builder
+2026-11-26T13:24:30.7840148Z (node:3722) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T13:24:30.7840778Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T13:24:30.8936873Z [command]/usr/bin/docker buildx rm builder-2b38b2ba-ea3d-4da4-a836-5c0499152675
+2026-11-26T13:24:37.0737279Z builder-2b38b2ba-ea3d-4da4-a836-5c0499152675 removed
+2026-11-26T13:24:37.0782537Z ##[endgroup]
+2026-11-26T13:24:37.0783169Z ##[group]Cleaning up certificates
+2026-11-26T13:24:37.0784436Z ##[endgroup]
+2026-11-26T13:24:37.0785079Z ##[group]Post cache
+2026-11-26T13:24:37.0786755Z State not set
+2026-11-26T13:24:37.0787327Z ##[endgroup]
+﻿2026-11-26T13:24:37.0947928Z Post job cleanup.
+2026-11-26T13:24:37.1652999Z [command]/usr/bin/git version
+2026-11-26T13:24:37.1692812Z git version 2.56.1
+2026-11-26T13:24:37.1727040Z Temporarily overriding HOME='/home/runner/work/_temp/059fa848-c66c-4d47-9d55-59a886edbb01' before making global git config changes
+2026-11-26T13:24:37.1728125Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T13:24:37.1731790Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tp4-devsecops/tp4-devsecops
+2026-11-26T13:24:37.1767359Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T13:24:37.1802306Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T13:24:37.2064932Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T13:24:37.2113818Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T13:24:37.2385966Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T13:24:37.2415659Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+﻿2026-11-26T13:24:37.2785164Z Evaluate and set job outputs
+2026-11-26T13:24:37.2789483Z Set output 'image'
+2026-11-26T13:24:37.2791015Z Cleaning up orphan processes
+2026-11-26T13:24:37.3137557Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8, docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

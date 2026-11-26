@@ -29,6 +29,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Prepare reports directory
+        run: mkdir -p reports && chmod 777 reports
+
       # T1 : premier contrôle, analyse de tout l'historique Git.
       - name: Scan secrets and Git history (Gitleaks)
         uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9

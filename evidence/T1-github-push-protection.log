@@ -1,0 +1,9 @@
+T1 (variante clé AWS) : push refusé par GitHub Push Protection avant même la CI.
+PS> git commit --no-verify (app/config.js avec AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY factices)
+PS> git push origin test/t1-secret-ci
+remote: error: GH013: Repository rule violations found for refs/heads/test/t1-secret-ci.
+remote: - GITHUB PUSH PROTECTION
+remote:     - Push cannot contain secrets
+remote:       —— Amazon AWS Access Key ID ——   path: app/config.js:2
+remote:       —— Amazon AWS Secret Access Key ——   path: app/config.js:3
+ ! [remote rejected] test/t1-secret-ci -> test/t1-secret-ci (error: GH013: Repository rule violations found)

@@ -109,3 +109,7 @@ Assert-KyvernoRejects -Name 'privileged-test' -Image $SignedImage -Privileged $t
 Assert-KyvernoRejects -Name 'latest-test' -Image "${ImageRepository}:latest" -Privileged $false -ExpectedPolicy 'require-hardened-app-pods|require-signed-app-images'
 # Contournement par un autre registre : image par digest mais hors du dépôt signé par la CI.
 Assert-KyvernoRejects -Name 'foreign-registry-test' -Image ('docker.io/library/busybox@sha256:' + ('a' * 64)) -Privileged $false -ExpectedPolicy 'restrict-to-pipeline-repository'
+
+Write-Output 'Tous les tests d''admission sont réussis.'
+# Le dernier kubectl (refus attendu) laisse LASTEXITCODE à 1 : succès explicite.
+exit 0

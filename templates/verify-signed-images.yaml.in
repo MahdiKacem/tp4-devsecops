@@ -1,0 +1,56 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-signed-app-images
+spec:
+  validationFailureAction: Enforce
+  background: false
+  webhookTimeoutSeconds: 30
+  rules:
+    # verifyImages ne contrôle que les images correspondant à imageReferences :
+    # sans cette règle, une image d'un autre registre échapperait à la vérification.
+    - name: restrict-to-pipeline-repository
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+              namespaceSelector:
+                matchLabels:
+                  security.example.com/enforced: "true"
+      validate:
+        message: >-
+          Seules les images du dépôt __IMAGE_REPOSITORY__ produites par la CI sont autorisées.
+        pattern:
+          spec:
+            containers:
+              - image: "__IMAGE_REPOSITORY__*"
+            =(initContainers):
+              - image: "__IMAGE_REPOSITORY__*"
+            =(ephemeralContainers):
+              - image: "__IMAGE_REPOSITORY__*"
+    - name: verify-app-image-signature
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+              namespaceSelector:
+                matchLabels:
+                  security.example.com/enforced: "true"
+      verifyImages:
+        - imageReferences:
+            - "__IMAGE_REPOSITORY__*"
+          required: true
+          verifyDigest: true
+          mutateDigest: true
+          attestors:
+            - count: 1
+              entries:
+                - keys:
+                    publicKeys: |-
+                      __COSIGN_PUBLIC_KEY__
+                    rekor:
+                      ignoreTlog: __IGNORE_TLOG__
+                    ctlog:
+                      ignoreSCT: __IGNORE_TLOG__

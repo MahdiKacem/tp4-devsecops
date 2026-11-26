@@ -1,0 +1,287 @@
+name: Secure build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Toutes les actions tierces sont épinglées par SHA de commit (la version est en commentaire,
+# maintenue par Dependabot) : un tag réécrit par un attaquant ne change pas le code exécuté.
+env:
+  SEMGREP_IMAGE: semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1 # 1.186.0
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout complete history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # T1 : premier contrôle, analyse de tout l'historique Git.
+      - name: Scan secrets and Git history (Gitleaks)
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
+          GITLEAKS_ENABLE_SUMMARY: "true"
+
+      # T2 : un manifeste non conforme fait échouer le pipeline avant tout build.
+      - name: Scan IaC - Kubernetes and Dockerfile (Trivy, blocking)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: config
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+
+      - name: SAST (Semgrep, blocking)
+        shell: bash
+        run: |
+          mkdir -p reports && chmod 777 reports
+          docker run --rm -v "$PWD:/src" -w /src "$SEMGREP_IMAGE" \
+            semgrep scan --config p/default --error --metrics=off --quiet \
+            --json-output=/src/reports/semgrep.json --text \
+            || { echo "::error::Semgrep a détecté des problèmes"; exit 1; }
+
+      - name: SCA and filesystem secrets (Trivy, blocking)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+
+      - name: Structural regression tests
+        shell: pwsh
+        run: ./tests/test-static.ps1 -StructureOnly
+
+      # Rapports JSON complets (toutes sévérités) pour l'agrégation DefectDojo (bonus).
+      - name: Export IaC report (JSON)
+        if: always()
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: config
+          scan-ref: .
+          format: json
+          output: reports/trivy-config.json
+          exit-code: "0"
+
+      - name: Export SCA report (JSON)
+        if: always()
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret
+          format: json
+          output: reports/trivy-fs.json
+          exit-code: "0"
+
+      - name: Upload security reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: security-reports-checks
+          path: reports/
+          if-no-files-found: ignore
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image: ${{ steps.ref.outputs.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Normalize image repository
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+
+      - name: Log in to GHCR
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push immutable commit tag
+        id: build
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+        with:
+          context: .
+          pull: true
+          push: true
+          provenance: false
+          tags: ${{ env.IMAGE }}:${{ github.sha }}
+
+      - name: Record image digest reference
+        id: ref
+        run: echo "image=${IMAGE}@${{ steps.build.outputs.digest }}" >> "$GITHUB_OUTPUT"
+
+      - name: Scan pushed image (Trivy, blocking)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ steps.ref.outputs.image }}
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+
+      - name: Export image report (JSON)
+        if: always() && steps.build.outcome == 'success'
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ steps.ref.outputs.image }}
+          format: json
+          output: reports/trivy-image.json
+          exit-code: "0"
+
+      - name: Install Syft
+        uses: anchore/sbom-action/download-syft@dfcb83b97731532d72be422cbc51ee64adb6fd56 # v0.24.4
+
+      - name: Generate CycloneDX SBOM
+        run: syft "${{ steps.ref.outputs.image }}" -o cyclonedx-json=sbom.cdx.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sbom-cyclonedx
+          path: sbom.cdx.json
+          if-no-files-found: error
+
+      - name: Upload image report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: security-reports-image
+          path: reports/
+          if-no-files-found: ignore
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5 # v3.10.1
+        with:
+          # Format de signature ".sig" classique, vérifié par Kyverno (verifyImages).
+          cosign-release: v2.6.5
+
+      - name: Sign image digest and attest its SBOM
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          IMAGE_REF: ${{ steps.ref.outputs.image }}
+        run: |
+          set -eu
+          test -n "$COSIGN_PRIVATE_KEY" || { echo "::error::Secret COSIGN_PRIVATE_KEY manquant"; exit 1; }
+          umask 077
+          printf '%s' "$COSIGN_PRIVATE_KEY" > "$RUNNER_TEMP/cosign.key"
+          trap 'rm -f "$RUNNER_TEMP/cosign.key"' EXIT
+          cosign sign --yes --key "$RUNNER_TEMP/cosign.key" "$IMAGE_REF"
+          cosign attest --yes --key "$RUNNER_TEMP/cosign.key" \
+            --type cyclonedx --predicate sbom.cdx.json "$IMAGE_REF"
+
+      - name: Verify signature with the committed public key
+        env:
+          IMAGE_REF: ${{ steps.ref.outputs.image }}
+        run: |
+          cosign verify --key cosign.pub "$IMAGE_REF"
+          echo "### Image signée" >> "$GITHUB_STEP_SUMMARY"
+          echo "\`$IMAGE_REF\`" >> "$GITHUB_STEP_SUMMARY"
+
+  # T4 de bout en bout : cluster Kind éphémère + Kyverno Enforce, déploiement du digest signé.
+  deploy-e2e:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5 # v3.10.1
+        with:
+          cosign-release: v2.6.5
+
+      - name: Create Kind cluster with Kyverno (registry credentials for verifyImages)
+        shell: pwsh
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./scripts/setup-kind.ps1 -RegistryPullSecret ghcr -RegistryServer ghcr.io `
+            -RegistryUsername '${{ github.actor }}' -RegistryPasswordEnv GHCR_TOKEN
+
+      - name: Deploy signed digest (Cosign verify + Kyverno Enforce)
+        shell: pwsh
+        run: ./scripts/deploy.ps1 -Image '${{ needs.publish.outputs.image }}' -PullSecret ghcr
+
+      - name: Prove the admission controller blocks bypasses
+        shell: pwsh
+        run: |
+          $repo = '${{ needs.publish.outputs.image }}'.Split('@')[0]
+          # Image du dépôt surveillé mais non signée : digest d'un manifeste inexistant/non signé.
+          $unsigned = "$repo@sha256:" + ('1' * 64)
+          ./tests/test-admission.ps1 -ImageRepository $repo `
+            -SignedImage '${{ needs.publish.outputs.image }}' -UnsignedImage $unsigned
+
+      - name: Show deployment state
+        if: always()
+        run: |
+          kubectl get clusterpolicy
+          kubectl get deploy,pods,svc,networkpolicy -n app -o wide
+          kubectl get events -n app --sort-by=.lastTimestamp | tail -20
+
+  defectdojo:
+    # Bonus : actif seulement si la variable DEFECTDOJO_URL est configurée sur le dépôt.
+    if: always() && vars.DEFECTDOJO_URL != '' && github.event_name != 'pull_request'
+    needs: [checks, publish]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Download reports
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: security-reports-*
+          merge-multiple: true
+          path: reports
+
+      - name: Import reports into DefectDojo
+        shell: pwsh
+        env:
+          DEFECTDOJO_URL: ${{ vars.DEFECTDOJO_URL }}
+          DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
+          ENGAGEMENT: ${{ vars.DEFECTDOJO_ENGAGEMENT_ID }}
+        run: |
+          $map = @{ 'semgrep.json' = 'Semgrep JSON Report'; 'trivy-config.json' = 'Trivy Scan';
+                    'trivy-fs.json' = 'Trivy Scan'; 'trivy-image.json' = 'Trivy Scan' }
+          foreach ($file in $map.Keys) {
+            $path = Join-Path reports $file
+            if (Test-Path $path) {
+              ./scripts/import-defectdojo.ps1 -ReportPath $path -ScanType $map[$file] -EngagementId ([int]$env:ENGAGEMENT)
+            }
+          }

@@ -1,0 +1,4 @@
+creation_rules:
+  # Accepte les séparateurs / et \ (SOPS compare le chemin absolu, y compris sous Windows).
+  - path_regex: (^|[/\\])secrets[/\\][^/\\]+\.enc\.yaml$
+    age: age14r5j77r7pgydkv4ey3tmts9qtg6jca70lncxercw8jrehvxmecnsvn8n4l

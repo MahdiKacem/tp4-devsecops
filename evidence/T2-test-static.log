@@ -1,0 +1,23 @@
+Tests structurels réussis.
+Test Gitleaks positif réussi (la fausse clé a été détectée).
+2026-11-26T14:00:26+01:00	INFO	[misconfig] Misconfiguration scanning is enabled
+2026-11-26T14:00:26+01:00	INFO	[checks-client] Using existing checks from cache	path="C:\\Users\\mahdi\\AppData\\Local\\trivy\\policy\\content"
+2026-11-26T14:00:28+01:00	INFO	Detected config files	num=3
+
+Report Summary
+
+┌─────────────────────────────────────────┬────────────┬───────────────────┐
+│                 Target                  │    Type    │ Misconfigurations │
+├─────────────────────────────────────────┼────────────┼───────────────────┤
+│ Dockerfile                              │ dockerfile │         0         │
+├─────────────────────────────────────────┼────────────┼───────────────────┤
+│ k8s/app.yaml                            │ kubernetes │         0         │
+├─────────────────────────────────────────┼────────────┼───────────────────┤
+│ k8s/policies/require-hardened-pods.yaml │ kubernetes │         0         │
+└─────────────────────────────────────────┴────────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+Test Trivy négatif réussi (les manifestes conformes passent).
+Test Trivy positif réussi (le manifeste privilégié est bloqué).

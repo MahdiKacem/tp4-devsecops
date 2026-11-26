@@ -1,0 +1,9 @@
+PS> kubectl run unsigned-test -n app --image=kind-registry:5000/tp4-secure-app@sha256:1c491491dd3bb1a47df1d92c423c62b465e996fdc076ece5d755b4c41c35fbd4 --restart=Never --overrides=<securityContext conforme>
+Error from server: admission webhook "mutate.kyverno.svc-fail" denied the request: 
+
+resource Pod/app/unsigned-test was blocked due to the following policies 
+
+require-signed-app-images:
+  verify-app-image-signature: 'failed to verify image kind-registry:5000/tp4-secure-app@sha256:1c491491dd3bb1a47df1d92c423c62b465e996fdc076ece5d755b4c41c35fbd4:
+    .attestors[0].entries[0].keys: no signatures found'
+exit=1

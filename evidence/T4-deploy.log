@@ -1,0 +1,20 @@
+=== T4 : deploy.ps1 (vérification Cosign + policies + rollout) ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+
+Verification for localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+
+[{"critical":{"identity":{"docker-reference":"localhost:5001/tp4-secure-app"},"image":{"docker-manifest-digest":"sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db"},"type":"cosign container image signature"},"optional":null}]
+clusterpolicy.kyverno.io/require-hardened-app-pods configured
+clusterpolicy.kyverno.io/require-signed-app-images configured
+clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+clusterpolicy.kyverno.io/require-signed-app-images condition met
+namespace/app configured
+serviceaccount/api created
+deployment.apps/api created
+service/api created
+networkpolicy.networking.k8s.io/api-restrict-traffic created
+Waiting for deployment "api" rollout to finish: 0 of 1 updated replicas are available...
+deployment "api" successfully rolled out

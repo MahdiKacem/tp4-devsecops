@@ -1,0 +1,97 @@
+==> Build localhost:5001/tp4-secure-app:local-signed
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 551B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 134B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 90B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+#5 resolve docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+#5 resolve docker.io/nginxinc/nginx-unprivileged:mainline-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7 0.0s done
+#5 DONE 0.0s
+
+#6 [2/3] RUN apk upgrade --no-cache
+#6 CACHED
+
+#7 [3/3] COPY --chown=101:101 app/ /usr/share/nginx/html/
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:96f4c04ad91d6718914be3b19a456ac6cfa70fb2971224b158c967708b0e6d10 done
+#8 exporting config sha256:0de4ec6af6b1548bd9bc85c361ba7a03ccebd11ea44ec2717dd1d991aac1909a done
+#8 exporting attestation manifest sha256:9176ac963c665c52dcbf6e8ddfa0628628c54c3a76fa6de90dfe9a33d711de33 0.0s done
+#8 exporting manifest list sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db 0.0s done
+#8 naming to localhost:5001/tp4-secure-app:local-signed
+#8 naming to localhost:5001/tp4-secure-app:local-signed done
+#8 unpacking to localhost:5001/tp4-secure-app:local-signed done
+#8 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/5apio6opov8sjomb2c7hru7fs
+The push refers to repository [localhost:5001/tp4-secure-app]
+8e24aeb301de: Pushed
+e2de96513ba9: Layer already exists
+be5591e0fb89: Layer already exists
+3c794113eaed: Layer already exists
+42fc578c1955: Layer already exists
+f0d04b8df509: Layer already exists
+ba11abd8fbe4: Layer already exists
+2ed645288a83: Layer already exists
+07332018f47f: Layer already exists
+44136fa355b3: Already exists
+98f56d1336e8: Layer already exists
+b24fed38e3f5: Layer already exists
+local-signed: digest: sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db size: 856
+==> Digest : sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db
+==> Scan de l'image (Trivy, HIGH/CRITICAL bloquants)
+2026-11-26T13:41:57+01:00	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-26T13:41:57+01:00	INFO	[secret] Secret scanning is enabled
+2026-11-26T13:41:57+01:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-26T13:41:57+01:00	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+2026-11-26T13:41:57+01:00	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-11-26T13:41:57+01:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=21
+2026-11-26T13:41:57+01:00	INFO	Number of language-specific files	num=0
+2026-11-26T13:41:57+01:00	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-26T13:41:57+01:00	INFO	[secret] Secret scanning is enabled
+2026-11-26T13:41:57+01:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-26T13:41:57+01:00	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+2026-11-26T13:41:57+01:00	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-11-26T13:41:57+01:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=21
+2026-11-26T13:41:57+01:00	INFO	Number of language-specific files	num=0
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬────────┬─────────────────┬─────────┐
+│                                      Target                                      │  Type  │ Vulnerabilities │ Secrets │
+├──────────────────────────────────────────────────────────────────────────────────┼────────┼─────────────────┼─────────┤
+│ localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb- │ alpine │        0        │    -    │
+│ 8b8a6559d16a1833cf69db (alpine 3.24.2)                                           │        │                 │         │
+└──────────────────────────────────────────────────────────────────────────────────┴────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+==> SBOM CycloneDX (Syft)
+==> Signature Cosign du digest + attestation SBOM
+Flag --tlog-upload has been deprecated, prefer using a --signing-config file with no transparency log services
+Flag --new-bundle-format has been deprecated, this will be the only supported format in future versions
+Flag --use-signing-config has been deprecated, an offline signing flag will be added in the future; TUF will continue to provide a signing config by default if one is not provided manually
+Signing artifact...
+Pushing signature to: localhost:5001/tp4-secure-app
+Flag --tlog-upload has been deprecated, prefer using a --signing-config file with no transparency log services
+Flag --new-bundle-format has been deprecated, this will be the only supported format in future versions
+Flag --use-signing-config has been deprecated, an offline signing flag will be added in the future; TUF will continue to provide a signing config by default if one is not provided manually
+Using payload from: C:\Users\mahdi\OneDrive\Bureau\Kraya\Devsecops\TP4\evidence\sbom.cdx.json
+Signing artifact...
+Image signée : kind-registry:5000/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db

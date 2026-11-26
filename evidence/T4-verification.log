@@ -1,0 +1,39 @@
+PS> cosign verify --key cosign.pub localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+
+Verification for localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db --
+
+[{"critical":{"identity":{"docker-reference":"localhost:5001/tp4-secure-app"},"image":{"docker-manifest-digest":"sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db"},"type":"cosign container image signature"},"optional":null}]
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+
+PS> cosign verify-attestation --type cyclonedx (SBOM attestée)
+
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the attestation.
+
+Verification for localhost:5001/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+
+PS> kubectl get clusterpolicy
+NAME                        ADMISSION   BACKGROUND   READY   AGE   MESSAGE
+require-hardened-app-pods   true        true         True    31s   Ready
+require-signed-app-images   true        false        True    31s   Ready
+
+PS> kubectl get deploy,pods,svc,networkpolicy -n app -o wide
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                                      SELECTOR
+deployment.apps/api   1/1     1            1           21s   api          kind-registry:5000/tp4-secure-app@sha256:caee2618e9c314786a20d7af0de63c97153586c1bb8b8a6559d16a1833cf69db   app=api
+
+NAME                       READY   STATUS    RESTARTS   AGE   IP           NODE                NOMINATED NODE   READINESS GATES
+pod/api-554fcbb8f4-tdxvj   1/1     Running   0          21s   10.244.0.9   tp4-control-plane   <none>           <none>
+
+NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+service/api   ClusterIP   10.96.19.243   <none>        80/TCP    21s   app=api
+
+NAME                                                   POD-SELECTOR   AGE
+networkpolicy.networking.k8s.io/api-restrict-traffic   app=api        21s
+
+PS> kubectl get deploy api -n app -o jsonpath='{..image}'
+HTTP 200 : <h1>Application de démonstration TP4</h1>

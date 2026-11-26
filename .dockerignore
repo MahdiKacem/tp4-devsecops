@@ -1,0 +1,10 @@
+.git
+.github
+.pre-commit-config.yaml
+.sops.yaml
+cosign*
+secrets
+tests
+scripts
+*.md
+

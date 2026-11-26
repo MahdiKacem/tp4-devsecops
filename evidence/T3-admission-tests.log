@@ -1,0 +1,17 @@
+clusterpolicy.kyverno.io/require-hardened-app-pods created
+clusterpolicy.kyverno.io/require-signed-app-images created
+clusterpolicy.kyverno.io/require-hardened-app-pods condition met
+clusterpolicy.kyverno.io/require-signed-app-images condition met
+namespace/app created (dry run)
+serviceaccount/api created (dry run)
+deployment.apps/api created (dry run)
+service/api created (dry run)
+networkpolicy.networking.k8s.io/api-restrict-traffic created (dry run)
+namespace/app created
+namespace/app labeled
+pod/signed-test created
+Test admission réussi : le Pod conforme signé est accepté.
+Test admission réussi : require-signed-app-images a refusé unsigned-test.
+Test admission réussi : require-hardened-app-pods a refusé privileged-test.
+Test admission réussi : require-hardened-app-pods|require-signed-app-images a refusé latest-test.
+Test admission réussi : restrict-to-pipeline-repository a refusé foreign-registry-test.

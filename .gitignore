@@ -1,0 +1,20 @@
+.env
+.env.*
+!.env.example
+
+# Never commit decrypted secrets or private keys.
+secrets/*.yaml
+!secrets/*.enc.yaml
+*.key
+cosign.key
+keys.txt
+
+# Local test and rendered files.
+.gitleaks-test.txt
+sbom*.json
+rendered-*.yaml
+
+
+# Preuves d'exécution versionnées.
+!evidence/sbom.cdx.json
+reports/
